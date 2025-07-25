@@ -53,7 +53,7 @@
                                             {{ $loop->iteration + ($categories->currentPage() - 1) * $categories->perPage() }}
                                         </td>
                                         <td>{{ $val->name }}</td>
-                                        <td>0 Judul</td>
+                                        <td>{{ $val->articles->count() }} Judul</td>
                                         <td class="text-center">
                                             <a href="{{ route('admin.categories.edit', $val->id) }}"
                                                 class="btn btn-sm btn-success">
@@ -84,14 +84,8 @@
                             Grafik Artikel
                         </div>
                         <div class="card-body">
-                            <p class="text-muted">
-                                <em>(Grafik batang atau pie chart akan ditampilkan di sini, misalnya, jumlah artikel per
-                                    kategori atau tren publikasi artikel.)</em>
-                            </p>
-                            <div class="bg-light d-flex justify-content-center align-items-center"
-                                style="height: 200px; border: 1px dashed #ccc;">
-                                <span class="text-muted">Area Grafik Artikel</span>
-                            </div>
+                            {{-- ARTICLE CHART --}}
+                            <div id="articleChart"></div>
                         </div>
                     </div>
                 </div>
@@ -99,3 +93,33 @@
         </div>
     </div>
 @endsection
+
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        var options = {
+            chart: {
+                type: 'donut',
+                fontFamily: 'inherit',
+                height: 300,
+            },
+            series: [
+                @foreach ($categories as $val)
+                    {{ $val->articles->count() }},
+                @endforeach
+            ],
+            labels: [
+                @foreach ($categories as $val)
+                    "{{ $val->name }}",
+                @endforeach
+            ],
+            dataLabels: {
+                enabled: false
+            },
+        };
+
+        var chart = new ApexCharts(document.querySelector("#articleChart"), options);
+        chart.render();
+    </script>
+@endpush

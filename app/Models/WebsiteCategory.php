@@ -11,7 +11,7 @@ class WebsiteCategory extends Model
     // Relasi many to one ke tabel products
     public function products()
     {
-        return $this->belongsTo(Products::class);
+        return $this->hasMany(Products::class);
     }
 
     public function user()

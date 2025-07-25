@@ -54,7 +54,7 @@
                                             {{ $loop->iteration + ($webCategories->currentPage() - 1) * $webCategories->perPage() }}
                                         </td>
                                         <td>{{ $val->name }}</td>
-                                        <td>0 website</td>
+                                        <td>{{ $val->products->count() }} Website</td>
                                         <td class="text-center">
                                             <a href="{{ route('admin.webCategories.edit', $val->id) }}"
                                                 class="btn btn-sm btn-success">
@@ -83,17 +83,10 @@
                 <div class="col-lg-4 mb-3">
                     <div class="card shadow-sm">
                         <div class="card-header">
-                            Grafik Artikel
+                            Grafik Website
                         </div>
                         <div class="card-body">
-                            <p class="text-muted">
-                                <em>(Grafik batang atau pie chart akan ditampilkan di sini, misalnya, jumlah artikel per
-                                    kategori atau tren publikasi artikel.)</em>
-                            </p>
-                            <div class="bg-light d-flex justify-content-center align-items-center"
-                                style="height: 200px; border: 1px dashed #ccc;">
-                                <span class="text-muted">Area Grafik Artikel</span>
-                            </div>
+                            <div id="webCategoryChart"></div>
                         </div>
                     </div>
                 </div>
@@ -102,3 +95,33 @@
         </div>
     </div>
 @endsection
+
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        var options = {
+            chart: {
+                type: 'donut',
+                fontFamily: 'inherit',
+                height: 300,
+            },
+            series: [
+                @foreach ($webCategories as $val)
+                    {{ $val->products->count() }},
+                @endforeach
+            ],
+            labels: [
+                @foreach ($webCategories as $val)
+                    "{{ $val->name }}",
+                @endforeach
+            ],
+            dataLabels: {
+                enabled: false
+            },
+        };
+
+        var chart = new ApexCharts(document.querySelector("#webCategoryChart"), options);
+        chart.render();
+    </script>
+@endpush
