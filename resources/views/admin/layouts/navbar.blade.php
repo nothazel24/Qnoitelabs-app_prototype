@@ -9,6 +9,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                     <a class="nav-link @yield('homeActive')" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}
@@ -71,7 +72,7 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{ route('admin.profile.edit') }}">
                             {{ __('Profile') }}
                         </a>
 

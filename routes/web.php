@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\InformationController;
 use App\Http\Controllers\Admin\WebsiteCategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,6 +20,11 @@ Route::middleware(['auth'])->name('admin.')->group(function () {
     Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('admin/article', ArticleController::class);
     Route::resource('admin/products', ProductController::class);
+
+    // Profile section
+    Route::get('admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('admin/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('admin/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 // Route hanya untuk admin
