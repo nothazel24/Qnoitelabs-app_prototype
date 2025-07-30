@@ -26,7 +26,7 @@ return new class extends Migration
 
             // tabel harga
             $table->decimal('price', 10, 2);
-            $table->decimal('discount', 10, 2)->nullable();
+            $table->decimal('discount', 10, 2)->default(0);
             $table->integer('stock')->default(0);
             $table->string('sku')->unique()->nullable();
         });

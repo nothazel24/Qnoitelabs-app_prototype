@@ -117,6 +117,56 @@
                                 <input type="password" class="form-control" id="password_confirmation"
                                     name="password_confirmation">
                             </div>
+
+                            {{-- Bagian Alamat --}}
+                            <div class="col-12">
+                                <h6 class="mt-3 mb-3 border-bottom pb-2">Detail Alamat</h6>
+                            </div>
+
+                            <div class="col-lg-12 mb-3">
+                                <label for="address" class="form-label">Alamat Lengkap</label>
+                                <input type="text" class="form-control @error('address') is-invalid @enderror"
+                                    id="address" name="address"
+                                    value="{{ old('address', $user->address) }}">
+                                @error('address')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-5 mb-3">
+                                <label for="province" class="form-label">Provinsi</label>
+                                <select class="form-select @error('province') is-invalid @enderror" id="province"
+                                    name="province">
+                                    <option value="">Pilih Provinsi</option>
+                                    {{-- Opsi provinsi akan dimuat via JavaScript --}}
+                                </select>
+                                @error('province')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-5 mb-3">
+                                <label for="city" class="form-label">Kota/Kabupaten</label>
+                                <select class="form-select @error('city') is-invalid @enderror" id="city"
+                                    name="city">
+                                    <option value="">Pilih Kota/Kabupaten</option>
+                                    {{-- Opsi kota akan dimuat via JavaScript setelah provinsi dipilih --}}
+                                </select>
+                                @error('city')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-2 mb-3">
+                                <label for="postal_code" class="form-label">Kode Pos</label>
+                                <input type="text" class="form-control @error('postal_code') is-invalid @enderror"
+                                    id="postal_code" name="postal_code"
+                                    value="{{ old('postal_code', $user->postal_code) }}">
+                                @error('postal_code')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                         </div>
                         <br>
                         <button type="submit" class="btn btn-primary">Update Pengguna</button>
@@ -124,6 +174,7 @@
                     </div>
                 </div>
             </div>
+
             {{-- Field Image --}}
             <div class="col-lg-4 mb-3">
                 <div class="card">
@@ -155,3 +206,90 @@
         </div>
     </form>
 @endsection
+
+@push('scripts')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Simpan nilai provinsi dan kota pengguna yang sudah ada
+            const userProvinceId =
+            "{{ old('province', $user->province) }}"; // Asumsi Anda menyimpan ID provinsi di DB
+            const userCityId = "{{ old('city', $user->city) }}"; // Asumsi Anda menyimpan ID kota di DB
+
+            // Fungsi untuk memuat provinsi
+            function loadProvinces() {
+                $.ajax({
+                    url: 'https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        $('#province').empty().append('<option value="">Pilih Provinsi</option>');
+                        $.each(data, function(key, value) {
+                            $('#province').append('<option value="' + value.id + '">' + value
+                                .name + '</option>');
+                        });
+
+                        // Set nilai provinsi jika ada (dari old() atau dari user data)
+                        if (userProvinceId) {
+                            $('#province').val(userProvinceId);
+                            // Trigger change untuk memuat kota jika provinsi sudah terpilih
+                            if (userCityId) {
+                                loadCities(userProvinceId, userCityId);
+                            } else {
+                                loadCities(
+                                userProvinceId); // Load cities without pre-selecting if no userCityId
+                            }
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching provinces:", status, error);
+                        $('#province').empty().append(
+                        '<option value="">Gagal memuat provinsi</option>');
+                    }
+                });
+            }
+
+            // Fungsi untuk memuat kota/kabupaten berdasarkan ID provinsi
+            function loadCities(provinceId, selectedCityId = null) {
+                if (provinceId) {
+                    $('#city').prop('disabled', true); // Disable while loading
+                    $.ajax({
+                        url: 'https://www.emsifa.com/api-wilayah-indonesia/api/regencies/' + provinceId +
+                            '.json',
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            $('#city').empty().append('<option value="">Pilih Kota/Kabupaten</option>')
+                                .prop('disabled', false);
+                            $.each(data, function(key, value) {
+                                $('#city').append('<option value="' + value.id + '">' + value
+                                    .name + '</option>');
+                            });
+                            // Set nilai kota jika ada (dari old() atau dari user data)
+                            if (selectedCityId) {
+                                $('#city').val(selectedCityId);
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error("Error fetching cities:", status, error);
+                            $('#city').empty().append('<option value="">Gagal memuat kota</option>')
+                                .prop('disabled', true);
+                        }
+                    });
+                } else {
+                    $('#city').empty().append('<option value="">Pilih Kota/Kabupaten</option>').prop('disabled',
+                        true);
+                }
+            }
+
+            // Panggil fungsi loadProvinces saat dokumen siap
+            loadProvinces();
+
+            // Event listener saat provinsi dipilih
+            $('#province').on('change', function() {
+                var provinceId = $(this).val();
+                loadCities(provinceId); // Tanpa selectedCityId, karena ini perubahan manual
+            });
+        });
+    </script>
+@endpush

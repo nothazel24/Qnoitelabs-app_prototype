@@ -40,6 +40,10 @@ class ProfileController extends Controller
             'image' => ['nullable', 'image', 'max:2048'],
             'current_password' => ['nullable', 'required_with:password', 'current_password'],
             'password' => ['nullable', 'string', 'min:8', 'comfirmed'],
+            'address' => ['nullable', 'string', 'max:255'],
+            'city' => ['nullable', 'string', 'max:255'],
+            'province' => ['nullable', 'string', 'max:255'],
+            'postal_code' => ['nullable', 'string', 'max:10'],
         ];
 
         $request->validate($rules);
@@ -68,6 +72,10 @@ class ProfileController extends Controller
         $user->instagram = $request->instagram;
         $user->gender = $request->gender;
         $user->image = $imagePath;
+        $user->address = $request->address;
+        $user->city = $request->city;
+        $user->province = $request->province;
+        $user->postal_code = $request->postal_code;
 
         if ($user->isDirty('email')) {
             $user->email_verified_at = null;

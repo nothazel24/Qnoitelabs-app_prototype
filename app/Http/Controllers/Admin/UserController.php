@@ -67,6 +67,10 @@ class UserController extends Controller
             'gender' => ['nullable', Rule::in(['Laki-laki', 'Perempuan', 'Lainnya'])],
             'role' => ['required', 'string', Rule::in(['admin', 'author', 'user'])],
             'image' => ['nullable', 'image', 'max:2048'],
+            'address' => ['nullable', 'string', 'max:255'],
+            'city' => ['nullable', 'string', 'max:255'],
+            'province' => ['nullable', 'string', 'max:255'],
+            'postal_code' => ['nullable', 'string', 'max:10'],
         ]);
 
         $imagePath = null;
@@ -79,11 +83,15 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'gender' => $request->gender, // Pastikan gender disimpan
+            'gender' => $request->gender, 
             'role' => $request->role,
             'phone' => $request->phone,
             'instagram' => $request->instagram,
             'image' => $imagePath,
+            'address' => $request->address,
+            'city' => $request->city,
+            'province' => $request->province,
+            'postal_code' => $request->postal_code,
             'email_verified_at' => now(),
         ]);
 
@@ -137,6 +145,10 @@ class UserController extends Controller
             'gender' => ['nullable', Rule::in(['Laki-laki', 'Perempuan', 'Lainnya'])],
             'role' => ['required', 'string', Rule::in(['admin', 'author', 'user'])],
             'image' => ['nullable', 'image', 'max:2048'],
+            'address' => ['nullable', 'string', 'max:255'],
+            'city' => ['nullable', 'string', 'max:255'],
+            'province' => ['nullable', 'string', 'max:255'],
+            'postal_code' => ['nullable', 'string', 'max:10'],
         ];
 
         // Hanya tambahkan validasi password jika field password diisi
@@ -168,10 +180,14 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,
-            'gender' => $request->gender, // Pastikan gender diperbarui
+            'gender' => $request->gender,
             'phone' => $request->phone,
             'instagram' => $request->instagram,
             'image' => $imagePath,
+            'address' => $request->address,
+            'city' => $request->city,
+            'province' => $request->province,
+            'postal_code' => $request->postal_code,
         ];
 
         // Update password hanya jika field password diisi

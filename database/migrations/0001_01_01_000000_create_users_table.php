@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string('instagram')->nullable();
             $table->string('role')->default('user'); // Default role 'user'
             $table->string('image')->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('province')->nullable();
+            $table->string('postal_code')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
