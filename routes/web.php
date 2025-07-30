@@ -9,9 +9,13 @@ use App\Http\Controllers\Admin\InformationController;
 use App\Http\Controllers\Admin\WebsiteCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Home\HomeController;
 
-Route::get('/', function () {
-    return view('welcome');
+// Homepage controller
+Route::get('/', [HomeController::class, 'index'])->name('home.main');
+Route::prefix('')->name('home.')->group(function () {
+    Route::view('/profile', 'home.profile.main')->name('profile');
+    Route::view('/price', 'home.price.main')->name('price');
 });
 
 //Route semua pengguna
