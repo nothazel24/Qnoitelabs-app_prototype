@@ -64,7 +64,7 @@
                     <div class="col-lg-6 col-sm-6">
                         <p>Rp{{ number_format($product->price, 0, ',', '.') }}</p>
                         <p>{{ $product->stock }}</p>
-                        <p>{{ $product->discount }} %</p>
+                        <p>{{ number_format($product->discount, 0, ',', '.') }} %</p>
                         <p>Rp{{ number_format($product->price - ($product->price * $product->discount / 100), 0, ',', '.') ?? '-' }}</p>
                     </div>
                 </div>

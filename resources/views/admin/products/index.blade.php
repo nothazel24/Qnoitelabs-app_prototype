@@ -81,7 +81,7 @@
                                         @endif
                                     </td>
                                     <td class="text-center">{{ $val->created_at->format('d M Y H:i') }}</td>
-                                    <td>{{ $val->discount}}%</td>
+                                    <td>{{ number_format($val->discount, 0, ',', '.') }} %</td>
                                     <td class="text-center">
                                         <a href="{{ route('admin.products.show', $val->slug) }}"
                                             class="btn btn-sm btn-info text-white" title="Lihat">
