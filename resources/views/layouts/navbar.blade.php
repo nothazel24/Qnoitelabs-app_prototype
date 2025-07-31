@@ -12,7 +12,7 @@
         </button>
 
 
-        <div class="collapse navbar-collapse justify-content-end">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
 
                 <li class="nav-item active me-3">

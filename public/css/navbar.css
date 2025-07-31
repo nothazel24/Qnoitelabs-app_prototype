@@ -15,3 +15,18 @@
     color: #3A7CA5 !important;
     font-weight: bold;
 }
+
+@media (max-width: 992px) {
+    .navbar {
+        background-color: #fefefe;
+        position: relative;
+    }
+
+    .navbar .nav-link {
+        color: #252525 !important;
+    }
+
+    .navbar .navbar-nav {
+        padding: 3rem 0 3rem 0
+    }
+}
