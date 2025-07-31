@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('homeActive')
-    text-primary
+@section('metaDesc')
+Tempat beli website terpercaya, murah dan berkualitas
 @endsection
 
 @section('homepageContent')
