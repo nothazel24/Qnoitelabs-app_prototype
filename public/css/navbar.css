@@ -1,0 +1,17 @@
+.navbar .nav-link {
+    color: #fefefe !important;
+}
+
+.navbar-scrolled {
+    background-color: white !important;
+    transition: background-color 300ms ease;
+}
+
+.navbar-scrolled .nav-link {
+    color: #252525 !important;
+}
+
+.navbar .nav-link.active-link {
+    color: #3A7CA5 !important;
+    font-weight: bold;
+}
