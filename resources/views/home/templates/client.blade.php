@@ -6,39 +6,27 @@
             <p>Lebih dari 2000 perusahaan dan bisinis mempercayakan pembuatan websitenya kepada Qnoite.com</p>
         </div>
 
-        <div class="row mt-5">
+        <div class="row mt-5 mx-3">
             <div class="col-lg">
-                <img src="{{ asset('dist/logo/mangadex-logo.webp') }}" alt="indomaret" width="300" class="my-2">
+                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="indomaret" width="300" class="my-2">
             </div>
             <div class="col-lg-4">
-                <img src="{{ asset('dist/logo/mangadex-logo.webp') }}" alt="indomaret" width="300" class="my-2">
+                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="indomaret" width="300" class="my-2">
             </div>
             <div class="col-lg-4">
-                <img src="{{ asset('dist/logo/mangadex-logo.webp') }}" alt="indomaret" width="300" class="my-2">
-            </div>
-        </div>
-
-        <div class="row mt-5">
-            <div class="col-lg-4">
-                <img src="{{ asset('dist/logo/mangadex-logo.webp') }}" alt="indomaret" width="300" class="my-2">
-            </div>
-            <div class="col-lg-4">
-                <img src="{{ asset('dist/logo/mangadex-logo.webp') }}" alt="indomaret" width="300" class="my-2">
-            </div>
-            <div class="col-lg-4">
-                <img src="{{ asset('dist/logo/mangadex-logo.webp') }}" alt="indomaret" width="300" class="my-2">
+                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="indomaret" width="300" class="my-2">
             </div>
         </div>
 
-        <div class="row mt-5">
+        <div class="row mt-5 mx-3">
             <div class="col-lg-4">
-                <img src="{{ asset('dist/logo/mangadex-logo.webp') }}" alt="indomaret" width="300" class="my-2">
+                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="indomaret" width="300" class="my-2">
             </div>
             <div class="col-lg-4">
-                <img src="{{ asset('dist/logo/mangadex-logo.webp') }}" alt="indomaret" width="300" class="my-2">
+                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="indomaret" width="300" class="my-2">
             </div>
             <div class="col-lg-4">
-                <img src="{{ asset('dist/logo/mangadex-logo.webp') }}" alt="indomaret" width="300" class="my-2">
+                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="indomaret" width="300" class="my-2">
             </div>
         </div>
     </div>

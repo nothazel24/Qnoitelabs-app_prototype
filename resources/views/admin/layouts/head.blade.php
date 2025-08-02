@@ -7,8 +7,8 @@
 <meta name="description" content="@yield('metaDesc')" />
 
 <!-- Favicon - Using a generic placeholder -->
-<link rel="icon" href="https://placehold.co/16x16/0000FF/FFFFFF?text=My" type="image/x-icon" />
-<link rel="shortcut icon" href="https://placehold.co/16x16/0000FF/FFFFFF?text=My" type="image/x-icon" />
+<link rel="icon" href="{{ asset('favicon.ico')}}" type="image/x-icon" />
+<link rel="shortcut icon" href="{{ asset('favicon.ico')}}" type="image/x-icon" />
 
 <!-- Bootstrap 5 CSS CDN -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"

@@ -3,7 +3,7 @@
 
     <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="qnoite" width="110">
+            <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="qnoite" width="90">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
