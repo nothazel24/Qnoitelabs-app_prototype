@@ -56,7 +56,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = WebsiteCategory::all();
+        $products = WebsiteCategory::all();
         return view('admin.products.create', compact('products'));
     }
 

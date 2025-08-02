@@ -121,7 +121,7 @@
                                 @enderror
                             </div>
 
-{{-- Bagian Alamat --}}
+                            {{-- Bagian Alamat --}}
                             <div class="col-12">
                                 <h5 class="mt-3 mb-3 border-bottom pb-2">Detail Alamat</h5>
                             </div>
@@ -209,7 +209,7 @@
                     error: function(xhr, status, error) {
                         console.error("Error fetching provinces:", status, error);
                         $('#province').empty().append(
-                        '<option value="">Gagal memuat provinsi</option>');
+                            '<option value="">Gagal memuat provinsi</option>');
                     }
                 });
             }

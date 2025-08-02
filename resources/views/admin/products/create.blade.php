@@ -76,10 +76,10 @@
                                 <select class="form-select @error('website_category_id') is-invalid @enderror" id="website_category_id"
                                     name="website_category_id" required>
                                     <option value="">Pilih Kategori</option>
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}"
-                                            {{ old('website_category_id') == $category->id ? 'selected' : '' }}>
-                                            {{ $category->name }}
+                                    @foreach ($products as $val)
+                                        <option value="{{ $val->id }}"
+                                            {{ old('website_category_id') == $val->id ? 'selected' : '' }}>
+                                            {{ $val->name }}
                                         </option>
                                     @endforeach
                                 </select>
