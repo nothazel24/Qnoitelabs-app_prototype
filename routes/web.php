@@ -16,6 +16,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home.main');
 Route::prefix('')->name('home.')->group(function () {
     Route::view('/profile', 'home.profile.main')->name('profile');
     Route::view('/price', 'home.price.main')->name('price');
+    Route::view('/contact', 'home.contact.main')->name('contact');
+    Route::view('/article', 'home.article.main')->name('article');
 });
 
 //Route semua pengguna

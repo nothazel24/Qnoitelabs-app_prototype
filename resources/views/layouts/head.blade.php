@@ -6,16 +6,14 @@
 <title>{{ config('app.name', 'Laravel') }}</title>
 <meta name="description" content="@yield('metaDesc')" />
 
-<!-- Favicon - Using a generic placeholder -->
 <link rel="icon" href="{{ asset('favicon.ico')}}" type="image/x-icon" />
 <link rel="shortcut icon" href="{{ asset('favicon.ico')}}" type="image/x-icon" />
 
-<!-- Bootstrap 5 CSS CDN -->
+{{-- BOOTSTRAP CDN --}}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-
 {{-- CSS --}}
 <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 
-<!-- Font-awesome CDN -->
+{{-- FONT AWESOME CDN --}}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">

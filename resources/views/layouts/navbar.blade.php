@@ -1,7 +1,7 @@
-<!-- NAVBAR SECTION -->
+{{-- NAVBAR SECTION --}}
 <nav class="container-fluid navbar navbar-expand-lg py-3 d-flex flex-row fixed-top">
 
-    <div class="container">
+    <div class="container px-4 px-sm-0">
         <a class="navbar-brand" href="/">
             <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="qnoite" width="90">
         </a>
@@ -13,25 +13,23 @@
 
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ps-4 ps-sm-0">
 
                 <li class="nav-item active me-3">
-                    <a class="nav-link @if(request()->is('/')) active-link @endif" href="/">Home</a>
+                    <a class="nav-link @if (request()->is('/')) active-link @endif" href="/">Home</a>
                 </li>
                 <li class="nav-item active me-3">
-                    <a class="nav-link @if(request()->is('profile')) active-link @endif" href="/profile">Profile</a>
+                    <a class="nav-link @if (request()->is('profile')) active-link @endif" href="/profile">Profile</a>
                 </li>
                 <li class="nav-item active me-3">
-                    <a class="nav-link @if(request()->is('price')) active-link @endif" href="/price">Paket & harga</a>
+                    <a class="nav-link @if (request()->is('price')) active-link @endif" href="/price">Paket &
+                        harga</a>
                 </li>
                 <li class="nav-item active me-3">
-                    <a class="nav-link @if(request()->is('#')) active-link @endif" href="#">Kontak</a>
+                    <a class="nav-link @if (request()->is('contact')) active-link @endif" href="/contact">Kontak</a>
                 </li>
                 <li class="nav-item active me-3">
-                    <a class="nav-link @if(request()->is('#')) active-link @endif" href="#">Blog</a>
-                </li>
-                <li class="nav-item active me-3">
-                    <a class="nav-link @if(request()->is('#')) active-link @endif" href="#">Open source</a>
+                    <a class="nav-link @if (request()->is('article')) active-link @endif" href="/article">Blog</a>
                 </li>
 
                 @guest
@@ -42,8 +40,8 @@
                     @endif
                 @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle fw-bold" href="#"
-                            role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle fw-bold" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
 
@@ -68,4 +66,4 @@
         </div>
     </div>
 
-</nav> <!-- END NAV SECTION -->
+</nav>

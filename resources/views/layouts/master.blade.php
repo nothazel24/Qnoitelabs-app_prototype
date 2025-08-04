@@ -12,7 +12,7 @@
         @include('layouts.navbar')
 
         <main>
-            @yield('homepageContent')
+            @yield('content')
         </main>
 
         @include('layouts.footer')

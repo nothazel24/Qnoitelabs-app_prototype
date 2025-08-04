@@ -4,7 +4,7 @@
 Tempat beli website terpercaya, murah dan berkualitas
 @endsection
 
-@section('homepageContent')
-    @include('home.templates.home')
-    @include('home.templates.price')
+@section('content')
+    @include('home.price.templates.banner')
+    @include('home.price.templates.list')
 @endsection

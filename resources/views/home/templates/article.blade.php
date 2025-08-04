@@ -1,14 +1,13 @@
-<!-- ARTICLE SECTION -->
 <section class="article" style="background-color: #efefef">
     <div class="container py-5">
-        <div class="mb-5">
+        <div class="mb-5 mx-4 mx-md-0">
             <h1 style="font-size: 30px">TIPS & WAWASAN DARI KAMI</h1>
             <p>Kami percaya edukasi adalah bagian dari pelayanan. Baca berbagai artikel seputar pengembangan
                 website, teknologi web, dan strategi digital terbaru dari tim Qnoite.</p>
         </div>
 
         <!-- BLOG SECTION -->
-        <div class="row gap-1">
+        <div class="row gap-1 mx-4 mx-md-0">
 
             @forelse ($articles as $key => $val)
                 @if ($key == 0 && !empty($articles) && count($articles) > 0)
@@ -16,7 +15,7 @@
                 @endif
 
                 <!-- BLOG CARD -->
-                <div class="col-lg">
+                <div class="col-lg mb-4 mb-md-0">
                     <div class="shadow-sm"
                         style="background-color: #fefefe; border-radius: 10px; border: 1px solid rgba(43, 43, 43, 0.07);">
                         @if ($val->image)
