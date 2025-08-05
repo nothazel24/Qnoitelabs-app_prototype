@@ -6,7 +6,7 @@
                 website, teknologi web, dan strategi digital terbaru dari tim Qnoite.</p>
         </div>
 
-        <!-- BLOG SECTION -->
+        {{-- BLOG SECTION --}}
         <div class="row gap-1 mx-4 mx-md-0">
 
             @forelse ($articles as $key => $val)
@@ -30,7 +30,7 @@
                             </div>
                         @endif
                         <div class="p-4">
-                            <h1 style="font-size: 22px;">{{ $val->title }}</h1>
+                            <h1 style="font-size: 22px;">{{ Str::limit($val->title, 18) }}</h1>
                             <p class="card-text flex-grow-1">
                                 <small>{{ Str::limit(strip_tags($val->meta_desc), 120) }}</small>
                                 <br>
