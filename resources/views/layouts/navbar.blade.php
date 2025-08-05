@@ -29,7 +29,7 @@
                     <a class="nav-link @if (request()->is('contact')) active-link @endif" href="/contact">Kontak</a>
                 </li>
                 <li class="nav-item active me-3">
-                    <a class="nav-link @if (request()->is('article')) active-link @endif" href="/article">Blog</a>
+                    <a class="nav-link @if (request()->is(['article', 'article/*'])) active-link @endif" href="/article">Blog</a>
                 </li>
 
                 @guest
