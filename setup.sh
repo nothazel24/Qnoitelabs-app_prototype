@@ -11,6 +11,8 @@ sudo docker-compose exec app php artisan key:generate
 
 sudo docker-compose exec app php artisan migrate
 
+# Link ke storage
+sudo docker-compose exec app php artisan storage:link
 
 # NPM install
 # Kamu bisa mengeksekusi kode dibawah ini kembali jika kamu memodifikasi package yang dibutuhkan
