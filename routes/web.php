@@ -17,7 +17,9 @@ Route::prefix('')->name('home.')->group(function () {
     Route::view('/profile', 'home.profile.main')->name('profile');
     Route::view('/price', 'home.price.main')->name('price');
     Route::view('/contact', 'home.contact.main')->name('contact');
-    Route::view('/article', 'home.article.main')->name('article');
+    Route::get('/article', [HomeController::class, 'articles'])->name('article');
+    Route::get('/article/{slug}', [HomeController::class, 'articlesShow'])->name('article');
+    Route::get('/article/categories/{id}', [HomeController::class, 'articlesCategories'])->name('article');
 });
 
 //Route semua pengguna
