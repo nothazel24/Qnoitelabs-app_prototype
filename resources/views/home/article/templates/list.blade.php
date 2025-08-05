@@ -12,6 +12,61 @@
         {{-- ARTICLE LIST --}}
         <div class="row">
             <div class="col-lg-9 mb-4">
+
+                {{-- FEATURED ARTICLE --}}
+                @if (request()->is('article') && request()->get('page') == null || request()->get('page') == 1)
+
+                    @if (!empty($articles) && count($articles) > 0)
+                        @php
+                            $featuredArticle = $articles->first();
+                        @endphp
+
+                        <div class="container-fluid position-relative p-0 mb-4" style="height: 350px;">
+
+                            @if ($featuredArticle->image)
+                                <div class="img">
+                                    <img src="{{ asset('storage/' . $featuredArticle->image) }}"
+                                        alt="gambar-{{ $featuredArticle->title }}"
+                                        style="border-radius: 10px; filter: brightness(80%); object-fit: cover; width: 100%; height: 350px;">
+                                </div>
+
+                                <div class="container position-absolute start-50 translate-middle text-white"
+                                    style="top: 65%;">
+                                    <div class="px-4 px-md-0">
+                                        <span class="badge bg-danger mb-3 fw-bold">FEATURED ARTICLE</span>
+                                        <h1 class="fw-bold">{{ $featuredArticle->title }}</h1>
+                                        <p class="w-50">{{ Str::limit(strip_tags($featuredArticle->meta_desc), 250) }}
+                                        </p>
+                                        <a href="/article/{{ $featuredArticle->slug }}" class="btn btn-warning rounded-pill shadow">Baca
+                                            Selengkapnya</a>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="img">
+                                    <img src="https://github.com/nothazel24/nothazel24/blob/main/assets/banner.png?raw=true"
+                                        alt="gambar-{{ $featuredArticle->title }}"
+                                        style="border-radius: 10px; filter: brightness(80%); object-fit: cover; width: 100%; height: 350px;">
+                                </div>
+
+                                <div class="container position-absolute start-50 translate-middle text-white"
+                                    style="top: 65%;">
+                                    <div class="px-4 px-md-0">
+                                        <span class="badge bg-danger mb-3 fw-bold">FEATURED ARTICLE</span>
+                                        <h1 class="fw-bold">{{ $featuredArticle->title }}</h1>
+                                        <p class="w-50">{{ Str::limit(strip_tags($featuredArticle->meta_desc), 250) }}
+                                        </p>
+                                        <a href="{{-- route('home.articles.show', $featuredArticle->slug) --}}" class="btn btn-warning rounded-pill shadow">Baca
+                                            Selengkapnya</a>
+                                    </div>
+                                </div>
+                            @endif
+
+                        </div>
+                    @endif
+
+                @endif
+
+                {{-- ARTICLE CARD --}}
                 <div class="row">
 
                     @forelse ($articles as $key => $val)
@@ -31,7 +86,7 @@
                                     </div>
                                 @else
                                     <div class="card-img-top d-flex align-items-center justify-content-center text-white-50 ratio ratio-16x9"
-                                        style=" background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(13, 110, 253, 0.7)), url('https://wallpapercave.com/wp/wp10992174.png'); background-size: cover; background-position: center; border-radius: 10px 10px 0 0;">
+                                        style=" background: url('https://github.com/nothazel24/nothazel24/blob/main/assets/banner.png?raw=true'); background-size: cover; background-position: center; border-radius: 10px 10px 0 0; filter: brightness(80%);">
                                         MyBlog Image
                                     </div>
                                 @endif

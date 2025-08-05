@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Models\Article;
 use App\Models\Information;
 use Illuminate\Http\Request;
-use App\Models\WebsiteCategory;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
@@ -34,20 +34,20 @@ class HomeController extends Controller
         // PAGINATION
         $articles = $query->paginate(5);
 
-        $categories = WebsiteCategory::all();
-        $sidebar = Information::latest()->limit(5)->get();
+        $categories = Category::all();
+        $information = Information::latest()->limit(5)->get();
 
-        return view('home.article.main', compact('articles', 'categories', 'sidebar'));
+        return view('home.article.main', compact('articles', 'categories', 'information'));
     }
 
     // DISPLAY ARTICLE
     public function articlesShow($slug)
     {
         $articles = Article::where('slug', $slug)->firstOrFail();
-        $categories = WebsiteCategory::all();
-        $sidebar = Information::latest()->limit(5)->get();
+        $categories = Category::all();
+        $information = Information::latest()->limit(5)->get();
 
-        return view('home.article.show', compact('articles', 'categories', 'sidebar'));
+        return view('home.article.show', compact('articles', 'categories', 'information'));
     }
 
     public function articlesCategories($categoryId)
@@ -57,9 +57,9 @@ class HomeController extends Controller
             ->latest()
             ->paginate(8);
 
-        $categories = WebsiteCategory::all();
-        $sidebar = Information::latest()->limit(5)->get();
+        $categories = Category::all();
+        $information = Information::latest()->limit(5)->get();
 
-        return view('home.article.main', compact('articles', 'categories', 'sidebar'));
+        return view('home.article.main', compact('articles', 'categories', 'information'));
     }
 }
