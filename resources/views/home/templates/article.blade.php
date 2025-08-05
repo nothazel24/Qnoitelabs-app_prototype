@@ -38,7 +38,7 @@
                                     {{ $val->updated_at->format('d M Y') }}</small>
                             </p>
 
-                            <a href="{{-- route('home.articles.show', $val->slug) --}}" class="text-primary" style="text-decoration: none;">Lihat
+                            <a href="/article/{{ $val->slug }}" class="text-primary" style="text-decoration: none;">Lihat
                                 selengkapnya</a>
                         </div>
                     </div>
