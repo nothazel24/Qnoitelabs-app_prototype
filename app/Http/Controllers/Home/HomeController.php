@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Information;
+use Illuminate\Http\Request;
+use App\Models\WebsiteCategory;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -17,4 +19,47 @@ class HomeController extends Controller
         return view('home.main', compact('articles'));
     }
 
+    // ARTICLE CONTROLLER
+    public function articles(Request $request)
+    {
+        $query = Article::where('status', true)->latest();
+
+        if ($request->has('search')) {
+            $searchTerm = $request->search;
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('title', 'like', '%' . $searchTerm . '%');
+            });
+        }
+
+        // PAGINATION
+        $articles = $query->paginate(5);
+
+        $categories = WebsiteCategory::all();
+        $sidebar = Information::latest()->limit(5)->get();
+
+        return view('home.article.main', compact('articles', 'categories', 'sidebar'));
+    }
+
+    // DISPLAY ARTICLE
+    public function articlesShow($slug)
+    {
+        $articles = Article::where('slug', $slug)->firstOrFail();
+        $categories = WebsiteCategory::all();
+        $sidebar = Information::latest()->limit(5)->get();
+
+        return view('home.article.show', compact('articles', 'categories', 'sidebar'));
+    }
+
+    public function articlesCategories($categoryId)
+    {
+        $articles = Article::where('category_id', $categoryId)
+            ->where('status', true)
+            ->latest()
+            ->paginate(8);
+
+        $categories = WebsiteCategory::all();
+        $sidebar = Information::latest()->limit(5)->get();
+
+        return view('home.article.main', compact('articles', 'categories', 'sidebar'));
+    }
 }
