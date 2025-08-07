@@ -1,5 +1,5 @@
 {{-- NAVBAR SECTION --}}
-<nav class="container-fluid navbar navbar-expand-lg py-3 d-flex flex-row fixed-top">
+<nav class="container-fluid navbar navbar-expand-lg py-3 d-flex flex-row {{ request()->is('price/*') ? 'fixed-top nav-price' : 'fixed-top'}}">
 
     <div class="container px-4 px-sm-0">
         <a class="navbar-brand" href="/">
@@ -22,7 +22,7 @@
                     <a class="nav-link @if (request()->is('profile')) active-link @endif" href="/profile">Profile</a>
                 </li>
                 <li class="nav-item active me-3">
-                    <a class="nav-link @if (request()->is('price')) active-link @endif" href="/price">Paket &
+                    <a class="nav-link @if (request()->is(['price', 'price/*'])) active-link @endif" href="/price">Paket &
                         harga</a>
                 </li>
                 <li class="nav-item active me-3">

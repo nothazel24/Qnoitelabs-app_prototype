@@ -16,6 +16,15 @@
     font-weight: bold;
 }
 
+/* NAVBAR PRICE */
+.nav-price {
+    background-color: #fefefe;
+}
+
+.nav-price .nav-link {
+    color: #252525 !important;
+}
+
 @media (max-width: 992px) {
     .navbar {
         background-color: #fefefe;

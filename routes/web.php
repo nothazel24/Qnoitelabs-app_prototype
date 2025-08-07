@@ -14,12 +14,20 @@ use App\Http\Controllers\Home\HomeController;
 // Homepage controller
 Route::get('/', [HomeController::class, 'index'])->name('home.main');
 Route::prefix('')->name('home.')->group(function () {
+    
+    // VIEW 
     Route::view('/profile', 'home.profile.main')->name('profile');
-    Route::view('/price', 'home.price.main')->name('price');
     Route::view('/contact', 'home.contact.main')->name('contact');
+
+    // ARTICLE ROUTE 
     Route::get('/article', [HomeController::class, 'articles'])->name('article');
     Route::get('/article/{slug}', [HomeController::class, 'articlesShow'])->name('article');
     Route::get('/article/categories/{id}', [HomeController::class, 'articlesCategories'])->name('article');
+
+    // PRODUCT/PRICE ROUTE
+    Route::get('/price', [HomeController::class, 'products'])->name('product');
+    Route::get('/price/{slug}', [HomeController::class, 'productsShow'])->name('product');
+    Route::get('/price/categories/{id}', [HomeController::class, 'productsCategories'])->name('product');
 });
 
 //Route semua pengguna

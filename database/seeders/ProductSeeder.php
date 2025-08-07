@@ -25,7 +25,7 @@ class ProductSeeder extends Seeder
                 $user = ($i % 2 == 0) ? $adminUser : $authorUser;
                 $webcategory = $categories->random();
 
-                $title = "Sample Article " . $i . " - " . $webcategory->name;
+                $title = "Sample Product " . $i . " - " . $webcategory->name;
                 Products::create([
                     'user_id' => $user->id,
                     'website_category_id' => $webcategory->id,
