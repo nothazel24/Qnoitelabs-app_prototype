@@ -3,8 +3,8 @@ services:
     build:
       context: .
       dockerfile: ./docker/php-fpm/Dockerfile 
-    image: dockvps-app-image:1.0
-    container_name: qnoitelabs_app
+    image: qnoite-app-image:1.0
+    container_name: qnoite_app
     restart: unless-stopped
     volumes:
       - .:/var/www/html

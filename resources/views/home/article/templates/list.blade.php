@@ -37,7 +37,7 @@
                                         <h1 class="fw-bold">{{ $featuredArticle->title }}</h1>
                                         <p class="w-50">{{ Str::limit(strip_tags($featuredArticle->meta_desc), 250) }}
                                         </p>
-                                        <a href="/article/{{ $featuredArticle->slug }}" class="btn btn-warning rounded-pill shadow">Baca
+                                        <a href="/article/{{ $featuredArticle->slug }}" class="btn text-white fw-bold rounded-pill shadow px-4" style="background-color: #3A7CA5">Baca
                                             Selengkapnya</a>
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@
                                         <h1 class="fw-bold">{{ $featuredArticle->title }}</h1>
                                         <p class="w-50">{{ Str::limit(strip_tags($featuredArticle->meta_desc), 250) }}
                                         </p>
-                                        <a href="{{-- route('home.articles.show', $featuredArticle->slug) --}}" class="btn btn-warning rounded-pill shadow">Baca
+                                        <a href="/article/{{ $featuredArticle->slug }}" class="btn text-white fw-bold rounded-pill shadow px-4" style="background-color: #3A7CA5">Baca
                                             Selengkapnya</a>
                                     </div>
                                 </div>
