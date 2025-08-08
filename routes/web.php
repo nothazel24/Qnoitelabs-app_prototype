@@ -19,6 +19,9 @@ Route::prefix('')->name('home.')->group(function () {
     Route::view('/profile', 'home.profile.main')->name('profile');
     Route::view('/contact', 'home.contact.main')->name('contact');
 
+    // INFORMATION
+    Route::get('/information/{slug}', [HomeController::class, 'informationShow'])->name('information');
+
     // ARTICLE ROUTE 
     Route::get('/article', [HomeController::class, 'articles'])->name('article');
     Route::get('/article/{slug}', [HomeController::class, 'articlesShow'])->name('article');

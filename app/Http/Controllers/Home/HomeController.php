@@ -108,4 +108,12 @@ class HomeController extends Controller
 
         return view('home.price.main', compact('products', 'categories', 'information'));
     }
+
+    // DISPLAY INFORMATION
+    public function informationShow($slug)
+    {
+        $information = Information::where('slug', $slug)->firstOrFail();
+
+        return view('home.information.show', compact('information'));
+    }
 }

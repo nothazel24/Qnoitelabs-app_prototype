@@ -1,5 +1,5 @@
 {{-- NAVBAR SECTION --}}
-<nav class="container-fluid navbar navbar-expand-lg py-3 d-flex flex-row {{ request()->is('price/*') ? 'fixed-top nav-price' : 'fixed-top'}}">
+<nav class="container-fluid navbar navbar-expand-lg py-3 d-flex flex-row {{ request()->is(['price/*', 'information/*']) ? 'fixed-top nav-bg' : 'fixed-top'}}">
 
     <div class="container px-4 px-sm-0">
         <a class="navbar-brand" href="/">

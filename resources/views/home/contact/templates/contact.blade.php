@@ -2,7 +2,7 @@
     <div class="container py-5 px-5 px-md-0">
         <div class="row">
 
-            <div class="col-lg-5 pb-5 pb-md-0">
+            <div class="col-lg-5 pb-5 pb-md-0 pt-3">
                 <div class="whatsapp pb-3">
                     <h1 style="font-size: 24px;">Whatsapp</h1>
                     <p>+62 858-7182-8277</p>
@@ -27,7 +27,7 @@
             <div class="col-lg-7 position-relative">
                 <h1 style="font-size: 24px;" class="py-2">Kunjungi kami</h1>
 
-                <div class="maps" style="width: 435px; height: 250px; background-color: #252525; border-radius: 10px;">
+                <div class="map" id="map" style="width: 435px; height: 250px; border-radius: 10px;">
                 </div>
 
                 <div class="position-absolute bottom-0 end-0 d-none d-md-block" style="font-size: 14px;">
