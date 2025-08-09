@@ -32,7 +32,7 @@
 
                                 <div class="container position-absolute start-50 translate-middle text-white"
                                     style="top: 65%;">
-                                    <div class="px-4 px-md-0">
+                                    <div class="px-4 px-md-0 mb-5 mb-md-0">
                                         <span class="badge bg-danger mb-3 fw-bold">TOP RATING</span>
                                         <h1 class="fw-bold">{{ $featuredProduct->title }}</h1>
                                         <p class="w-50">{{ Str::limit(strip_tags($featuredProduct->meta_desc), 250) }}
@@ -50,7 +50,7 @@
 
                                 <div class="container position-absolute start-50 translate-middle text-white"
                                     style="top: 65%;">
-                                    <div class="px-4 px-md-0">
+                                    <div class="px-4 px-md-0 mb-5 mb-md-0">
                                         <span class="badge bg-danger mb-3 fw-bold">TOP RATING</span>
                                         <h1 class="fw-bold">{{ $featuredProduct->title }}</h1>
                                         <p class="w-50">{{ Str::limit(strip_tags($featuredProduct->meta_desc), 250) }}

@@ -1,7 +1,7 @@
-<section style="background-color: #EFEFEF; margin-top: 4.5rem;">
+<section style="background-color: #EFEFEF;">
 
-    <div class="container">
-        <div class="row d-flex align-items-center" style="height: 80dvh;">
+    <div class="container pb-5 pb-md-0" style="padding-top: 4.5rem;">
+        <div class="row d-flex align-items-center">
             <div class="col-lg-4">
                 {{-- IMAGE SECTION --}}
                 @if ($products->image)

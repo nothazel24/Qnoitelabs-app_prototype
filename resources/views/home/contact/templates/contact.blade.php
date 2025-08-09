@@ -25,12 +25,13 @@
             </div>
 
             <div class="col-lg-7 position-relative">
-                <h1 style="font-size: 24px;" class="py-2">Kunjungi kami</h1>
-
-                <div class="map" id="map" style="width: 435px; height: 250px; border-radius: 10px;">
+                <div class="map-section pt-3 pt-lg-0">
+                    <h1 style="font-size: 24px;" class="py-2">Kunjungi kami</h1>
+                    <div class="map" id="map" style="width: 435px; height: 250px; border-radius: 10px;">
+                    </div>
                 </div>
 
-                <div class="position-absolute bottom-0 end-0 d-none d-md-block" style="font-size: 14px;">
+                <div class="position-absolute bottom-0 end-0 d-none d-lg-block" style="font-size: 14px;">
                     <p class="m-0"><strong>Bandung</strong></p>
                     <p class="m-0">Jelekong, Kp. Gugunungan 03/05</p>
                     <p class="m-0">40375</p>
