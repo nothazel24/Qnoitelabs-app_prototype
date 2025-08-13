@@ -1,115 +1,116 @@
 @extends('admin.master')
 
-@section('articlesActive')
-    text-primary
-@endsection
-
 @section('content')
-    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
-        aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('admin.article.index') }}">Artikel</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Edit Artikel</li>
-        </ol>
-    </nav>
-    <hr><br>
+    <div class="px-4 my-5" style="margin-left: 4;">
 
-    {{-- Summernote CSS --}}
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+            aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('admin.article.index') }}">Artikel</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Artikel</li>
+            </ol>
+        </nav>
+        <hr><br>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    Data Artikel
-                </div>
-                <div class="card-body">
-                    <form action="{{ route('admin.article.update', $article->slug) }}" method="POST"
-                        enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT') {{-- Tambahkan metode PUT untuk update --}}
+        {{-- Summernote CSS --}}
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 
-                        <div class="row">
-                            <div class="col-lg-12 mb-3">
-                                <label for="title" class="form-label">Judul Artikel</label>
-                                <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                    id="title" name="title" value="{{ old('title', $article->title) }}" required>
-                                @error('title')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="col-lg-12 mb-3">
-                                <label for="meta_desc" class="form-label">Meta Deskripsi</label>
-                                <input type="text" class="form-control @error('meta_desc') is-invalid @enderror"
-                                    id="meta_desc" name="meta_desc" value="{{ old('meta_desc', $article->meta_desc) }}" required>
-                                @error('meta_desc')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="col-lg-6 mb-3">
-                                <label for="category_id" class="form-label">Kategori</label>
-                                <select class="form-select @error('category_id') is-invalid @enderror" id="category_id"
-                                    name="category_id" required>
-                                    <option value="">Pilih Kategori</option>
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}"
-                                            {{ old('category_id', $article->category_id) == $category->id ? 'selected' : '' }}>
-                                            {{ $category->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                @error('category_id')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="col-lg-6 mb-3">
-                                <label for="image" class="form-label">Gambar Artikel</label>
-                                <input type="file" class="form-control @error('image') is-invalid @enderror"
-                                    id="image" name="image">
-                                @error('image')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="col-lg-12 mb-3">
-                                <label for="content" class="form-label">Konten</label>
-                                <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" rows="10"
-                                    required>{{ old('content', $article->content) }}</textarea>
-                                @error('content')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="col-lg-12 mb-3">
-                                <label class="form-label">Status Artikel</label>
-                                <div class="d-flex">
-                                    <div class="form-check me-3">
-                                        <input class="form-check-input @error('status') is-invalid @enderror" type="radio"
-                                            name="status" id="statusDraft" value="0"
-                                            {{ old('status', $article->status ? 1 : 0) == 0 ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="statusDraft">
-                                            Draft
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input @error('status') is-invalid @enderror" type="radio"
-                                            name="status" id="statusPublished" value="1"
-                                            {{ old('status', $article->status ? 1 : 0) == 1 ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="statusPublished">
-                                            Published
-                                        </label>
-                                    </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        Data Artikel
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('admin.article.update', $article->slug) }}" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT') {{-- Tambahkan metode PUT untuk update --}}
+
+                            <div class="row">
+                                <div class="col-lg-12 mb-3">
+                                    <label for="title" class="form-label">Judul Artikel</label>
+                                    <input type="text" class="form-control @error('title') is-invalid @enderror"
+                                        id="title" name="title" value="{{ old('title', $article->title) }}" required>
+                                    @error('title')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
-                                @error('status')
-                                    <div class="invalid-feedback d-block">{{ $message }}</div>
-                                @enderror
+                                <div class="col-lg-12 mb-3">
+                                    <label for="meta_desc" class="form-label">Meta Deskripsi</label>
+                                    <input type="text" class="form-control @error('meta_desc') is-invalid @enderror"
+                                        id="meta_desc" name="meta_desc" value="{{ old('meta_desc', $article->meta_desc) }}"
+                                        required>
+                                    @error('meta_desc')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="category_id" class="form-label">Kategori</label>
+                                    <select class="form-select @error('category_id') is-invalid @enderror" id="category_id"
+                                        name="category_id" required>
+                                        <option value="">Pilih Kategori</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}"
+                                                {{ old('category_id', $article->category_id) == $category->id ? 'selected' : '' }}>
+                                                {{ $category->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('category_id')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="image" class="form-label">Gambar Artikel</label>
+                                    <input type="file" class="form-control @error('image') is-invalid @enderror"
+                                        id="image" name="image">
+                                    @error('image')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-lg-12 mb-3">
+                                    <label for="content" class="form-label">Konten</label>
+                                    <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" rows="10"
+                                        required>{{ old('content', $article->content) }}</textarea>
+                                    @error('content')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-lg-12 mb-3">
+                                    <label class="form-label">Status Artikel</label>
+                                    <div class="d-flex">
+                                        <div class="form-check me-3">
+                                            <input class="form-check-input @error('status') is-invalid @enderror"
+                                                type="radio" name="status" id="statusDraft" value="0"
+                                                {{ old('status', $article->status ? 1 : 0) == 0 ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="statusDraft">
+                                                Draft
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input @error('status') is-invalid @enderror"
+                                                type="radio" name="status" id="statusPublished" value="1"
+                                                {{ old('status', $article->status ? 1 : 0) == 1 ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="statusPublished">
+                                                Published
+                                            </label>
+                                        </div>
+                                    </div>
+                                    @error('status')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary">Update Artikel</button>
-                        <a href="{{ route('admin.article.index') }}" class="btn btn-secondary">Kembali</a>
-                    </form>
+                            <br>
+                            <button type="submit" class="btn btn-primary">Update Artikel</button>
+                            <a href="{{ route('admin.article.index') }}" class="btn btn-secondary">Kembali</a>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 @endsection
 

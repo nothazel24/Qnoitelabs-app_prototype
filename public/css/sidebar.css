@@ -1,0 +1,19 @@
+.custom-dropdown {
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 160px;
+    border: none;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.custom-dropdown .dropdown-item {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    color: #000;
+}
+
+.custom-dropdown .dropdown-item:hover,
+.custom-dropdown .dropdown-item.active {
+    background-color: #337CA0;
+    color: #fff;
+}

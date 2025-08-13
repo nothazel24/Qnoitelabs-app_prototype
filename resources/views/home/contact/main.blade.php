@@ -7,6 +7,7 @@ Tempat beli website terpercaya, murah dan berkualitas
 @section('content')
     @include('home.contact.templates.banner')
     @include('home.contact.templates.contact')
+    @include('home.templates.qnoitelabs')
 @endsection
 
 @push('scripts')
