@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content')
-    <div class="px-4 mb-5" style="margin-left: 5rem;">
+    <div class="px-4 mb-5" style="margin-left: 5rem;" data-aos="fade-up">
 
         {{-- USERS  --}}
         <div class="d-flex justify-content-between">
@@ -139,7 +139,7 @@
             </div>
 
             <div class="row g-4">
-                <div class="col-lg-6" style="z-index: -1;">
+                <div class="col-lg-6">
                     <div class="card shadow-sm h-100">
                         <div class="card-header">
                             List Artikel Terbaru

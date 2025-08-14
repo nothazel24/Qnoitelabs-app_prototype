@@ -21,7 +21,7 @@
             <p>Lihat Lebih banyak</p>
         </a>
 
-        <div class="row mt-5 d-none d-md-flex" data-aos="fade-up" data-aos-delay="60">
+        <div class="row mt-5 d-none d-md-flex" data-aos="fade-up" data-aos-delay="800">
             <div class="col-lg">
                 <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="company-logo" width="300" class="mb-2">
             </div>

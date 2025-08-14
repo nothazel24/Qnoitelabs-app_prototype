@@ -3,6 +3,7 @@ const fadeLeft = document.querySelectorAll('.box-animated.left');
 const fadeDown = document.querySelectorAll('.box-animated-down');
 const fadeUp = document.querySelectorAll('.box-animated-up');
 
+// ON-SCROLL ANIMATION
 fadeRight.forEach((box, i) => {
     box.dataset.aos = 'fade-right';
     box.dataset.aosDelay = i * 70;

@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content')
-    <div class="px-4 mb-5" style="margin-left: 5rem;">
+    <div class="px-4 mb-5" style="margin-left: 5rem;" data-aos="fade-up">
 
         {{-- USERS  --}}
         <div class="d-flex justify-content-between">

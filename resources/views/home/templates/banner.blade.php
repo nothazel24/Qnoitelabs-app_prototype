@@ -6,21 +6,21 @@
 
         <div
             class="container position-absolute top-50 start-50 translate-middle text-white d-flex align-items-center px-4 px-md-0">
-            <div class="one">
+            <div class="one" data-aos="fade-right">
                 <h1 class="fw-bold text-center text-md-start">QNOITE.COM</h1>
                 <p class="col-md-7 text-center text-md-start">Qnoite adalah platform digital yang menggabungkan layanan
                     pembuatan website
                     profesional dengan semangat komunitas open source.</p>
 
                 <div class="cta d-flex justify-content-center justify-content-sm-start gap-3 py-3 py-sm-0">
-                    <div class="btn btn-md bg-white text-black px-5">Layanan Konsultasi</div>
+                    <div class="btn btn-md bg-white text-black px-5" data-aos="fade-right" data-aos-delay="800">Layanan Konsultasi</div>
                     <a href="https://youtu.be/dQw4w9WgXcQ?si=379Symeh3pUF3Cdb">
-                        <div class="btn btn-md bg-transparent text-white px-5 border border-white">Join komunitas</div>
+                        <div class="btn btn-md bg-transparent text-white px-5 border border-white" data-aos="fade-right" data-aos-delay="1200">Join komunitas</div>
                     </a>
                 </div>
             </div>
 
-            <div class="logo d-none d-md-block">
+            <div class="logo d-none d-md-block" data-aos="fade-left">
                 <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="qnoite" style="opacity: 50%;">
             </div>
         </div>

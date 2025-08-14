@@ -5,4 +5,8 @@
     integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK" crossorigin="anonymous">
 </script>
 
+{{-- AOS --}}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="{{ asset('js/animation.js') }}"></script>
+
 @stack('scripts')

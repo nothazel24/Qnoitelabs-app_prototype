@@ -5,7 +5,7 @@
         <img src="{{ asset('dist/images/bg-about.jpg') }}" class="position-absolute w-100 h-100"
             style="filter: brightness(70%); object-fit: cover;" alt="background" />
 
-        <div class="text-white text-center position-relative">
+        <div class="text-white text-center position-relative" data-aos="fade-down" data-aos-duration="1000">
             <h1 class="fw-bold">QNOITE.COM</h1>
             <p>Mengenal kami membuat anda percaya.</p>
             <div class="cta d-flex justify-content-center flex-wrap gap-2 mt-3">

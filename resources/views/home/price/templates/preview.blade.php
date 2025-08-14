@@ -2,7 +2,7 @@
 
     <div class="container pb-5 pb-md-0" style="padding-top: 4.5rem;">
         <div class="row d-flex align-items-center">
-            <div class="col-lg-4">
+            <div class="col-lg-4" data-aos="fade-right" data-aos-duration="1100">
                 {{-- IMAGE SECTION --}}
                 @if ($products->image)
                     <div class="ratio ratio-1x1">
@@ -16,7 +16,7 @@
                 @endif
             </div>
 
-            <div class="col-lg-8">
+            <div class="col-lg-8" data-aos="fade-right" data-aos-delay="800">
                 {{-- CONTENT SECTION --}}
                 <div class="card-body p-4 p-md-5">
                     <h1 class="card-title mb-3" style="font-size: 2rem; font-weight: 700;">{{ $products->title }}</h1>

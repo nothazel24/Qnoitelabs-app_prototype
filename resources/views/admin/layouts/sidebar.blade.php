@@ -1,5 +1,5 @@
 <aside class="d-flex flex-column justify-content-between align-items-center rounded-end py-4 position-fixed"
-    style="background-color: #3A7CA5; min-height: 100dvh; width: 5rem;">
+    style="background-color: #3A7CA5; min-height: 100dvh; width: 5rem; z-index: 999 !important;">
 
     <div class="logo">
         <a href="{{ route('admin.dashboard') }}">
@@ -24,7 +24,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item mb-2 dropdown">
+                <li class="nav-item mb-2 dropdown" data-bs-display="static">
                     <a id="navbarDropdown" class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <img src="{{ asset('dist/icons/sidebar-icons/category.svg') }}" alt="categories" width="30" title="Kategori">

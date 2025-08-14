@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content')
-    <div class="px-4 my-5" style="margin-left: 5rem;">
+    <div class="px-4 my-5" style="margin-left: 5rem;" data-aos="fade-up">
 
         <div class="row d-flex align-items-center" style="height: 80dvh;">
             <div class="col-lg-4">

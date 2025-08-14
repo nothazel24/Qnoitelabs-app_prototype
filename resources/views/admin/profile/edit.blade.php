@@ -1,11 +1,7 @@
 @extends('admin.master')
 
-@section('usersActive')
-    text-primary
-@endsection
-
 @section('content')
-    <div class="px-4 my-5" style="margin-left: 5rem;">
+    <div class="px-4 my-5" style="margin-left: 5rem;" data-aos="fade-up">
 
         <form method="post" action="{{ route('admin.profile.update') }}" class="mt-4" enctype="multipart/form-data">
             @csrf

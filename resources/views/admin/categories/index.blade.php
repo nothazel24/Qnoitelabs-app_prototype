@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content')
-    <div class="px-4 mb-5" style="margin-left: 5rem;">
+    <div class="px-4 mb-5" style="margin-left: 5rem;" data-aos="fade-up">
 
         {{-- USERS  --}}
         <div class="d-flex justify-content-between">
@@ -68,7 +68,7 @@
                                 Tidak ada kategori yang ditemukan.
                             </div>
                         @else
-                            <table class="table table-bordered table-striped small">
+                            <table class="table table-bordered table-striped small" style="z-index: -1;">
                                 <thead>
                                     <tr class="text-center">
                                         <th width="5%">No.</th>

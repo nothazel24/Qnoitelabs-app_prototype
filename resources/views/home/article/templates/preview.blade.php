@@ -14,7 +14,7 @@
 
 
     <div class="container">
-        <div class="py-4 py-md-5">
+        <div class="py-4 py-md-5" data-aos="fade-right" data-aos-duration="1100">
             <h1 class="mb-3" style="font-size: 2rem; font-weight: 700;">{{ $articles->title }}
             </h1>
             <div class="text-muted mb-4 d-flex flex-wrap align-items-center small">
