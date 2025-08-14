@@ -16,7 +16,7 @@
 
                 <!-- BLOG CARD -->
                 <div class="col-lg mb-4 mb-md-0">
-                    <div class="shadow-sm"
+                    <div class="shadow-sm box-animated-down"
                         style="background-color: #fefefe; border-radius: 10px; border: 1px solid rgba(43, 43, 43, 0.07);">
                         @if ($val->image)
                             <div class="img">
@@ -46,7 +46,7 @@
 
             @empty
                 <div class="col-12">
-                    <div class="alert alert-info text-center" role="alert">
+                    <div class="alert alert-info text-center box-animated-down" role="alert">
                         Belum ada artikel yang tersedia.
                     </div>
                 </div>

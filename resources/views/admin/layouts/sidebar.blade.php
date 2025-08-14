@@ -12,7 +12,7 @@
 
             <li class="nav-item mb-2">
                 <a class="nav-link" href="{{ route('admin.dashboard') }}">
-                    <img src="{{ asset('dist/icons/sidebar-icons/dashboard.svg') }}" alt="dashboard" width="30">
+                    <img src="{{ asset('dist/icons/sidebar-icons/dashboard.svg') }}" alt="dashboard" width="30" title="Dashboard">
                 </a>
             </li>
 
@@ -20,14 +20,14 @@
             @if (Auth::user()->isAdmin())
                 <li class="nav-item mb-2">
                     <a class="nav-link" href="{{ route('admin.users.index') }}">
-                        <img src="{{ asset('dist/icons/sidebar-icons/user.svg') }}" alt="users" width="30">
+                        <img src="{{ asset('dist/icons/sidebar-icons/user.svg') }}" alt="users" width="30" title="Pengguna">
                     </a>
                 </li>
 
                 <li class="nav-item mb-2 dropdown">
                     <a id="navbarDropdown" class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <img src="{{ asset('dist/icons/sidebar-icons/category.svg') }}" alt="categories" width="30">
+                        <img src="{{ asset('dist/icons/sidebar-icons/category.svg') }}" alt="categories" width="30" title="Kategori">
                     </a>
 
                     <ul class="dropdown-menu custom-dropdown p-0">
@@ -47,7 +47,7 @@
                 <li class="nav-item mb-2">
                     <a class="nav-link" href="{{ route('admin.information.index') }}">
                         <img src="{{ asset('dist/icons/sidebar-icons/information.svg') }}" alt="dashboard"
-                            width="30">
+                            width="30" title="Informasi">
                     </a>
                 </li>
             @endif
@@ -56,13 +56,13 @@
             @if (Auth::user()->isAdmin() || Auth::user()->isAuthor())
                 <li class="nav-item mb-2">
                     <a class="nav-link" href="{{ route('admin.article.index') }}">
-                        <img src="{{ asset('dist/icons/sidebar-icons/article.svg') }}" alt="articles" width="30">
+                        <img src="{{ asset('dist/icons/sidebar-icons/article.svg') }}" alt="articles" width="30" title="Artikel">
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.products.index') }}">
-                        <img src="{{ asset('dist/icons/sidebar-icons/website.svg') }}" alt="products" width="30">
+                        <img src="{{ asset('dist/icons/sidebar-icons/website.svg') }}" alt="products" width="30" title="Produk">
                     </a>
                 </li>
             @endif
@@ -71,7 +71,7 @@
 
     <div class="home">
         <a href="/">
-            <img src="{{ asset('dist/icons/sidebar-icons/home.svg') }}" alt="home" width="30">
+            <img src="{{ asset('dist/icons/sidebar-icons/home.svg') }}" alt="home" width="30" title="Beranda">
         </a>
     </div>
 

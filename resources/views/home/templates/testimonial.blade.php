@@ -7,7 +7,7 @@
         <div class="row gap-4 mx-4 mx-md-0">
 
             @for ($i = 1; $i <= 3; $i++)
-                <div class="col-lg bg-white p-4 rounded">
+                <div class="col-lg bg-white p-4 rounded box-animated-down">
                     <div class="inner">
                         <div class="d-flex align-items-center gap-4">
                             <img src="{{ asset('dist/images/profile.jpg') }}" alt="profile" width="60"

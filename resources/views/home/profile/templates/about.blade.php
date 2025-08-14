@@ -4,7 +4,7 @@
         {{-- ROW 1 --}}
         <div class="row py-0 pb-md-4">
 
-            <div class="col-lg py-3 py-md-0">
+            <div class="col-lg py-3 py-md-0 box-animated-up">
                 <div class="d-flex align-items-center">
                     <img src="{{ asset('dist/icons/visi.svg') }}" alt="visi-kami" width="140">
                     <div class="d-flex flex-column">
@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-            <div class="col-lg py-3 py-sm-0">
+            <div class="col-lg py-3 py-md-0 box-animated-up">
                 <div class="d-flex align-items-center">
                     <img src="{{ asset('dist/icons/kelebihan.svg') }}" alt="visi-kami" width="140">
                     <div class="d-flex flex-column">
@@ -36,7 +36,7 @@
         {{-- ROW 1 --}}
         <div class="row py-0 pb-sm-4">
 
-            <div class="col-lg py-3 py-sm-0">
+            <div class="col-lg py-3 py-md-0 box-animated-up">
                 <div class="d-flex align-items-center">
                     <img src="{{ asset('dist/icons/layanan.svg') }}" alt="visi-kami" width="140">
                     <div class="d-flex flex-column">
@@ -51,7 +51,7 @@
                 </div>
             </div>
 
-            <div class="col-lg py-3 py-sm-0">
+            <div class="col-lg py-3 py-md-0 box-animated-up">
                 <div class="d-flex align-items-center">
                     <img src="{{ asset('dist/icons/support.svg') }}" alt="visi-kami" width="140">
                     <div class="d-flex flex-column">

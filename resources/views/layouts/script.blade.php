@@ -2,6 +2,9 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 </script>
 
+{{-- AOS --}}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="{{ asset('js/animation.js') }}"></script>
 <script src="{{ asset('js/navbar.js') }}"></script>
 
 @stack('scripts')

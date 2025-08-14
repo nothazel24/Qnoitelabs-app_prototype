@@ -15,7 +15,7 @@
 
         <div class="row gap-3 mx-4 mx-md-0">
 
-            <div class="col-lg my-4 bg-white rounded py-5">
+            <div class="col-lg my-4 bg-white rounded py-5 box-animated-down">
                 <div class="inner text-center p-3">
                     <h1 style="font-size: 16px;" class="fw-bold m-0">PAKET UMKM</h1>
                     <p class="m-0" style="font-size: 14px">Cocok untuk Pemula</p>
@@ -27,7 +27,7 @@
                 </div>
             </div>
 
-            <div class="col-lg my-4 bg-white rounded py-5">
+            <div class="col-lg my-4 bg-white rounded py-5 box-animated-down">
                 <div class="inner text-center p-3">
                     <h1 style="font-size: 16px;" class="fw-bold m-0">PAKET UMKM</h1>
                     <p class="m-0" style="font-size: 14px">Cocok untuk Pemula</p>
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <div class="col-lg my-4 bg-white rounded py-5">
+            <div class="col-lg my-4 bg-white rounded py-5 box-animated-down">
                 <div class="inner text-center p-3">
                     <h1 style="font-size: 16px;" class="fw-bold m-0">PAKET UMKM</h1>
                     <p class="m-0" style="font-size: 14px">Cocok untuk Pemula</p>

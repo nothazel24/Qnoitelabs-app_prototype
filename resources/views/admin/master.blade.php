@@ -5,8 +5,6 @@
     @include('admin.layouts.head')
     @include('admin.layouts.style')
 
-    {{-- STYLE --}}
-    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
