@@ -57,7 +57,11 @@ class InformationController extends Controller
             'status' => $request->boolean('status', false),
         ]);
 
-        return redirect()->route('admin.information.index')->with('success', 'Informasi berhasil dibuat.');
+        return redirect()->route('admin.information.index')->with([
+            'messages' => 'Informasi berhasil dibuat.', 
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 
     /**
@@ -96,7 +100,11 @@ class InformationController extends Controller
             'status' => $request->boolean('status', false),
         ]);
 
-        return redirect()->route('admin.information.index')->with('success', 'Informasi berhasil diperbaharui.');
+        return redirect()->route('admin.information.index')->with([
+            'messages' => 'Informasi berhasil diupdate.', 
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 
     /**
@@ -105,6 +113,10 @@ class InformationController extends Controller
     public function destroy(Information $information)
     {
         $information->delete();
-        return redirect()->route('admin.information.index')->with('success', 'Informasi berhasil dihapus');
+        return redirect()->route('admin.information.index')->with([
+            'messages' => 'Informasi berhasil dihapus.', 
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 }

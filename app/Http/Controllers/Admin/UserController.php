@@ -95,7 +95,11 @@ class UserController extends Controller
             'email_verified_at' => now(),
         ]);
 
-        return redirect()->route('admin.users.index')->with('success', 'Pengguna berhasil dibuat.');
+        return redirect()->route('admin.users.index')->with([
+            'messages' => 'Pengguna berhasil dibuat.', 
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 
     /**
@@ -197,7 +201,11 @@ class UserController extends Controller
 
         $user->update($userData);
 
-        return redirect()->route('admin.users.index')->with('success', 'Pengguna berhasil diperbarui.');
+        return redirect()->route('admin.users.index')->with([
+            'messages' => 'Pengguna berhasil diupdate.', 
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 
     /**
@@ -218,6 +226,10 @@ class UserController extends Controller
         }
 
         $user->delete();
-        return redirect()->route('admin.users.index')->with('success', 'Pengguna berhasil dihapus.');
+        return redirect()->route('admin.users.index')->with([
+            'messages' => 'Pengguna berhasil dihapus.', 
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 }

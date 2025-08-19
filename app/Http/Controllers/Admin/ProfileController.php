@@ -88,7 +88,11 @@ class ProfileController extends Controller
 
         $user->save();
 
-        return Redirect::route('admin.profile.edit')->with('success', 'Profil anda berhasil diperbaharui.');
+        return Redirect::route('admin.profile.edit')->with([
+            'messages' => 'Profil pengguna berhasil diperbaharui.', 
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 
     /**
@@ -122,6 +126,10 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/')->with('success', 'Akun anda berhasil dihapus, dan artikel anda telah ditransfer ke administrator');
+        return Redirect::to('/')->with([
+            'messages' => 'Akun berhasil dihapus. Dan semua artikel yang ditulis terlah berhasil ditransfer ke Administrator.', 
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 }

@@ -54,7 +54,11 @@ class CategoryController extends Controller
             'slug' => Str::slug($request->name),
         ]);
 
-        return redirect()->route('admin.categories.index')->with('success', 'Kategori berhasil dibuat.');
+        return redirect()->route('admin.categories.index')->with([
+            'messages' => 'Kategori berhasil dibuat.',
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 
     /**
@@ -87,7 +91,11 @@ class CategoryController extends Controller
             'slug' => Str::slug($request->name),
         ]);
 
-        return redirect()->route('admin.categories.index')->with('success', 'Kategori berhasil diperbarui.');
+        return redirect()->route('admin.categories.index')->with([
+            'messages' => 'Kategori berhasil diperbaharui.',
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 
     /**
@@ -96,6 +104,10 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('admin.categories.index')->with('success', 'Kategori berhasil dihapus.');
+        return redirect()->route('admin.categories.index')->with([
+            'messages' => 'Kategori berhasil dihapus.',
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 }

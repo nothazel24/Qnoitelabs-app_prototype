@@ -23,9 +23,8 @@
 
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                 this.closest('form').submit();">
+                                <a class="dropdown-item logout" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#logout">
                                     {{ __('Log Out') }}
                                 </a>
                             </form>

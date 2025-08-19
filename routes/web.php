@@ -14,7 +14,7 @@ use App\Http\Controllers\Home\HomeController;
 // Homepage controller
 Route::get('/', [HomeController::class, 'index'])->name('home.main');
 Route::prefix('')->name('home.')->group(function () {
-    
+
     // VIEW 
     Route::view('/profile', 'home.profile.main')->name('profile');
     Route::view('/contact', 'home.contact.main')->name('contact');
@@ -34,23 +34,22 @@ Route::prefix('')->name('home.')->group(function () {
 });
 
 //Route semua pengguna
-Route::middleware(['auth'])->name('admin.')->group(function () {
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     //route untuk dashboard
-    Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('admin/article', ArticleController::class);
-    Route::resource('admin/products', ProductController::class);
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('article', ArticleController::class);
+    Route::resource('products', ProductController::class);
 
     // Profile section
-    Route::get('admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('admin/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('admin/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Route hanya untuk admin
-Route::middleware(['auth', 'role:admin'])->name('admin.')->group(function () {
-    // Semua rute di dalam grup ini akan memerlukan otentikasi dan peran 'admin'
-    Route::resource('admin/users', UserController::class);
-    Route::resource('admin/categories', CategoryController::class);
-    Route::resource('admin/webCategories', WebsiteCategoryController::class);
-    Route::resource('admin/information', InformationController::class);
+// Route admin
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('users', UserController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('webCategories', WebsiteCategoryController::class);
+    Route::resource('information', InformationController::class);
 });

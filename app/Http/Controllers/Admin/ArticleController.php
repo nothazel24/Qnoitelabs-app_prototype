@@ -93,7 +93,11 @@ class ArticleController extends Controller
             'status' => $request->boolean('status', false),
         ]);
 
-        return redirect()->route('admin.article.index')->with('success', 'Artikel berhasil dibuat.');
+        return redirect()->route('admin.article.index')->with([
+            'messages' => 'Artikel berhasil dibuat.',
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 
     /**
@@ -170,7 +174,11 @@ class ArticleController extends Controller
             'status' => $request->boolean('status', false),
         ]);
 
-        return redirect()->route('admin.article.index')->with('success', 'Artikel berhasil diperbaharui.');
+        return redirect()->route('admin.article.index')->with([
+            'messages' => 'Artikel berhasil diperbaharui.',
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 
     /**
@@ -191,6 +199,10 @@ class ArticleController extends Controller
         }
 
         $article->delete();
-        return redirect()->route('admin.article.index')->with('success', 'Artikel berhasil di hapus.');
+        return redirect()->route('admin.article.index')->with([
+            'messages' => 'Artikel berhasil dihapus.',
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 }

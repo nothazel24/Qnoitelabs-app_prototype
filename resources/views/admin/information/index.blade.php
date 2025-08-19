@@ -23,13 +23,12 @@
 
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                 this.closest('form').submit();">
+                                <a class="dropdown-item logout" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#logout">
                                     {{ __('Log Out') }}
                                 </a>
                             </form>
-                            
+
                         </div>
                     </li>
                 </ul>
@@ -111,15 +110,12 @@
                                                 class="btn btn-sm btn-success mx-1" title="Edit">
                                                 <i class="fas fa-pencil"></i>
                                             </a>
-                                            <form action="{{ route('admin.information.destroy', $val->slug) }}"
-                                                method="POST" class="d-inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger" title="Hapus"
-                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus Informasi ini? Tindakan ini tidak dapat dibatalkan.')">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </form>
+                                            <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#confirmation"
+                                                data-action="{{ route('admin.information.destroy', $val->slug) }}"
+                                                data-id="{{ $val->slug }}">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -100,7 +100,11 @@ class ProductController extends Controller
             'sku' => $request->sku ?? strtoupper(Str::random(5)), 
         ]);
 
-        return redirect()->route('admin.products.index')->with('success', 'Produk berhasil dibuat.');
+        return redirect()->route('admin.products.index')->with([
+            'messages' => 'Produk berhasil dibuat.', 
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 
     /**
@@ -184,7 +188,11 @@ class ProductController extends Controller
             'sku' => $request->sku ?? strtoupper(Str::random(5)),
         ]);
 
-        return redirect()->route('admin.products.index')->with('success', 'Produk berhasil diperbaharui.');
+        return redirect()->route('admin.products.index')->with([
+            'messages' => 'Produk berhasil diperbaharui.', 
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 
     /**
@@ -204,6 +212,10 @@ class ProductController extends Controller
         }
 
         $product->delete();
-        return redirect()->route('admin.products.index')->with('success', 'Produk berhasil dihapus.');
+        return redirect()->route('admin.products.index')->with([
+            'messages' => 'Produk berhasil dihapus.', 
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
     }
 }

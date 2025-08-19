@@ -57,15 +57,12 @@
                                         class="btn btn-warning text-white me-2">
                                         <i class="fas fa-edit me-2"></i> Edit Artikel
                                     </a>
-                                    <form action="{{ route('admin.article.destroy', $article->slug) }}" method="POST"
-                                        class="d-inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('Apakah Anda yakin ingin menghapus artikel ini? Tindakan ini tidak dapat dibatalkan.')">
-                                            <i class="fas fa-trash-alt me-2"></i> Hapus Artikel
-                                        </button>
-                                    </form>
+                                    <button type="submit" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#confirmation"
+                                        data-action="{{ route('admin.article.destroy', $article->slug) }}"
+                                        data-id="{{ $article->slug }}">
+                                        <i class="fas fa-trash-alt"></i> Hapus Artikel
+                                    </button>
                                 </div>
                             @endif
                         </div>
