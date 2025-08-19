@@ -50,6 +50,13 @@ class FortifyServiceProvider extends ServiceProvider
             return view('auth/login');
         });
 
+        // register
+        Fortify::registerView(function() {
+            return view('auth.register');
+        });
+
+        Fortify::redirects('register', '/');
+
         //logout
         $this->app->singleton(
             \Laravel\Fortify\Contracts\LogoutResponse::class,

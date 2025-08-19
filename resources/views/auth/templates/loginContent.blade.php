@@ -37,7 +37,10 @@
                         @enderror
                     </div>
                     <div class="form-footer d-flex justify-content-between align-items-center">
-                        <a href="#" style="text-decoration: none; color: #3A7CA5;">Lupa password?</a>
+                        <div class="d-flex flex-column gap-2">
+                            <a href="/register" style="text-decoration: none; color: #3A7CA5;">Registrasi</a>
+                            <a href="#" style="text-decoration: none; color: #3A7CA5;">Lupa password?</a>
+                        </div>
                         <button type="submit" class="btn text-white px-4" style="background-color: #3A7CA5;">Sign
                             in</button>
                     </div>

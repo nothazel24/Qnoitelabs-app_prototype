@@ -11,7 +11,7 @@
     <div class="min-h-screen">
 
         <main>
-            @yield('loginContent')
+            @yield('content')
         </main>
 
     </div>

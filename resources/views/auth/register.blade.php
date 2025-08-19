@@ -6,6 +6,6 @@ Tempat beli website terpercaya, murah dan berkualitas
 
 @section('content')
 
-    @include('auth.templates.loginContent')
+    @include('auth.templates.registerContent')
     
 @endsection
