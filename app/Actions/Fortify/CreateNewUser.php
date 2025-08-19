@@ -30,8 +30,7 @@ class CreateNewUser implements CreatesNewUsers
             ],
             'password' => $this->passwordRules(),
             'gender' => ['nullable', Rule::in(['Laki-laki', 'Perempuan', 'Lainnya'])],
-            'phone' => ['required', 'string', 'max:15'],
-            'instagram' => ['nullable', 'string', 'max:255']
+            'phone' => ['required', 'string', 'max:15']
         ])->validate();
 
         return User::create([
@@ -40,7 +39,6 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
             'gender' => $input['gender'] ?? null,
             'phone' => $input['phone'],
-            'instagram' => $input['instagram'] ?? null,
             'role' => 'user',
             'email_verified_at' => now(),
         ]);
