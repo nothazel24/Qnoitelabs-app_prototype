@@ -41,5 +41,23 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
 
+        User::create([
+            'name' => 'Hitori Gotoh',
+            'email' => 'hitori@qnoite.com',
+            'password' => Hash::make('guitarhero'),
+            'phone' => '0813700214466',
+            'role' => 'user',
+            'email_verified_at' => now(),
+        ]);
+
+        User::create([
+            'name' => 'Nijika Ijichi',
+            'email' => 'ijichii@qnoite.com',
+            'password' => Hash::make('doritos'),
+            'phone' => '0813700214533',
+            'role' => 'user',
+            'email_verified_at' => now(),
+        ]);
+
     }
 }

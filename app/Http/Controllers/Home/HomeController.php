@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Home;
 
 use App\Models\Article;
 use App\Models\Information;
-use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\WebsiteCategory;
 use App\Models\Products;
+use App\Models\Feedback;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
@@ -18,7 +19,9 @@ class HomeController extends Controller
     public function index()
     {
         $articles = Article::with(['user', 'category'])->where('status', true)->latest()->limit(5)->get();
-        return view('home.main', compact('articles'));
+        $feedback= Feedback::with('user')->latest()->limit(3)->get();
+        
+        return view('home.main', compact('articles', 'feedback'));
     }
 
     // ARTICLE CONTROLLER

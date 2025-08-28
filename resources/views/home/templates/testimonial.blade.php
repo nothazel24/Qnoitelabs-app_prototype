@@ -6,25 +6,34 @@
         </div>
         <div class="row gap-4 mx-4 mx-md-0">
 
-            @for ($i = 1; $i <= 3; $i++)
+            @forelse ($feedback as $val)
                 <div class="col-lg bg-white p-4 rounded box-animated-down">
                     <div class="inner">
                         <div class="d-flex align-items-center gap-4">
-                            <img src="{{ asset('dist/images/profile.jpg') }}" alt="profile" width="60"
-                                class="rounded-circle">
+                            @if ($val->user->image)
+                                <img src="{{ asset('storage/' . $val->user->image) }}" alt="{{ $val->user->name }}'s pfp"
+                                    width="60" class="rounded-circle">
+                            @else
+                                <img src="{{ asset('dist/images/profile.jpg') }}" alt="{{ $val->user->name }}'s pfp"
+                                    width="60" class="rounded-circle">
+                            @endif
                             <div class="d-flex flex-column">
-                                <p class="fw-bold m-0 p-0">Pak Zulfikar</p>
-                                <p class="m-0 p-0">zulfikar.yasin@gmail.com</p>
+                                <p class="fw-bold m-0 p-0">{{ $val->user->name }}</p>
+                                <p class="m-0 p-0">{{ $val->user->email }}</p>
                             </div>
                         </div>
                         <p class="py-4">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.
+                            {{ $val->content }}
                         </p>
                     </div>
                 </div>
-            @endfor
+            @empty
+                <div class="col-12">
+                    <div class="alert alert-info text-center box-animated-down" role="alert">
+                        Belum ada feedback yang tersedia.
+                    </div>
+                </div>
+            @endforelse
 
         </div>
     </div>
