@@ -60,10 +60,10 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'regex:/^[A-Za-z\s]+$/'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone' => ['required', 'string', 'max:15'],
+            'phone' => ['required', 'string', 'max:15', 'regex:/^[0-9]+$/'],
             'gender' => ['nullable', Rule::in(['Laki-laki', 'Perempuan', 'Lainnya'])],
             'role' => ['required', 'string', Rule::in(['admin', 'author', 'user'])],
             'image' => ['nullable', 'image', 'max:2048'],
@@ -143,9 +143,9 @@ class UserController extends Controller
         }
 
         $rules = [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'regex:/^[A-Za-z\s]+$/'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'phone' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:255', 'regex:/^[0-9]+$/'],
             'gender' => ['nullable', Rule::in(['Laki-laki', 'Perempuan', 'Lainnya'])],
             'role' => ['required', 'string', Rule::in(['admin', 'author', 'user'])],
             'image' => ['nullable', 'image', 'max:2048'],

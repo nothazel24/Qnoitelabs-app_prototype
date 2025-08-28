@@ -32,9 +32,9 @@ class ProfileController extends Controller
         $user = $request->user();
 
         $rules = [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'regex:/^[A-Za-z\s]+$/'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'phone' => ['required', 'string', 'max:15'],
+            'phone' => ['required', 'string', 'max:15', 'regex:/^[0-9]+$/'],
             'instagram' => ['nullable', 'string', 'max:255'],
             'gender' => ['nullable', Rule::in(['Laki-laki', 'Prempuan', 'Lainnya'])],
             'image' => ['nullable', 'image', 'max:2048'],

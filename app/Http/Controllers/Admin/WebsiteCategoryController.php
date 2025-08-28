@@ -45,7 +45,7 @@ class WebsiteCategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255|unique:website_categories,name',
+            'name' => 'required|string|max:255|regex:/^[A-Za-z\s]+$/|unique:website_categories,name',
         ]);
 
         WebsiteCategory::create([
@@ -82,7 +82,7 @@ class WebsiteCategoryController extends Controller
     public function update(Request $request, WebsiteCategory $webCategory)
     {
         $request->validate([
-            'name' => 'required|string|max:255|unique:website_categories,name,' . $webCategory->id,
+            'name' => 'required|string|max:255|regex:/^[A-Za-z\s]+$/|unique:website_categories,name,' . $webCategory->id,
         ]);
 
         $webCategory->update([
