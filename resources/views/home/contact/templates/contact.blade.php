@@ -16,26 +16,40 @@
                 <div class="social-media">
                     <h1 style="font-size: 24px;">Social Media</h1>
                     <div class="d-flex align-items-center gap-3">
-                        <img src="{{ asset('dist/icons/twitter.svg') }}" alt="qnoite-twitter" width="40">
-                        <img src="{{ asset('dist/icons/facebook.svg') }}" alt="qnoite-facebook" width="40">
-                        <img src="{{ asset('dist/icons/linkedin.svg') }}" alt="qnoite-linkedin" width="40">
-                        <img src="{{ asset('dist/icons/whatsapp-black.svg') }}" alt="qnoite-whatsapp" width="40">
+                        <a href="#" target="_blank">
+                            <img src="{{ asset('dist/icons/twitter.svg') }}" alt="qnoite-twitter" width="40">
+                        </a>
+                        <a href="#" target="_blank">
+                            <img src="{{ asset('dist/icons/facebook.svg') }}" alt="qnoite-facebook" width="40">
+                        </a>
+                        <a href="#" target="_blank">
+                            <img src="{{ asset('dist/icons/linkedin.svg') }}" alt="qnoite-linkedin" width="40">
+                        </a>
+                        <a href="#" target="_blank">
+                            <img src="{{ asset('dist/icons/whatsapp-black.svg') }}" alt="qnoite-whatsapp"
+                                width="40">
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-7 position-relative" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
-                <div class="map-section pt-3 pt-lg-0">
-                    <h1 style="font-size: 24px;" class="py-2">Kunjungi kami</h1>
-                    <div class="map" id="map" style="width: 435px; height: 250px; border-radius: 10px;">
+            <div class="col-lg-7 d-flex" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+
+                <div class="row" style="width: 100%;">
+                    <div class="col-lg-8">
+                        <h1 style="font-size: 24px;" class="py-2">Kunjungi kami</h1>
+                        <div class="map p-0 m-0" id="map" style="height: 250px; border-radius: 10px;">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 position-absolute bottom-0 end-0 d-none d-lg-block p-0 m-0"
+                        style="font-size: 14px;">
+                        <p class="m-0"><strong>Bandung</strong></p>
+                        <p class="m-0">Jelekong, Kp. Gugunungan 03/05</p>
+                        <p class="m-0">40375</p>
                     </div>
                 </div>
 
-                <div class="position-absolute bottom-0 end-0 d-none d-lg-block" style="font-size: 14px;">
-                    <p class="m-0"><strong>Bandung</strong></p>
-                    <p class="m-0">Jelekong, Kp. Gugunungan 03/05</p>
-                    <p class="m-0">40375</p>
-                </div>
             </div>
 
 

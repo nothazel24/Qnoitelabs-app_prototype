@@ -44,6 +44,7 @@ class DashboardController extends Controller
             'articles'          => $articles,
             'categories'        => Category::all(),
             'users'             => User::all(),
+            'user'              => $user,
             'information'       => Information::all(),
             'latest_articles'   => $latestArticles,
         ]);

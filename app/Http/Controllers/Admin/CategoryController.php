@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class CategoryController extends Controller
@@ -28,8 +29,9 @@ class CategoryController extends Controller
 
         // Ambil hasil paginasi
         $categories = $query->paginate(10);
+        $user = Auth::user();
 
-        return view('admin.categories.index', compact('categories'));
+        return view('admin.categories.index', compact('categories', 'user'));
     }
 
     /**

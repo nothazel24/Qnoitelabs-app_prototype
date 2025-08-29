@@ -37,8 +37,9 @@ class UserController extends Controller
 
         // Ambil hasil paginasi
         $users = $query->paginate(10);
+        $user = Auth::user();
 
-        return view('admin.users.index', compact('users'));
+        return view('admin.users.index', compact('users', 'user'));
     }
 
     /**

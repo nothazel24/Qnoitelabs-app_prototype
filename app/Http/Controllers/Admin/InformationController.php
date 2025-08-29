@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Information;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -25,8 +26,9 @@ class InformationController extends Controller
         }
 
         $information = $query->paginate(10);
+        $user = Auth::user();
 
-        return view('admin.information.index', compact('information'));
+        return view('admin.information.index', compact('information', 'user'));
     }
 
     /**
@@ -49,10 +51,22 @@ class InformationController extends Controller
             'status' => 'nullable|boolean',
         ]);
 
+        // VALIDASI DULPLIKASI SLUG
+        $slug = Str::slug($request->title);
+        $count = Information::where('slug', $slug)->count();
+
+        if ($count > 0) {
+            return redirect()->route('admin.information.index')->with([
+                'messages' => 'Judul informasi telah digunakan, gunakan judul yang lain.',
+                'type' => 'danger',
+                'id' => 'fail-notification'
+            ]);
+        }
+
         Information::create([
             'title' => $request->title,
             'meta_desc' => $request->meta_desc,
-            'slug' => Str::slug($request->title),
+            'slug' => $slug,
             'content' => $request->content,
             'status' => $request->boolean('status', false),
         ]);
@@ -92,10 +106,22 @@ class InformationController extends Controller
             'status' => 'nullable|boolean',
         ]);
 
+        // VALIDASI DUPLIKASI SLUG
+        $slug = Str::slug($request->title);
+        $count = Information::where('slug', $slug)->count();
+
+        if ($count > 0) {
+            return redirect()->route('admin.information.index')->with([
+                'messages' => 'Judul informasi telah digunakan, gunakan judul yang lain.',
+                'type' => 'danger',
+                'id' => 'fail-notification'
+            ]);
+        }
+
         $information->update([
             'title' => $request->title,
             'meta_desc' => $request->meta_desc,
-            'slug' => Str::slug($request->title),
+            'slug' => $slug,
             'content' => $request->content,
             'status' => $request->boolean('status', false),
         ]);

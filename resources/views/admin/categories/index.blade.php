@@ -3,37 +3,8 @@
 @section('content')
     <div class="px-4 mb-5" style="margin-left: 5rem;" data-aos="fade-up">
 
-        {{-- USERS  --}}
-        <div class="d-flex justify-content-between">
-            <div class="space"></div>
-
-            <div class="users py-3">
-                <ul class="navbar-nav ms-auto">
-
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle fw-bold text-primary" href="#"
-                            role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} ({{ Auth::user()->role }})
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('admin.profile.edit') }}">
-                                {{ __('Profile') }}
-                            </a>
-
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <a class="dropdown-item logout" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#logout">
-                                    {{ __('Log Out') }}
-                                </a>
-                            </form>
-
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        {{-- USER MENU --}}
+        @include('admin.layouts.menu')
 
         <h1 style="font-size: 30px;">Manajemen Kategori Artikel</h1>
         <hr><br>

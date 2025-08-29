@@ -22,33 +22,27 @@ class ArticleController extends Controller
         /** @var \App\Models\User $user */
         $user = Auth::user();
 
-        // Jika pengguna adalah author, hanya tampilkan artikel miliknya
         if ($user && $user->isAuthor()) {
             $query->where('user_id', $user->id);
         }
 
-        // Cek apakah ada parameter 'search' dalam request
         if ($request->has('search')) {
             $searchTerm = $request->search;
-            // Tambahkan kondisi pencarian berdasarkan 'title' artikel
             $query->where(function ($q) use ($searchTerm) {
                 $q->where('title', 'like', '%' . $searchTerm . '%');
             });
         }
 
-        // Cek apakah ada parameter 'status' dalam request
         if ($request->has('status')) {
-            // Pastikan status adalah boolean yang valid (0 atau 1)
             $status = filter_var($request->status, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
             if ($status !== null) {
                 $query->where('status', $status);
             }
         }
 
-        // Ambil hasil paginasi
         $articles = $query->paginate(10);
 
-        return view('admin.articles.index', compact('articles'));
+        return view('admin.articles.index', compact('articles', 'user'));
     }
 
     /**
@@ -57,7 +51,6 @@ class ArticleController extends Controller
     public function create()
     {
         $categories = Category::all();
-        // Pastikan view yang benar: 'admin.articles.create'
         return view('admin.articles.create', compact('categories'));
     }
 
@@ -72,13 +65,24 @@ class ArticleController extends Controller
             'content' => 'required|string',
             'meta_desc' => 'required|string',
             // 'slug' => 'required|string|unique:articles,slug',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:2048', // 2MB Max
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:2048',
             'status' => 'nullable|boolean',
         ]);
 
+        // VALIDASI DUPLIKASI SLUG
+        $slug = Str::slug($request->title);
+        $count = Article::where('slug', $slug)->count();
+
+        if ($count > 0) {
+            return redirect()->route('admin.article.index')->with([
+                'messages' => 'Judul artikel telah digunakan, gunakan judul yang lain.',
+                'type' => 'danger',
+                'id' => 'fail-notification'
+            ]);
+        }
+
         $imagePath = null;
         if ($request->hasFile('image')) {
-            // Menyimpan langsung ke disk 'public' di folder 'articles'
             $imagePath = $request->file('image')->store('articles', 'public');
         }
 
@@ -87,7 +91,7 @@ class ArticleController extends Controller
             'category_id' => $request->category_id,
             'title' => $request->title,
             'meta_desc' => $request->meta_desc,
-            'slug' => Str::slug($request->title),
+            'slug' => $slug,
             'content' => $request->content,
             'image' => $imagePath,
             'status' => $request->boolean('status', false),
@@ -105,7 +109,6 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        // Pastikan view yang benar: 'admin.articles.show'
         return view('admin.articles.show', compact('article'));
     }
 
@@ -114,7 +117,6 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        // Pastikan hanya pemilik artikel atau admin yang bisa mengedit
         /** @var \App\Models\User $user */
         $user = Auth::user();
 
@@ -131,7 +133,6 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        // Pastikan hanya pemilik artikel atau admin yang bisa mengupdate
         /** @var \App\Models\User $user */
         $user = Auth::user();
 
@@ -148,18 +149,27 @@ class ArticleController extends Controller
             'status' => 'nullable|boolean',
         ]);
 
+        // VALIDASI DUPLIKASI SLUG
+        $slug = Str::slug($request->title);
+        $count = Article::where('slug', $slug)->count();
+
+        if ($count > 0) {
+            return redirect()->route('admin.article.index')->with([
+                'messages' => 'Judul artikel telah digunakan, gunakan judul yang lain.',
+                'type' => 'danger',
+                'id' => 'fail-notification'
+            ]);
+        }
+
         $imagePath = $article->image;
         if ($request->hasFile('image')) {
-            // Hapus gambar lama jika ada
             if ($article->image) {
-                Storage::disk('public')->delete($article->image); // Pastikan menghapus dari disk 'public'
+                Storage::disk('public')->delete($article->image);
             }
-            // KOREKSI: Menyimpan langsung ke disk 'public' di folder 'articles'
             $imagePath = $request->file('image')->store('articles', 'public');
         } elseif ($request->input('remove_image')) {
-            // Jika user memilih untuk menghapus gambar
             if ($article->image) {
-                Storage::disk('public')->delete($article->image); //  Pastikan menghapus dari disk 'public'
+                Storage::disk('public')->delete($article->image);
                 $imagePath = null;
             }
         }
@@ -168,7 +178,7 @@ class ArticleController extends Controller
             'category_id' => $request->category_id,
             'title' => $request->title,
             'meta_desc' => $request->meta_desc,
-            'slug' => Str::slug($request->title),
+            'slug' => $slug,
             'content' => $request->content,
             'image' => $imagePath,
             'status' => $request->boolean('status', false),
@@ -186,7 +196,6 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        // Pastikan hanya pemilik artikel atau admin yang bisa menghapus
         /** @var \App\Models\User $user */
         $user = Auth::user();
 
@@ -195,7 +204,7 @@ class ArticleController extends Controller
         }
 
         if ($article->image) {
-            Storage::disk('public')->delete($article->image); //Pastikan menghapus dari disk 'public'
+            Storage::disk('public')->delete($article->image);
         }
 
         $article->delete();

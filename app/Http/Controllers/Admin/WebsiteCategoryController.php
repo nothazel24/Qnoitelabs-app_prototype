@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\WebsiteCategory;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -27,8 +28,9 @@ class WebsiteCategoryController extends Controller
 
         // Ambil hasil paginasi
         $webCategories = $query->paginate(10);
+        $user = Auth::user();
 
-        return view('admin.webCategories.index', compact('webCategories'));
+        return view('admin.webCategories.index', compact('webCategories', 'user'));
     }
 
     /**

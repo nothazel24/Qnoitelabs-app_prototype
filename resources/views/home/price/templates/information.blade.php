@@ -6,9 +6,9 @@
                 Informasi Terbaru
             </a>
             @forelse ($information as $val)
-                <a href="/information/{{ $val->slug }}" class="list-group-item list-group-item-action">{{ $val->title }}</a>
+                <a href="/information/{{ $val->slug }}" class="list-group-item list-group-item-action">ℹ️ {{ $val->title }}</a>
             @empty
-                <a href="#" class="list-group-item list-group-item-action">Belum Ada Informasi</a>
+                <a href="#" class="list-group-item list-group-item-action bg-danger text-white fw-bold">❗ Belum Ada Informasi</a>
             @endforelse
         </div>
     </div>

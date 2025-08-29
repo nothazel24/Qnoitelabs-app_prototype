@@ -7,7 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body style="background-color: #3A7CA5">
+<body style="background-color: #3A7CA5;">
     <div class="min-h-screen">
         @include('layouts.navbar')
 

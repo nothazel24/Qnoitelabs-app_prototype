@@ -27,7 +27,7 @@
                 <div class="row">
                     <div class="col-lg-6 mb-3">
                         <label class="form-label">No. Handphone</label>
-                        <input type="text" name="phone" placeholder="+62 xxx xxx xxx" value="{{ old('phone') }}"
+                        <input type="text" name="phone" id="phone" placeholder="+62 xxx xxx xxx" value="{{ old('phone') }}"
                             class="form-control @error('phone') is-invalid @enderror">
                         @error('phone')
                             <div class="text-danger">{{ $message }}</div>

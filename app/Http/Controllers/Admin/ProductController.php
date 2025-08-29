@@ -23,21 +23,17 @@ class ProductController extends Controller
         /** @var \App\Models\User $user */
         $user = Auth::user();
 
-        // Jika pengguna adalah author, hanya tampilkan artikel miliknya
         if ($user && $user->isAuthor()) {
             $query->where('user_id', $user->id);
         }
 
-        // Cek apakah ada parameter 'search' dalam request
         if ($request->has('search')) {
             $searchTerm = $request->search;
-            // Tambahkan kondisi pencarian berdasarkan 'title' artikel
             $query->where(function ($q) use ($searchTerm) {
                 $q->where('title', 'like', '%' . $searchTerm . '%');
             });
         }
 
-        // Cek apakah ada parameter 'status' dalam request
         if ($request->has('status')) {
             $status = filter_var($request->status, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
             if ($status !== null) {
@@ -48,7 +44,7 @@ class ProductController extends Controller
         // Ambil hasil paginasi
         $products = $query->paginate(10);
 
-        return view('admin.products.index', compact('products'));
+        return view('admin.products.index', compact('products', 'user'));
     }
 
     /**
@@ -80,6 +76,18 @@ class ProductController extends Controller
             'sku' => 'nullable|string|max:50|unique:products,sku' . $product->id,
         ]);
 
+        // VALIDASI DULPLIKASI SLUG
+        $slug = Str::slug($request->title);
+        $count = Products::where('slug', $slug)->count();
+
+        if ($count > 0) {
+            return redirect()->route('admin.products.index')->with([
+                'messages' => 'Judul produk telah digunakan, gunakan judul yang lain.',
+                'type' => 'danger',
+                'id' => 'fail-notification'
+            ]);
+        }
+
         $imagePath = null;
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('products', 'public');
@@ -90,7 +98,7 @@ class ProductController extends Controller
             'website_category_id' => $request->website_category_id,
             'title' => $request->title,
             'meta_desc' => $request->meta_desc,
-            'slug' => Str::slug($request->title),
+            'slug' => $slug,
             'content' => $request->content,
             'image' => $imagePath,
             'status' => $request->boolean('status', false),
@@ -158,6 +166,18 @@ class ProductController extends Controller
             'sku' => 'nullable|string|max:50|unique:products,sku' . $product->id,
         ]);
 
+        // VALIDASI DULPLIKASI SLUG
+        $slug = Str::slug($request->title);
+        $count = Products::where('slug', $slug)->count();
+
+        if ($count > 0) {
+            return redirect()->route('admin.products.index')->with([
+                'messages' => 'Judul produk telah digunakan, gunakan judul yang lain.',
+                'type' => 'danger',
+                'id' => 'fail-notification'
+            ]);
+        }
+
         $imagePath = $product->image;
         if ($request->hasFile('image')) {
             // Hapus gambar lama jika ada
@@ -178,7 +198,7 @@ class ProductController extends Controller
             'category_id' => $request->category_id,
             'title' => $request->title,
             'meta_desc' => $request->meta_desc,
-            'slug' => Str::slug($request->title),
+            'slug' => $slug,
             'content' => $request->content,
             'image' => $imagePath,
             'status' => $request->boolean('status', false),

@@ -134,7 +134,7 @@
                 @if ($user->image)
                     <div class="col-lg-12 mb-2">
                         <img src="{{ asset('storage/' . $user->image) }}" alt="Current Profile Image"
-                            class="img-thumbnail" style="max-width: 150px;">
+                            class="img-thumbnail mx-auto rounded-circle mb-3" style="max-width: 150px;">
                         <div class="form-check mt-2">
                             <input class="form-check-input" type="checkbox" name="remove_image" id="remove_image"
                                 value="1">
@@ -142,6 +142,11 @@
                                 Hapus Gambar Saat Ini
                             </label>
                         </div>
+                    </div>
+                @else
+                    <div class="col-lg-12 mb-2">
+                        <img src="{{ asset('dist/images/profile.jpg') }}" alt="Current Profile Image"
+                            class="img-thumbnail mx-auto rounded-circle mb-3" style="max-width: 150px;">
                     </div>
                 @endif
                 <input class="form-control @error('image') is-invalid @enderror" type="file" id="image"

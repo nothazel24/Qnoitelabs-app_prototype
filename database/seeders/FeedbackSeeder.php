@@ -16,7 +16,7 @@ class FeedbackSeeder extends Seeder
     {
         $users = User::where('role', 'user')->get();
 
-        for ($i = 0; $i <= 8; $i++) {
+        for ($i = 0; $i <= 3; $i++) {
             $user = $users->random();
 
             Feedback::create([
