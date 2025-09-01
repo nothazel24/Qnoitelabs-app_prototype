@@ -29,13 +29,6 @@ class HomeController extends Controller
     {
         $query = Article::where('status', true)->latest();
 
-        if ($request->has('search')) {
-            $searchTerm = $request->search;
-            $query->where(function ($q) use ($searchTerm) {
-                $q->where('title', 'like', '%' . $searchTerm . '%');
-            });
-        }
-
         // PAGINATION
         $articles = $query->paginate(5);
 

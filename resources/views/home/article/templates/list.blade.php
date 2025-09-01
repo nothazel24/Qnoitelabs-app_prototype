@@ -32,12 +32,12 @@
 
                                 <div class="container position-absolute start-50 translate-middle text-white"
                                     style="top: 65%;">
-                                    <div class="px-4 px-md-0">
-                                        <span class="badge bg-danger mb-3 fw-bold">FEATURED ARTICLE</span>
+                                    <div class="px-4 px-md-0 mb-5 mb-md-0">
+                                        <span class="badge bg-danger mb-3 fw-bold">Featured Article</span>
                                         <h1 class="fw-bold">{{ $featuredArticle->title }}</h1>
                                         <p class="w-50">{{ Str::limit(strip_tags($featuredArticle->meta_desc), 250) }}
                                         </p>
-                                        <a href="/article/{{ $featuredArticle->slug }}" class="btn text-white fw-bold rounded-pill shadow px-4" style="background-color: #3A7CA5">Baca
+                                        <a href="/price/{{ $featuredArticle->slug }}" class="btn text-white fw-bold rounded-pill shadow px-4" style="background-color: #3A7CA5">Lihat
                                             Selengkapnya</a>
                                     </div>
                                 </div>
@@ -50,12 +50,12 @@
 
                                 <div class="container position-absolute start-50 translate-middle text-white"
                                     style="top: 65%;">
-                                    <div class="px-4 px-md-0">
-                                        <span class="badge bg-danger mb-3 fw-bold">FEATURED ARTICLE</span>
+                                    <div class="px-4 px-md-0 mb-5 mb-md-0">
+                                        <span class="badge bg-danger mb-3 fw-bold">Featured Article</span>
                                         <h1 class="fw-bold">{{ $featuredArticle->title }}</h1>
                                         <p class="w-50">{{ Str::limit(strip_tags($featuredArticle->meta_desc), 250) }}
                                         </p>
-                                        <a href="/article/{{ $featuredArticle->slug }}" class="btn text-white fw-bold rounded-pill shadow px-4" style="background-color: #3A7CA5">Baca
+                                        <a href="/price/{{ $featuredArticle->slug }}" class="btn text-white fw-bold rounded-pill shadow px-4" style="background-color: #3A7CA5">Lihat
                                             Selengkapnya</a>
                                     </div>
                                 </div>
@@ -69,10 +69,7 @@
                 {{-- ARTICLE CARD --}}
                 <div class="row">
 
-                    @forelse ($articles as $key => $val)
-                        @if ($key == 0 && !empty($articles) && count($articles) > 0)
-                            @continue
-                        @endif
+                    @forelse ($articles as $val)
 
                         <div class="col-lg-6">
 

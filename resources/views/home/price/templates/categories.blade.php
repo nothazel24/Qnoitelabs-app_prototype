@@ -13,11 +13,10 @@
     @endforelse
 </ul>
 
-{{-- TUGAS: TAMBAH LOGICNYA UNTUK BAGIAN INI --}}
 <div class="row d-block d-md-none">
     <div class="col-lg-12 mb-2">
         <select name="category_id" id="category" class="form-select">
-            <option value="">All</option>
+            <option value="" id="all">All</option>
             @forelse ($categories as $category)
                 <option value="{{ $category->id }}">{{ $category->name }}</option>
             @empty
@@ -26,3 +25,30 @@
         </select>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const categorySelect = document.getElementById('category');
+            if (!categorySelect) return;
+
+            document.getElementById('all').addEventListener('click', function() {
+                window.location.href = "{{ route('home.product.main') }}";
+            })
+
+            categorySelect.addEventListener('change', function() {
+                let categoryId = this.value;
+
+                if (categoryId) {
+                    window.location.href = "{{ route('home.product.category', '__ID__') }}"
+                        .replace('__ID__', encodeURIComponent(categoryId));
+                } else {
+                    const value = document.getElementById('all');
+                    if (value) {
+                        value.textContent = "Tidak ada kategori yang tersedia";
+                    }
+                }
+            });
+        });
+    </script>
+@endpush

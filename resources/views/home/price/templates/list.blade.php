@@ -69,10 +69,7 @@
                 {{-- ARTICLE CARD --}}
                 <div class="row">
 
-                    @forelse ($products as $key => $val)
-                        @if ($key == 0 && !empty($products) && count($products) > 0)
-                            @continue
-                        @endif
+                    @forelse ($products as $val)
 
                         <div class="col-lg-6">
 

@@ -23,14 +23,14 @@ Route::prefix('')->name('home.')->group(function () {
     Route::get('/information/{slug}', [HomeController::class, 'informationShow'])->name('information');
 
     // ARTICLE ROUTE 
-    Route::get('/article', [HomeController::class, 'articles'])->name('article');
-    Route::get('/article/{slug}', [HomeController::class, 'articlesShow'])->name('article');
-    Route::get('/article/categories/{id}', [HomeController::class, 'articlesCategories'])->name('article');
+    Route::get('/article', [HomeController::class, 'articles'])->name('article.main');
+    Route::get('/article/categories/{id}', [HomeController::class, 'articlesCategories'])->name('article.category');
+    Route::get('/article/{slug}', [HomeController::class, 'articlesShow'])->name('article.show');
 
     // PRODUCT/PRICE ROUTE
-    Route::get('/price', [HomeController::class, 'products'])->name('product');
-    Route::get('/price/{slug}', [HomeController::class, 'productsShow'])->name('product');
-    Route::get('/price/categories/{id}', [HomeController::class, 'productsCategories'])->name('product');
+    Route::get('/price', [HomeController::class, 'products'])->name('product.main');
+    Route::get('/price/categories/{id}', [HomeController::class, 'productsCategories'])->name('product.category');
+    Route::get('/price/{slug}', [HomeController::class, 'productsShow'])->name('product.show');
 });
 
 //Route semua pengguna
