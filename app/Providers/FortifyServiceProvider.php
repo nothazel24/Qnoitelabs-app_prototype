@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Route;
 use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
@@ -45,23 +46,19 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
 
-        //login
-        Fortify::loginView(function () {
-            return view('auth/login');
-        });
-
-        // register
-        Fortify::registerView(function() {
-            return view('auth.register');
+        // Login & Register
+        Route::middleware(['web', 'check'])->group(function () {
+            Fortify::loginView(fn() => view('auth.login'));
+            Fortify::registerView(fn() => view('auth.register'));
         });
 
         // lupa password
-        Fortify::requestPasswordResetLinkView(function() {
+        Fortify::requestPasswordResetLinkView(function () {
             return view('auth.forgot-password');
         });
 
         // reset password
-        Fortify::resetPasswordView(function($request) {
+        Fortify::resetPasswordView(function ($request) {
             return view('auth.reset-password', ['request' => $request]);
         });
 
@@ -70,7 +67,13 @@ class FortifyServiceProvider extends ServiceProvider
         //logout
         $this->app->singleton(
             \Laravel\Fortify\Contracts\LogoutResponse::class,
-            \App\Http\Responses\LogoutResponse::class
+            \App\Http\Responses\LogoutResponse::class,
+        );
+
+        // login
+        $this->app->singleton(
+            \Laravel\Fortify\Contracts\LoginResponse::class,
+            \App\Http\Responses\LoginResponse::class
         );
     }
 }

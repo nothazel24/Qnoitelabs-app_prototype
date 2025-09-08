@@ -11,6 +11,9 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Home\HomeController;
 
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
+use Laravel\Fortify\Http\Controllers\RegisteredUserController;
+
 // Homepage controller
 Route::get('/', [HomeController::class, 'index'])->name('home.main');
 Route::prefix('')->name('home.')->group(function () {
@@ -53,3 +56,13 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::resource('webCategories', WebsiteCategoryController::class);
     Route::resource('information', InformationController::class);
 });
+
+// login
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+    ->middleware(['check'])
+    ->name('login');
+
+// register
+Route::get('/register', [RegisteredUserController::class, 'create'])
+    ->middleware(['check'])
+    ->name('register');
