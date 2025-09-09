@@ -5,10 +5,10 @@
     position: fixed;
     top: 0;
     right: 0;
-    background-color: #111;
+    background-color: #fefefe;
     overflow-x: hidden;
     transition: 0.4s;
-    padding-top: 60px;
+    padding-top: 40px;
     z-index: 9999;
 }
 
@@ -16,20 +16,20 @@
     padding: 10px 20px;
     text-decoration: none;
     font-size: 18px;
-    color: #f1f1f1;
+    color: #252525;
     display: block;
     transition: 0.3s;
 }
 
 .sidebar a:hover {
-    background: #575757;
+    text-decoration-line: underline;
 }
 
 /* Tombol close */
 .sidebar .close-btn {
     position: absolute;
-    top: 15px;
-    right: 20px;
+    bottom: 15px;
+    left: 20px;
     font-size: 30px;
     cursor: pointer;
     color: #fff;

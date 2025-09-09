@@ -22,8 +22,38 @@ class HomeController extends Controller
         $articles = Article::with(['user', 'category'])->where('status', true)->latest()->limit(5)->get();
         $feedback = Feedback::with('user')->latest()->limit(3)->get();
         $user = User::first();
-        
+
         return view('home.main', compact('articles', 'feedback', 'user'));
+    }
+
+    // PROFILE CONTROLLER
+    public function profile()
+    {
+        $user = User::first();
+        return view('home.profile.main', compact('user'));
+    }
+
+    // CONTACT CONTROLLER
+    public function contact()
+    {
+        $user = User::first();
+        return view('home.contact.main', compact('user'));
+    }
+
+    // CART PAGE CONTROLLER
+    public function cart()
+    {
+        $user = User::first();
+        return view('home.cart.main', compact('user'));
+    }
+
+    // INVOICE PAGE CONTROLLER (*BUG)
+    public function invoice($slug)
+    {
+        $product = Products::where('slug', $slug)->firstOrFail();
+        $user = User::first();
+
+        return view('home.invoice.main', compact('product', 'user'));
     }
 
     // ARTICLE CONTROLLER
@@ -79,7 +109,7 @@ class HomeController extends Controller
         }
 
         // PAGINATION
-        $products = $query->paginate(5);
+        $products = $query->paginate(8);
 
         $categories = WebsiteCategory::all();
         $information = Information::latest()->limit(5)->get();

@@ -83,12 +83,12 @@
                         </div>
 
                         <div class="image">
-                            @if ($user->image)
-                                <img src="{{ asset('storage/' . $user->image) }}" alt="{{ $user->name }}'s pfp"
-                                    class="rounded-circle ms-3" style="max-width: 38px; cursor: pointer;" onclick="opensidebar()">
+                            @if (Auth::user()->image)
+                                <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="{{ Auth::user()->name }}'s pfp"
+                                    class="rounded-circle ms-3" style="max-width: 38px; cursor: pointer;" onclick="opensidebar()" title="Buka Sidebar">
                             @else
-                                <img src="{{ asset('dist/images/profile.jpg') }}" alt="{{ $user->name }}'s pfp"
-                                    class="rounded-circle ms-3" style="max-width: 38px; cursor: pointer;" onclick="opensidebar()">
+                                <img src="{{ asset('dist/images/profile.jpg') }}" alt="{{ Auth::user()->name }}'s pfp"
+                                    class="rounded-circle ms-3" style="max-width: 38px; cursor: pointer;" onclick="opensidebar()" title="Buka Sidebar">
                             @endif
                         </div>
 

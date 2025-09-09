@@ -19,8 +19,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home.main');
 Route::prefix('')->name('home.')->group(function () {
 
     // VIEW 
-    Route::view('/profile', 'home.profile.main')->name('profile');
-    Route::view('/contact', 'home.contact.main')->name('contact');
+    Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
+    Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+
+    // CART & INVOICE
+    Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
+    Route::get('/invoice', [HomeController::class, 'invoice'])->name('invoice');
 
     // INFORMATION
     Route::get('/information/{slug}', [HomeController::class, 'informationShow'])->name('information');
