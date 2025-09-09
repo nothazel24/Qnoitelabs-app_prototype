@@ -10,6 +10,7 @@
 <body style="background-color: #3A7CA5;">
     <div class="min-h-screen">
         @include('layouts.navbar')
+        @include('layouts.offCanvas')
 
         <main>
             @yield('content')

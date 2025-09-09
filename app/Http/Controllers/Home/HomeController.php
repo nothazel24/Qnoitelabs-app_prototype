@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\WebsiteCategory;
 use App\Models\Products;
 use App\Models\Feedback;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,9 +20,10 @@ class HomeController extends Controller
     public function index()
     {
         $articles = Article::with(['user', 'category'])->where('status', true)->latest()->limit(5)->get();
-        $feedback= Feedback::with('user')->latest()->limit(3)->get();
+        $feedback = Feedback::with('user')->latest()->limit(3)->get();
+        $user = User::first();
         
-        return view('home.main', compact('articles', 'feedback'));
+        return view('home.main', compact('articles', 'feedback', 'user'));
     }
 
     // ARTICLE CONTROLLER
@@ -34,8 +36,9 @@ class HomeController extends Controller
 
         $categories = Category::all();
         $information = Information::latest()->limit(5)->get();
+        $user = User::first();
 
-        return view('home.article.main', compact('articles', 'categories', 'information'));
+        return view('home.article.main', compact('articles', 'categories', 'information', 'user'));
     }
 
     // DISPLAY ARTICLE
@@ -44,8 +47,9 @@ class HomeController extends Controller
         $articles = Article::where('slug', $slug)->firstOrFail();
         $categories = Category::all();
         $information = Information::latest()->limit(5)->get();
+        $user = User::first();
 
-        return view('home.article.show', compact('articles', 'categories', 'information'));
+        return view('home.article.show', compact('articles', 'categories', 'information', 'user'));
     }
 
     public function articlesCategories($categoryId)
@@ -57,8 +61,9 @@ class HomeController extends Controller
 
         $categories = Category::all();
         $information = Information::latest()->limit(5)->get();
+        $user = User::first();
 
-        return view('home.article.main', compact('articles', 'categories', 'information'));
+        return view('home.article.main', compact('articles', 'categories', 'information', 'user'));
     }
 
     // PRODUCT CONTROLLER
@@ -78,8 +83,9 @@ class HomeController extends Controller
 
         $categories = WebsiteCategory::all();
         $information = Information::latest()->limit(5)->get();
+        $user = User::first();
 
-        return view('home.price.main', compact('products', 'categories', 'information'));
+        return view('home.price.main', compact('products', 'categories', 'information', 'user'));
     }
 
     // DISPLAY ARTICLE
@@ -88,8 +94,9 @@ class HomeController extends Controller
         $products = Products::where('slug', $slug)->firstOrFail();
         $categories = WebsiteCategory::all();
         $information = Information::latest()->limit(5)->get();
+        $user = User::first();
 
-        return view('home.price.show', compact('products', 'categories', 'information'));
+        return view('home.price.show', compact('products', 'categories', 'information', 'user'));
     }
 
     public function productsCategories($categoryId)
@@ -101,15 +108,17 @@ class HomeController extends Controller
 
         $categories = WebsiteCategory::all();
         $information = Information::latest()->limit(5)->get();
+        $user = User::first();
 
-        return view('home.price.main', compact('products', 'categories', 'information'));
+        return view('home.price.main', compact('products', 'categories', 'information', 'user'));
     }
 
     // DISPLAY INFORMATION
     public function informationShow($slug)
     {
         $information = Information::where('slug', $slug)->firstOrFail();
+        $user = User::first();
 
-        return view('home.information.show', compact('information'));
+        return view('home.information.show', compact('information', 'user'));
     }
 }
