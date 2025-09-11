@@ -23,7 +23,7 @@ Route::prefix('')->name('home.')->group(function () {
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
     // CART & INVOICE
-    Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
+    Route::get('/whistlist', [HomeController::class, 'whistlist'])->name('whistlist');
     Route::get('/invoice', [HomeController::class, 'invoice'])->name('invoice');
 
     // INFORMATION

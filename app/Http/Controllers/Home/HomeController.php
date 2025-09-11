@@ -41,10 +41,10 @@ class HomeController extends Controller
     }
 
     // CART PAGE CONTROLLER
-    public function cart()
+    public function whistlist()
     {
         $user = User::first();
-        return view('home.cart.main', compact('user'));
+        return view('home.whistlist.main', compact('user'));
     }
 
     // INVOICE PAGE CONTROLLER (*BUG)

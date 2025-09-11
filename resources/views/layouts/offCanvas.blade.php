@@ -59,8 +59,8 @@
                     <a href="#">Notifikasi</a>
                 </li>
                 <li class="d-flex align-items-center">
-                    <img src="{{ asset('dist/icons/user-sidebar/cart.svg') }}" alt="Keranjang" width="20">
-                    <a href="/cart">Keranjang</a>
+                    <img src="{{ asset('dist/icons/user-sidebar/whistlist.svg') }}" alt="Whistlist" width="20">
+                    <a href="/whistlist">Whistlist</a>
                 </li>
                 <li class="d-flex align-items-center">
                     <img src="{{ asset('dist/icons/user-sidebar/transaction.svg') }}" alt="Transaksi" width="20">
@@ -84,4 +84,5 @@
         </span>
 
     </div>
+    
 @endif

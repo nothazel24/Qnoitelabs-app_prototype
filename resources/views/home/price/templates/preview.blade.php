@@ -1,13 +1,26 @@
 <section style="background-color: #EFEFEF;">
 
     <div class="container pb-5 pb-md-0" style="padding-top: 4.5rem;">
+
         <div class="row d-flex align-items-center">
+
             <div class="col-lg-4" data-aos="fade-right" data-aos-duration="1100">
+                {{-- BREADCRUMB --}}
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/price" class="text-decoration-none">Daftar
+                                Produk</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            {{ Str::limit($products->title, 50) }}</li>
+                    </ol>
+                </nav>
+
                 {{-- IMAGE SECTION --}}
                 @if ($products->image)
                     <div class="ratio ratio-1x1">
                         <img class="card-img-top object-fit-cover rounded"
-                            src="{{ asset('storage/' . $products->image) }}" alt="Gambar Produk: {{ $products->title }}">
+                            src="{{ asset('storage/' . $products->image) }}"
+                            alt="Gambar Produk: {{ $products->title }}">
                     </div>
                 @else
                     <div class="ratio ratio-1x1 rounded d-flex align-items-center"
@@ -65,13 +78,6 @@
                     </div>
 
                     <hr class="my-3">
-
-                    {{-- BUTTON SECTION --}}
-                    <div class="d-flex justify-content-between align-items-center">
-                        <a href="/price" class="btn btn-secondary">
-                            <i class="fas fa-arrow-left me-2"></i> Kembali ke Daftar produk
-                        </a>
-                    </div> {{-- END OF BUTTON SECTION --}}
 
                 </div> {{-- END OF CONTENT SECTION --}}
             </div>

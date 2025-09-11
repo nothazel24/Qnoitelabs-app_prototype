@@ -30,12 +30,13 @@
                             </a>
                         </div>
 
-                        {{-- SEARCH SECTION --}}
+                        {{-- SEARCH SECTION (BUG*) --}}
                         <form action="" method="GET" autocomplete="off" novalidate>
                             @csrf
 
                             <div class="d-flex">
-                                <input type="text" name="text" placeholder="Cari produk" class="form-control form"
+                                <input type="text" name="text" placeholder="Cari produk"
+                                    class="form-control form {{ request()->is(['price/*', 'information/*']) ? 'form-dark' : 'form-dark' }}"
                                     style="background-color: transparent;">
 
                                 {{-- Submit button --}}
@@ -84,11 +85,13 @@
 
                         <div class="image">
                             @if (Auth::user()->image)
-                                <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="{{ Auth::user()->name }}'s pfp"
-                                    class="rounded-circle ms-3" style="max-width: 38px; cursor: pointer;" onclick="opensidebar()" title="Buka Sidebar">
+                                <img src="{{ asset('storage/' . Auth::user()->image) }}"
+                                    alt="{{ Auth::user()->name }}'s pfp" class="rounded-circle ms-3"
+                                    style="max-width: 38px; cursor: pointer;" onclick="opensidebar()" title="Buka Sidebar">
                             @else
                                 <img src="{{ asset('dist/images/profile.jpg') }}" alt="{{ Auth::user()->name }}'s pfp"
-                                    class="rounded-circle ms-3" style="max-width: 38px; cursor: pointer;" onclick="opensidebar()" title="Buka Sidebar">
+                                    class="rounded-circle ms-3" style="max-width: 38px; cursor: pointer;"
+                                    onclick="opensidebar()" title="Buka Sidebar">
                             @endif
                         </div>
 
