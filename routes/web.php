@@ -41,7 +41,7 @@ Route::prefix('')->name('home.')->group(function () {
 });
 
 //Route semua pengguna
-Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'security'])->prefix('admin')->name('admin.')->group(function () {
     //route untuk dashboard
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('article', ArticleController::class);
@@ -54,7 +54,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 });
 
 // Route admin
-Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'role:admin', 'security'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('users', UserController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('webCategories', WebsiteCategoryController::class);

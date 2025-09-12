@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,6 +9,8 @@
 
 <body style="background-color: #3A7CA5;">
     <div class="min-h-screen">
+        @include('layouts.notification')
+        @include('layouts.logoutPopup')
         @include('layouts.navbar')
         @include('layouts.offCanvas')
 
