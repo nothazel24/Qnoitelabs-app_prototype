@@ -106,17 +106,7 @@ class InformationController extends Controller
             'status' => 'nullable|boolean',
         ]);
 
-        // VALIDASI DUPLIKASI SLUG
         $slug = Str::slug($request->title);
-        $count = Information::where('slug', $slug)->count();
-
-        if ($count > 0) {
-            return redirect()->route('admin.information.index')->with([
-                'messages' => 'Judul informasi telah digunakan, gunakan judul yang lain.',
-                'type' => 'danger',
-                'id' => 'fail-notification'
-            ]);
-        }
 
         $information->update([
             'title' => $request->title,

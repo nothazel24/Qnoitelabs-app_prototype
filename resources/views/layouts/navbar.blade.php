@@ -1,6 +1,6 @@
 {{-- NAVBAR SECTION --}}
 <nav
-    class="container-fluid navbar navbar-expand-lg py-3 d-flex flex-row {{ request()->is(['price/*', 'information/*']) ? 'fixed-top nav-bg' : 'fixed-top' }}">
+    class="container-fluid navbar navbar-expand-lg py-3 d-flex flex-row {{ request()->is(['price/*', 'information/*', 'whistlist']) ? 'fixed-top nav-bg' : 'fixed-top' }}">
 
     <div class="container px-4 px-sm-0" data-aos="fade-down" data-aos-duration="1100">
         <a class="navbar-brand" href="/">
@@ -36,12 +36,12 @@
 
                             <div class="d-flex">
                                 <input type="text" name="text" placeholder="Cari produk"
-                                    class="form-control form {{ request()->is(['price/*', 'information/*']) ? 'form-dark' : 'form-dark' }}"
+                                    class="form-control @if (request()->is(['price/*', 'information/*', 'whistlist'])) form-dark @else form @endif"
                                     style="background-color: transparent;">
 
                                 {{-- Submit button --}}
                                 <button type="submit" class="text-white px-3">
-                                    <img src="{{ asset('dist/icons/search.svg') }}" alt="search" width="35">
+                                    <img src="{{ asset('dist/icons/search.svg') }}" alt="search" width="35" title="Cari sekarang">
                                 </button>
                             </div>
 

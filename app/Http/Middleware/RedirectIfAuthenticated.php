@@ -20,7 +20,7 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                if (Auth::user()->role === 'admin' && 'author') {
+                if (Auth::user()->role == 'admin' && 'author') {
                     return redirect('/admin/dashboard');
                 } else {
                     return redirect('/price');

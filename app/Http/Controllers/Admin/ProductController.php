@@ -72,7 +72,6 @@ class ProductController extends Controller
 
             // Jika ada kesalahan dalam penghitungan harga, perhatikan konfigurasi dibawah
             'discount' => 'nullable|numeric|min:0|max:100',
-            'stock' => 'required|integer|min:0',
             'sku' => 'nullable|string|max:50|unique:products,sku' . $product->id,
         ]);
 
@@ -104,7 +103,6 @@ class ProductController extends Controller
             'status' => $request->boolean('status', false),
             'price' => $request->price,
             'discount' => $request->discount,
-            'stock' => $request->stock,
             'sku' => $request->sku ?? strtoupper(Str::random(5)), 
         ]);
 
@@ -162,21 +160,11 @@ class ProductController extends Controller
 
             // Jika ada kesalahan dalam penghitungan harga, perhatikan konfigurasi dibawah
             'discount' => 'nullable|numeric|min:0|max:100',
-            'stock' => 'required|integer|min:0',
             'sku' => 'nullable|string|max:50|unique:products,sku' . $product->id,
         ]);
 
         // VALIDASI DULPLIKASI SLUG
         $slug = Str::slug($request->title);
-        $count = Products::where('slug', $slug)->count();
-
-        if ($count > 0) {
-            return redirect()->route('admin.products.index')->with([
-                'messages' => 'Judul produk telah digunakan, gunakan judul yang lain.',
-                'type' => 'danger',
-                'id' => 'fail-notification'
-            ]);
-        }
 
         $imagePath = $product->image;
         if ($request->hasFile('image')) {
@@ -204,7 +192,6 @@ class ProductController extends Controller
             'status' => $request->boolean('status', false),
             'price' => $request->price,
             'discount' => $request->discount,
-            'stock' => $request->stock,
             'sku' => $request->sku ?? strtoupper(Str::random(5)),
         ]);
 

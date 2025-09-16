@@ -50,7 +50,6 @@
                                     <th>SKU</th>
                                     <th>Kategori</th>
                                     <th>Harga Jual</th>
-                                    <th>Stock</th>
                                     <th>Penjual</th>
                                     <th>Status</th>
                                     <th>Dibuat Pada</th>
@@ -73,7 +72,6 @@
                                         <td>{{ $val->sku ?? '-' }}</td>
                                         <td>{{ $val->website_category->name }}</td>
                                         <td>Rp{{ number_format($val->price, 0, ',', '.') }}</td>
-                                        <td>{{ $val->stock }}</td>
                                         <td>{{ $val->user->name }}</td>
                                         <td class="text-center">
                                             @if ($val->status)

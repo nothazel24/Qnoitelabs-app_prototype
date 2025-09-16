@@ -23,11 +23,11 @@ class DashboardController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
 
-            if ($user->role === 'admin') {
+            if ($user->role == 'admin') {
                 // Jika admin, ambil semua artikel
                 $articles = Article::where('status', true)->get();
                 $latestArticles = Article::where('status', true)->latest()->limit(10)->get();
-            } elseif ($user->role === 'author') {
+            } elseif ($user->role == 'author') {
                 // Jika author, ambil artikel yang dia tulis saja
                 $articles = Article::where('user_id', $user->id)
                     ->where('status', true)

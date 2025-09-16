@@ -18,7 +18,6 @@ class Products extends Model
         'status',
         'price',
         'discount',
-        'stock',
         'sku',
     ];
 

@@ -12,7 +12,11 @@ class CheckUserRole
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
         if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'You must be logged in to access this page.');
+            return redirect()->route('login')->with([
+                'messages' => 'Silahkan login terlebih dahulu',
+                'type' => 'danger',
+                'id' => 'failed-notification'
+            ]);
         }
 
         $user = Auth::user();

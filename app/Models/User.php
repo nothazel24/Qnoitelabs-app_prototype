@@ -62,19 +62,19 @@ class User extends Authenticatable
     // Cek apakah user adalah admin
     public function isAdmin()
     {
-        return $this->role === 'admin';
+        return $this->role == 'admin';
     }
 
     // Cek apakah user adalah author
     public function isAuthor()
     {
-        return $this->role === 'author';
+        return $this->role == 'author';
     }
 
     // Cek apakah user adalah user
     public function isUser()
     {
-        return $this->role === 'user';
+        return $this->role == 'user';
     }
 
     // Relasi One-to-Many dengan Article

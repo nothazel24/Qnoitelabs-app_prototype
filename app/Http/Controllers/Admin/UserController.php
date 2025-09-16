@@ -84,7 +84,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'gender' => $request->gender, 
+            'gender' => $request->gender,
             'role' => $request->role,
             'phone' => $request->phone,
             'instagram' => $request->instagram,
@@ -97,7 +97,7 @@ class UserController extends Controller
         ]);
 
         return redirect()->route('admin.users.index')->with([
-            'messages' => 'Pengguna berhasil dibuat.', 
+            'messages' => 'Pengguna berhasil dibuat.',
             'type' => 'success',
             'id' => 'success-notification'
         ]);
@@ -122,9 +122,12 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        // Pencegahan agar user tidak mengedit akunnya sendiri dari halaman ini
-        if ($user->id === Auth::id()) {
-            return redirect()->route('admin.users.index')->with('error', 'Anda tidak dapat mengedit akun Anda sendiri dari sini. Gunakan halaman profil.');
+        if ($user->id == Auth::id()) {
+            return redirect()->route('admin.users.index')->with([
+                'messages' => 'Anda tidak dapat mengedit akun Anda sendiri dari sini. Gunakan halaman profil.',
+                'type' => 'danger',
+                'id' => 'failed-notification'
+            ]);
         }
         return view('admin.users.edit', compact('user'));
     }
@@ -138,9 +141,12 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        // Pencegahan agar user tidak mengupdate akunnya sendiri dari halaman ini
-        if ($user->id === Auth::id()) {
-            return redirect()->route('admin.users.index')->with('error', 'Anda tidak dapat memperbarui akun Anda sendiri dari sini. Gunakan halaman profil.');
+        if ($user->id == Auth::id()) {
+            return redirect()->route('admin.users.index')->with([
+                'messages' => 'Anda tidak dapat memperbarui akun Anda sendiri dari sini. Gunakan halaman profil.',
+                'type' => 'danger',
+                'id' => 'failed-notification'
+            ]);
         }
 
         $rules = [
@@ -156,7 +162,6 @@ class UserController extends Controller
             'postal_code' => ['nullable', 'string', 'max:10'],
         ];
 
-        // Hanya tambahkan validasi password jika field password diisi
         if ($request->filled('password')) {
             $rules['password'] = ['nullable', 'string', 'min:8', 'confirmed'];
         }
@@ -195,7 +200,6 @@ class UserController extends Controller
             'postal_code' => $request->postal_code,
         ];
 
-        // Update password hanya jika field password diisi
         if ($request->filled('password')) {
             $userData['password'] = Hash::make($request->password);
         }
@@ -203,7 +207,7 @@ class UserController extends Controller
         $user->update($userData);
 
         return redirect()->route('admin.users.index')->with([
-            'messages' => 'Pengguna berhasil diupdate.', 
+            'messages' => 'Pengguna berhasil diupdate.',
             'type' => 'success',
             'id' => 'success-notification'
         ]);
@@ -217,9 +221,12 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        // Pencegahan agar user tidak bisa menghapus akunnya sendiri
-        if ($user->id === Auth::id()) {
-            return redirect()->route('admin.users.index')->with('error', 'Anda tidak dapat menghapus akun Anda sendiri.');
+        if ($user->id == Auth::id()) {
+            return redirect()->route('admin.users.index')->with([
+                'messages' => 'Anda tidak dapat menghapus akun Anda sendiri.',
+                'type' => 'danger', 
+                'id' => 'failed-notification'
+            ]);
         }
 
         if ($user->image) {
@@ -228,7 +235,7 @@ class UserController extends Controller
 
         $user->delete();
         return redirect()->route('admin.users.index')->with([
-            'messages' => 'Pengguna berhasil dihapus.', 
+            'messages' => 'Pengguna berhasil dihapus.',
             'type' => 'success',
             'id' => 'success-notification'
         ]);

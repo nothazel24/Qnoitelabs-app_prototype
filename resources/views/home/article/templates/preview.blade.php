@@ -1,4 +1,4 @@
-<section class="article-{{ $articles->title }}" style="background-color: #fefefe; overflow-x: hidden;">
+<section class="article-{{ $articles->slug }}" style="background-color: #fefefe; overflow-x: hidden;">
 
     <div class="container-fluid position-relative p-0 m-0" style="height: 450px;">
         @if ($articles->image)
@@ -19,7 +19,7 @@
             </h1>
             <div class="text-muted mb-4 d-flex flex-wrap align-items-center small">
                 <span class="me-3">
-                    <i class="fas fa-user me-1"></i> Penulis: <strong>{{ $articles->user->name }}</strong>
+                    <i class="fas fa-user me-1"></i> Penulis: <strong style="cursor: pointer;">{{ $articles->user->name }}</strong>
                 </span>
                 <span class="me-3">
                     <i class="fas fa-tag me-1"></i> Kategori:

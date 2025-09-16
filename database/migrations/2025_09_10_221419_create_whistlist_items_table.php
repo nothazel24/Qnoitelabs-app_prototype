@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('whistlist_id')->constrained()->onDelete('cascade');
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->integer('quantity');
             $table->decimal('price_at_add', 10, 2);
             $table->decimal('discount_at_add', 10, 2)->nullable()->default(0);
             $table->timestamps();

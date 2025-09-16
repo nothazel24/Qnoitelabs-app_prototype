@@ -40,22 +40,6 @@ class HomeController extends Controller
         return view('home.contact.main', compact('user'));
     }
 
-    // CART PAGE CONTROLLER
-    public function whistlist()
-    {
-        $user = User::first();
-        return view('home.whistlist.main', compact('user'));
-    }
-
-    // INVOICE PAGE CONTROLLER (*BUG)
-    public function invoice($slug)
-    {
-        $product = Products::where('slug', $slug)->firstOrFail();
-        $user = User::first();
-
-        return view('home.invoice.main', compact('product', 'user'));
-    }
-
     // ARTICLE CONTROLLER
     public function articles(Request $request)
     {

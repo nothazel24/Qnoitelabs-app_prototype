@@ -8,12 +8,12 @@
                 <div class="image">
                     @if (Auth::user()->image)
                         <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="{{ Auth::user()->name }}'s pfp"
-                            class="rounded-circle ms-3" style="max-width: 40px; cursor: pointer;" onclick="opensidebar()"
+                            class="rounded-circle ms-3" style="max-width: 40px; cursor: pointer;"
                             title="{{ Auth::user()->name }}">
                     @else
                         <img src="{{ asset('dist/images/profile.jpg') }}" alt="{{ Auth::user()->name }}'s pfp"
                             class="rounded-circle ms-3" style="max-width: 40px; cursor: pointer;"
-                            onclick="opensidebar()" title="{{ Auth::user()->name }}">
+                            title="{{ Auth::user()->name }}">
                     @endif
                 </div>
 
@@ -57,18 +57,24 @@
                     <a class="nav-link @if (request()->is(['price', 'price/*'])) active-link @endif" href="/price">Paket &
                         harga</a>
                 </li>
-                <li class="d-flex align-items-center">
-                    <img src="{{ asset('dist/icons/user-sidebar/notification.svg') }}" alt="Notifikasi" width="20">
-                    <a href="#">Notifikasi</a>
-                </li>
-                <li class="d-flex align-items-center">
-                    <img src="{{ asset('dist/icons/user-sidebar/whistlist.svg') }}" alt="Whistlist" width="20">
-                    <a href="/whistlist">Whistlist</a>
-                </li>
-                <li class="d-flex align-items-center">
-                    <img src="{{ asset('dist/icons/user-sidebar/transaction.svg') }}" alt="Transaksi" width="20">
-                    <a href="#">Transaksi</a>
-                </li>
+                @if (Auth::user()->role == 'admin')
+                    <li class="d-flex align-items-center">
+                        <img src="{{ asset('dist/icons/user-sidebar/dashboard.svg') }}" alt="Whistlist" width="20">
+                        <a class="nav-link" href="/admin/dashboard">Dashboard</a>
+                    </li>
+                @else
+                    <li class="d-flex align-items-center">
+                        <img src="{{ asset('dist/icons/user-sidebar/notification.svg') }}" alt="Notifikasi"
+                            width="20">
+                        <a class="nav-link @if (request()->is('notification')) active-link @endif"
+                            href="#">Notifikasi</a>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <img src="{{ asset('dist/icons/user-sidebar/whistlist.svg') }}" alt="Whistlist" width="20">
+                        <a class="nav-link @if (request()->is('whistlist')) active-link @endif"
+                            href="/whistlist">Whistlist</a>
+                    </li>
+                @endif
                 <li class="d-flex align-items-center">
                     <img src="{{ asset('dist/icons/user-sidebar/logout.svg') }}" alt="logout" width="20">
                     <form method="POST" action="{{ route('logout') }}">

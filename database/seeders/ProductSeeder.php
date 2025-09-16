@@ -37,7 +37,6 @@ class ProductSeeder extends Seeder
                     'status' => true,
                     'price' => 0,
                     'discount' => 0,
-                    'stock' => 0,
                     'sku' => strtoupper(Str::random(5)),
                 ]);
             }

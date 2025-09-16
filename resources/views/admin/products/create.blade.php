@@ -53,11 +53,11 @@
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <div class="col-lg-6 mb-2">
-                                    <label for="stock" class="form-label">Stock</label>
-                                    <input type="text" class="form-control @error('stock') is-invalid @enderror"
-                                        id="stock" name="stock" value="{{ old('stock') }}" required>
-                                    @error('title')
+                                <div class="col-lg-12 mb-2">
+                                    <label for="image" class="form-label">Gambar Produk</label>
+                                    <input type="file" class="form-control @error('image') is-invalid @enderror"
+                                        id="image" name="image">
+                                    @error('image')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -82,14 +82,6 @@
                                         @endforeach
                                     </select>
                                     @error('website_category_id')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-6 mb-2">
-                                    <label for="image" class="form-label">Gambar Produk</label>
-                                    <input type="file" class="form-control @error('image') is-invalid @enderror"
-                                        id="image" name="image">
-                                    @error('image')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>

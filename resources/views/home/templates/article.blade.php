@@ -26,7 +26,7 @@
                         @else
                             <div class="card-img-top d-flex align-items-center justify-content-center text-white-50 ratio ratio-16x9"
                                 style=" background: url('https://github.com/nothazel24/nothazel24/blob/main/assets/banner.png?raw=true'); background-size: cover; background-position: center; border-radius: 10px 10px 0 0; filter: brightness(80%);">
-                                MyBlog Image
+                                Article Image
                             </div>
                         @endif
                         <div class="p-4">

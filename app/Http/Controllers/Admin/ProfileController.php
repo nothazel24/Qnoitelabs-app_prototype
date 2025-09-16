@@ -109,7 +109,11 @@ class ProfileController extends Controller
         // Logika pengalihan artikel dari user/author ke admin
         $adminUser = User::where('role', 'admin')->first();
         if (!$adminUser) {
-            return Redirect::back()->with('error', 'Tidak bisa menghapus akun. Admin user tidak dapat ditemukan untuk men-transfer artikel');
+            return Redirect::back()->with([
+                'messages' => 'Tidak bisa menghapus akun. Admin user tidak dapat ditemukan untuk men-transfer artikel',
+                'type' => 'danger', 
+                'id' => 'failed-notification'
+            ]);
         }
 
         // Mengalihkan kepemilikan artikel 

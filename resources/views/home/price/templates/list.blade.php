@@ -78,16 +78,16 @@
                                         <div class="img">
                                             <img src="{{ asset('storage/' . $val->image) }}"
                                                 alt="gambar-{{ $val->title }}"
-                                                style="border-radius: 10px 10px 0 0; filter: brightness(80%); object-fit: cover; width: 100%;">
+                                                style="border-radius: 10px 10px 0 0; filter: brightness(80%); object-fit: cover; width: 100%; height: 150px;">
                                         </div>
                                     @else
-                                        <div class="card-img-top d-flex align-items-center justify-content-center text-white-50 ratio ratio-16x9"
-                                            style=" background: url('https://github.com/nothazel24/nothazel24/blob/main/assets/banner.png?raw=true'); background-size: cover; background-position: center; border-radius: 10px 10px 0 0; filter: brightness(80%);">
+                                        <div class="card-img-top d-flex align-items-center justify-content-center text-white-50 "
+                                            style=" background: url('https://github.com/nothazel24/nothazel24/blob/main/assets/banner.png?raw=true'); background-size: cover; background-position: center; border-radius: 10px 10px 0 0; filter: brightness(80%); width: 100%; height: 150px;">
                                             Product Image
                                         </div>
                                     @endif
                                     <div class="p-4">
-                                        <h1 style="font-size: 22px;">{{ Str::limit($val->title, 30) }}</h1>
+                                        <h1 style="font-size: 22px;">{{ Str::limit($val->title, 15) }}</h1>
                                         <p class="p-0 m-0" style="font-size: 22px;">
                                             Rp{{ number_format($val->price - ($val->price * $val->discount) / 100, 0, ',', '.') ?? '-' }}
                                         </p>
@@ -106,14 +106,10 @@
                                             <p style="font-size: 15px;" class="p-0 m-0">{{ $val->user->name }}</p>
                                         </div>
 
-                                        <div class="d-flex gap-3">
-                                            <div class="d-flex gap-2 align-items-center">
-                                                <img src="{{ asset('dist/icons/star.svg') }}" alt="star"
-                                                    width="18">
-                                                <p style="font-size: 12px" class="p-0 m-0">4.4</p>
-                                            </div>
-
-                                            <p style="font-size: 12px" class="p-0 m-0">Stock : {{ $val->stock }}</p>
+                                        <div class="d-flex gap-2 align-items-center">
+                                            <img src="{{ asset('dist/icons/star.svg') }}" alt="star"
+                                                width="18">
+                                            <p style="font-size: 12px" class="p-0 m-0">4.4</p>
                                         </div>
 
                                     </div>

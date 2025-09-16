@@ -10,7 +10,10 @@ use App\Http\Controllers\Admin\WebsiteCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Home\WhistlistController;
 
+use App\Models\Whistlist;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 
@@ -22,8 +25,14 @@ Route::prefix('')->name('home.')->group(function () {
     Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
-    // CART & INVOICE
-    Route::get('/whistlist', [HomeController::class, 'whistlist'])->name('whistlist');
+    // WHISTLIST ROUTE
+    // Route::get('/whistlist', [HomeController::class, 'whistlist'])->name('whistlist');
+    Route::prefix('whistlist')->name('whistlist.')->group(function () {
+        Route::post('/add/{product:slug}', [WhistlistController::class, 'addToWhistlist'])->name('add')->middleware('auth');
+        Route::get('/', [WhistlistController::class, 'showWhistlist'])->name('show');
+        Route::delete('/remove/{slug}', [WhistlistController::class, 'removeWhistlist'])->name('remove');
+    });
+
     Route::get('/invoice', [HomeController::class, 'invoice'])->name('invoice');
 
     // INFORMATION

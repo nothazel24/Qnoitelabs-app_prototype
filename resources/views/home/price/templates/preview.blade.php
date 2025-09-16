@@ -1,8 +1,8 @@
-<section style="background-color: #EFEFEF;">
+<section class="product-{{ $products->slug }}" style="background-color: #EFEFEF;">
 
-    <div class="container pb-5 pb-md-0" style="padding-top: 4.5rem;">
+    <div class="container pb-5 pb-md-0" style="padding-top: 7rem;">
 
-        <div class="row d-flex align-items-center">
+        <div class="row">
 
             <div class="col-lg-4" data-aos="fade-right" data-aos-duration="1100">
                 {{-- BREADCRUMB --}}
@@ -31,7 +31,7 @@
 
             <div class="col-lg-8" data-aos="fade-right" data-aos-delay="800">
                 {{-- CONTENT SECTION --}}
-                <div class="card-body p-4 p-md-5">
+                <div class="card-body p-4">
                     <h1 class="card-title mb-3" style="font-size: 2rem; font-weight: 700;">{{ $products->title }}</h1>
                     <div class="text-muted mb-4 d-flex flex-wrap align-items-center small"> {{-- Mengurangi ukuran font meta --}}
                         <span class="me-3">
@@ -53,23 +53,25 @@
                     <div class="row">
                         <div class="col-lg-5 col-sm-6">
                             <p>Harga</p>
-                            <p>Stock</p>
+                            {{-- <p>Stock</p> --}}
                             <p>Diskon</p>
                             <p>Harga setelah diskon</p>
                         </div>
                         <div class="col-lg-1 d-none d-md-block">
-                            @for ($i = 0; $i < 4; $i++)
+                            @for ($i = 0; $i < 3; $i++)
                                 <p>:</p>
                             @endfor
                         </div>
                         <div class="col-lg-6 col-sm-6">
                             <p>Rp{{ number_format($products->price, 0, ',', '.') }}</p>
-                            <p>{{ $products->stock }}</p>
+                            {{-- <p>{{ $products->stock }}</p> --}}
                             <p>{{ number_format($products->discount, 0, ',', '.') }} %</p>
                             <p>Rp{{ number_format($products->price - ($products->price * $products->discount) / 100, 0, ',', '.') ?? '-' }}
                             </p>
                         </div>
                     </div>
+
+                    <hr class="m-0 p-0">
 
                     {{-- PRODUCT DESCRIPTION --}}
                     <div class="note-editable mt-4" style="font-size: 1rem; line-height: 1.5;">
@@ -77,7 +79,18 @@
                         {!! $products->content !!}
                     </div>
 
-                    <hr class="my-3">
+                    <div class="d-flex justify-content-between my-4">
+                        <a href="#" class="btn btn-sm btn-outline-success py-3 px-5">
+                            Order Sekarang
+                        </a>
+                        <form action="{{ route('home.whistlist.add', $products->slug) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="bg-danger p-3 rounded-circle" title="Whislist">
+                                <img src="{{ asset('dist/icons/whistlist.svg') }}" alt="Whistlist">
+                            </button>
+                        </form>
+                    </div>
+
 
                 </div> {{-- END OF CONTENT SECTION --}}
             </div>

@@ -34,3 +34,7 @@
     cursor: pointer;
     color: #fff;
 }
+
+.link .nav-link.active-link {
+    text-decoration: 2px #3A7CA5 underline;
+}
