@@ -26,10 +26,6 @@ class User extends Authenticatable
         'instagram',
         'role',
         'image',
-        'address',
-        'city',
-        'province',
-        'postal_code'
     ];
 
     /**

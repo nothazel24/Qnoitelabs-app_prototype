@@ -20,12 +20,8 @@ return new class extends Migration
             $table->enum('gender', ['Laki-laki', 'Perempuan', 'Lainnya'])->default('Lainnya');
             $table->string('phone');
             $table->string('instagram')->nullable();
-            $table->string('role')->default('user'); // Default role 'user'
+            $table->string('role')->default('user');
             $table->string('image')->nullable();
-            $table->string('address')->nullable();
-            $table->string('city')->nullable();
-            $table->string('province')->nullable();
-            $table->string('postal_code')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

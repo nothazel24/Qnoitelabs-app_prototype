@@ -122,54 +122,6 @@
                                         name="password_confirmation">
                                 </div>
 
-                                {{-- Bagian Alamat --}}
-                                <div class="col-12">
-                                    <h6 class="mt-3 mb-3 border-bottom pb-2">Detail Alamat</h6>
-                                </div>
-
-                                <div class="col-lg-12 mb-3">
-                                    <label for="address" class="form-label">Alamat Lengkap</label>
-                                    <input type="text" class="form-control @error('address') is-invalid @enderror"
-                                        id="address" name="address" value="{{ old('address', $user->address) }}">
-                                    @error('address')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="col-lg-5 mb-3">
-                                    <label for="province" class="form-label">Provinsi</label>
-                                    <select class="form-select @error('province') is-invalid @enderror" id="province"
-                                        name="province">
-                                        <option value="">Pilih Provinsi</option>
-                                        {{-- Opsi provinsi akan dimuat via JavaScript --}}
-                                    </select>
-                                    @error('province')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="col-lg-5 mb-3">
-                                    <label for="city" class="form-label">Kota/Kabupaten</label>
-                                    <select class="form-select @error('city') is-invalid @enderror" id="city"
-                                        name="city">
-                                        <option value="">Pilih Kota/Kabupaten</option>
-                                        {{-- Opsi kota akan dimuat via JavaScript setelah provinsi dipilih --}}
-                                    </select>
-                                    @error('city')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="col-lg-2 mb-3">
-                                    <label for="postal_code" class="form-label">Kode Pos</label>
-                                    <input type="text" class="form-control @error('postal_code') is-invalid @enderror"
-                                        id="postal_code" name="postal_code"
-                                        value="{{ old('postal_code', $user->postal_code) }}">
-                                    @error('postal_code')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
                             </div>
                             <br>
                             <button type="submit" class="btn btn-primary">Update Pengguna</button>
@@ -243,7 +195,7 @@
                             } else {
                                 loadCities(
                                     userProvinceId
-                                    ); // Load cities without pre-selecting if no userCityId
+                                ); // Load cities without pre-selecting if no userCityId
                             }
                         }
                     },

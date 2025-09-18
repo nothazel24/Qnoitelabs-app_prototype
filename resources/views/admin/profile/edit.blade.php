@@ -88,7 +88,7 @@
                     </div>
 
                     {{-- Bagian untuk mengubah password --}}
-                    <div class="col-lg-6 mb-2">
+                    <div class="col-lg-12 mb-2">
                         <label for="current_password" class="form-label">Password Sekarang</label>
                         <input id="current_password" name="current_password" type="password"
                             class="form-control @error('current_password') is-invalid @enderror"

@@ -122,53 +122,6 @@
                                     @enderror
                                 </div>
 
-                                {{-- Bagian Alamat --}}
-                                <div class="col-12">
-                                    <h5 class="mt-3 mb-3 border-bottom pb-2">Detail Alamat</h5>
-                                </div>
-
-                                <div class="col-lg-12 mb-3">
-                                    <label for="address" class="form-label">Alamat Lengkap</label>
-                                    <input type="text" class="form-control @error('address') is-invalid @enderror"
-                                        id="address" name="address" value="{{ old('address') }}">
-                                    @error('address')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="col-lg-6 mb-3">
-                                    <label for="province" class="form-label">Provinsi</label>
-                                    <select class="form-select @error('province') is-invalid @enderror" id="province"
-                                        name="province">
-                                        <option value="">Pilih Provinsi</option>
-                                    </select>
-                                    @error('province')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="col-lg-6 mb-3">
-                                    <label for="city" class="form-label">Kota/Kabupaten</label>
-                                    <select class="form-select @error('city') is-invalid @enderror" id="city"
-                                        name="city">
-                                        <option value="">Pilih Kota/Kabupaten</option>
-                                    </select>
-                                    @error('city')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div class="col-lg-6 mb-3">
-                                    <label for="postal_code" class="form-label">Kode Pos</label>
-                                    <input type="text" class="form-control @error('postal_code') is-invalid @enderror"
-                                        id="postal_code" name="postal_code" value="{{ old('postal_code') }}">
-                                    @error('postal_code')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                {{-- Akhir Bagian Alamat --}}
-
                             </div>
                             <br>
                             <button type="submit" class="btn btn-primary">Buat Pengguna</button>

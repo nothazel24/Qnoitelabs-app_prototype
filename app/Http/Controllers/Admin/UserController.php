@@ -67,11 +67,7 @@ class UserController extends Controller
             'phone' => ['required', 'string', 'max:15', 'regex:/^[0-9]+$/'],
             'gender' => ['nullable', Rule::in(['Laki-laki', 'Perempuan', 'Lainnya'])],
             'role' => ['required', 'string', Rule::in(['admin', 'author', 'user'])],
-            'image' => ['nullable', 'image', 'max:2048'],
-            'address' => ['nullable', 'string', 'max:255'],
-            'city' => ['nullable', 'string', 'max:255'],
-            'province' => ['nullable', 'string', 'max:255'],
-            'postal_code' => ['nullable', 'string', 'max:10'],
+            'image' => ['nullable', 'image', 'max:2048']
         ]);
 
         $imagePath = null;
@@ -89,10 +85,6 @@ class UserController extends Controller
             'phone' => $request->phone,
             'instagram' => $request->instagram,
             'image' => $imagePath,
-            'address' => $request->address,
-            'city' => $request->city,
-            'province' => $request->province,
-            'postal_code' => $request->postal_code,
             'email_verified_at' => now(),
         ]);
 
@@ -155,11 +147,7 @@ class UserController extends Controller
             'phone' => ['required', 'string', 'max:255', 'regex:/^[0-9]+$/'],
             'gender' => ['nullable', Rule::in(['Laki-laki', 'Perempuan', 'Lainnya'])],
             'role' => ['required', 'string', Rule::in(['admin', 'author', 'user'])],
-            'image' => ['nullable', 'image', 'max:2048'],
-            'address' => ['nullable', 'string', 'max:255'],
-            'city' => ['nullable', 'string', 'max:255'],
-            'province' => ['nullable', 'string', 'max:255'],
-            'postal_code' => ['nullable', 'string', 'max:10'],
+            'image' => ['nullable', 'image', 'max:2048']
         ];
 
         if ($request->filled('password')) {
@@ -193,11 +181,7 @@ class UserController extends Controller
             'gender' => $request->gender,
             'phone' => $request->phone,
             'instagram' => $request->instagram,
-            'image' => $imagePath,
-            'address' => $request->address,
-            'city' => $request->city,
-            'province' => $request->province,
-            'postal_code' => $request->postal_code,
+            'image' => $imagePath
         ];
 
         if ($request->filled('password')) {
