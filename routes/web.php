@@ -10,10 +10,8 @@ use App\Http\Controllers\Admin\WebsiteCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Home\HomeController;
-use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Home\WhistlistController;
 
-use App\Models\Whistlist;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 

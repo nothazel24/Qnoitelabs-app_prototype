@@ -64,12 +64,6 @@
                     </li>
                 @else
                     <li class="d-flex align-items-center">
-                        <img src="{{ asset('dist/icons/user-sidebar/notification.svg') }}" alt="Notifikasi"
-                            width="20">
-                        <a class="nav-link @if (request()->is('notification')) active-link @endif"
-                            href="#">Notifikasi</a>
-                    </li>
-                    <li class="d-flex align-items-center">
                         <img src="{{ asset('dist/icons/user-sidebar/whistlist.svg') }}" alt="Whistlist" width="20">
                         <a class="nav-link @if (request()->is('whistlist')) active-link @endif"
                             href="/whistlist">Whistlist</a>

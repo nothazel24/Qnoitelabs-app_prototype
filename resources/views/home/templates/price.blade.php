@@ -21,7 +21,31 @@
                     <p class="m-0" style="font-size: 14px">Cocok untuk Pemula</p>
                     <h2 class="m-5">CALL US</h2>
                     <hr class="mx-3">
-                    <button class="btn px-4 py-2 text-white" style="background-color: #3A7CA5">
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">Domain .com</p>
+                    </div>
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">Kapasitas 1GB (Shared Hosting) </p>
+                    </div>
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">1 Email Profesional</p>
+                    </div>
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">8 Halaman Website</p>
+                    </div>
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">Full Akses Admin</p>
+                    </div>
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">2x Revisi Desain</p>
+                    </div>
+                    <button class="btn py-3 text-white w-100 mt-2" style="background-color: #3A7CA5">
                         Konsultasi dengan kami
                     </button>
                 </div>
@@ -29,11 +53,35 @@
 
             <div class="col-lg my-4 bg-white rounded py-5 box-animated-down">
                 <div class="inner text-center p-3">
-                    <h1 style="font-size: 16px;" class="fw-bold m-0">PAKET UMKM</h1>
+                    <h1 style="font-size: 16px;" class="fw-bold m-0">PAKET BISNIS</h1>
                     <p class="m-0" style="font-size: 14px">Cocok untuk Pemula</p>
                     <h2 class="m-5">CALL US</h2>
                     <hr class="mx-3">
-                    <button class="btn px-4 py-2 text-white" style="background-color: #3A7CA5">
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">Domain .com</p>
+                    </div>
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">Kapasitas 1GB (Shared Hosting) </p>
+                    </div>
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">1 Email Profesional</p>
+                    </div>
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">8 Halaman Website</p>
+                    </div>
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">Full Akses Admin</p>
+                    </div>
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">2x Revisi Desain</p>
+                    </div>
+                    <button class="btn py-3 text-white w-100 mt-2" style="background-color: #3A7CA5">
                         Konsultasi dengan kami
                     </button>
                 </div>
@@ -41,11 +89,35 @@
 
             <div class="col-lg my-4 bg-white rounded py-5 box-animated-down">
                 <div class="inner text-center p-3">
-                    <h1 style="font-size: 16px;" class="fw-bold m-0">PAKET UMKM</h1>
+                    <h1 style="font-size: 16px;" class="fw-bold m-0">PAKET CORPORATE</h1>
                     <p class="m-0" style="font-size: 14px">Cocok untuk Pemula</p>
                     <h2 class="m-5">CALL US</h2>
                     <hr class="mx-3">
-                    <button class="btn px-4 py-2 text-white" style="background-color: #3A7CA5">
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">Domain .com</p>
+                    </div>
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">Kapasitas 1GB (Shared Hosting) </p>
+                    </div>
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">1 Email Profesional</p>
+                    </div>
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">8 Halaman Website</p>
+                    </div>
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">Full Akses Admin</p>
+                    </div>
+                    <div class="d-flex flex-row gap-2 ailgn-items-center m-3">
+                        <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                        <p class="p-0 m-0">2x Revisi Desain</p>
+                    </div>
+                    <button class="btn py-3 text-white w-100 mt-2" style="background-color: #3A7CA5">
                         Konsultasi dengan kami
                     </button>
                 </div>

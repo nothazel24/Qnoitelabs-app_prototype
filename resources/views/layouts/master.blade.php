@@ -11,6 +11,7 @@
     <div class="min-h-screen">
         @include('layouts.notification')
         @include('layouts.logoutPopup')
+        @include('layouts.confirmationPopUp')
         @include('layouts.navbar')
         @include('layouts.offCanvas')
 

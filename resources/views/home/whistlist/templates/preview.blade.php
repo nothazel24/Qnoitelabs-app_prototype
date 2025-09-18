@@ -77,12 +77,12 @@
                                             @endif
                                         </div>
                                         <div class="col-md-3 text-end d-flex gap-2 justify-content-end">
-                                            <form action="{{ route('home.whistlist.remove', $item->product->slug) }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-                                            </form>
+                                            <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#confirmation"
+                                                data-action="{{ route('home.whistlist.remove', $item->product->slug) }}"
+                                                data-id="{{ $item->product->slug }}">
+                                                Hapus
+                                            </button>
                                             <a href="https://wa.me/{{ $item->product->user->phone }}"
                                                 class="btn btn-sm btn-success">
                                                 Hubungi penjual
@@ -91,11 +91,11 @@
                                     </div>
                                 @else
                                     <div class="alert alert-warning">
-                                        Produk "{{ $item->product_name ?? 'Tidak Dikenal' }}" ({{ $item->quantity }}x)
-                                        tidak lagi tersedia. <form
-                                            action="{{ route('home.whistlist.remove', $item->id) }}" method="POST"
+                                        Produk "{{ $item->product_name ?? 'Tidak Dikenal' }}" tidak lagi tersedia.
+                                        <form action="{{ route('home.whistlist.remove', $item->id) }}" method="POST"
                                             class="d-inline">@csrf @method('DELETE')<button type="submit"
-                                                class="btn btn-link p-0 m-0 align-baseline">Hapus</button></form>
+                                                class="btn btn-link p-0 m-0 align-baseline">Hapus</button>
+                                        </form>
                                     </div>
                                 @endif
                             @endforeach
@@ -106,8 +106,9 @@
                 </div>
             </div>
         @else
-            <div class="alert alert-info text-center py-4" role="alert">
-                Keranjang belanja Anda kosong. <br> <a href="{{ route('home.product.main') }}" class="alert-link">Mulai
+            <div class="alert alert-secondary text-center py-4" role="alert">
+                <p class="p-0 m-0">Daftar keinginanmu kosong nih, mulai cari produk yang pas buat kamu yuk!</p>
+                <a href="{{ route('home.product.main') }}" class="alert-link">Mulai
                     belanja sekarang!</a>
             </div>
         @endif

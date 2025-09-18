@@ -4,14 +4,11 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Whistlist;
-use App\Models\WhistlistItem;
 use App\Models\Products;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
 
 class WhistlistController extends Controller
@@ -26,7 +23,6 @@ class WhistlistController extends Controller
                 foreach ($guestWhistlist->items as $guestItem) {
                     $existingItem = $whistlist->items()->where('product_id', $guestItem->product_id)->first();
                     if ($existingItem) {
-                        $existingItem->quantity += $guestItem->quantity;
                         $existingItem->save();
                     } else {
                         $guestItem->Whistlist_id = $whistlist->id;
@@ -44,7 +40,7 @@ class WhistlistController extends Controller
         }
     }
 
-    public function addToWhistlist(Products $product, Request $request)
+    public function addToWhistlist(Products $product)
     {
         if (Auth::check() && (Auth::user()->isAdmin() || Auth::user()->isAuthor())) {
             return redirect()->back()->with([
@@ -55,20 +51,28 @@ class WhistlistController extends Controller
         }
 
         $whistlist = $this->getOrCreateWhistlist();
-        $whistlistItem = $whistlist->items()->where('product_id', $product->id)->first();
 
         try {
             DB::beginTransaction();
-            if ($whistlistItem) {
-                $whistlistItem->save();
-            } else {
-                $whistlist->items()->create([
-                    'product_id' => $product->id,
-                    'price_at_add' => $product->price,
-                    'discount_at_add' => $product->discount,
+
+            $exists = $whistlist->items()->where('product_id', $product->id)->exists();
+
+            if ($exists) {
+                DB::commit();
+                return redirect()->back()->with([
+                    'messages' => 'Produk sudah ada di daftar keinginanmu.',
+                    'type' => 'danger',
+                    'id' => 'danger-notification'
                 ]);
             }
+
+            $whistlist->items()->updateOrCreate([
+                'product_id' => $product->id,
+                'price_at_add' => $product->price,
+                'discount_at_add' => $product->discount
+            ]);
             DB::commit();
+
             return redirect()->back()->with([
                 'messages' => $product->title . ' berhasil dimasukkan ke daftar keinginanmu!',
                 'type' => 'success',
@@ -76,7 +80,7 @@ class WhistlistController extends Controller
             ]);
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error('Add to cart failed: ' . $e->getMessage());
+            Log::error('Add to whistlist failed: ' . $e->getMessage());
             return redirect()->back()->with([
                 'messages' => 'Aww, sayang sekali, produk yang kamu inginkan tidak bisa kamu masukan kedalam daftar keinginanmu :( : ' . $e->getMessage(),
                 'type' => 'danger',
