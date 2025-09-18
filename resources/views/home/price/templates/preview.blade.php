@@ -1,5 +1,7 @@
 <section class="product-{{ $products->slug }}" style="background-color: #EFEFEF;">
 
+    @include('layouts.userDetail')
+
     <div class="container pb-5 pb-md-0" style="padding-top: 7rem;">
 
         <div class="row">
@@ -35,7 +37,17 @@
                     <h1 class="card-title mb-3" style="font-size: 2rem; font-weight: 700;">{{ $products->title }}</h1>
                     <div class="text-muted mb-4 d-flex flex-wrap align-items-center small"> {{-- Mengurangi ukuran font meta --}}
                         <span class="me-3">
-                            <i class="fas fa-user me-1"></i> Penjual: <strong>{{ $products->user->name }}</strong>
+                            <i class="fas fa-user me-1"></i> Penjual:
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#userDetail"
+                                data-user-image="{{ $products->user->image }}"
+                                data-user-name="{{ $products->user->name }}"
+                                data-user-email="{{ $products->user->email }}"
+                                data-user-phone="{{ $products->user->phone }}"
+                                data-user-instagram="{{ $products->user->instagram }}"
+                                style="cursor: pointer; text-decoration: none; color: #252525;" class="fw-bold"
+                                title="Lihat detail">
+                                {{ $products->user->name }}
+                            </a>
                         </span>
                         <span class="me-3">
                             <i class="fas fa-tag me-1"></i> Kategori:

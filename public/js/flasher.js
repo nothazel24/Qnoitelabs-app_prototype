@@ -1,8 +1,31 @@
 document.addEventListener('DOMContentLoaded', function () {
     const flashModalEl = document.getElementById('flashModal');
+    const userDetailEl = document.getElementById('userDetail');
     if (flashModalEl) {
         var flashModal = new bootstrap.Modal(flashModalEl);
         flashModal.show();
+    }
+
+    if (userDetailEl) {
+        userDetailEl.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            if (!button) return;
+
+            const userImage = button.getAttribute('data-user-image');
+            const userName = button.getAttribute('data-user-name');
+            const userEmail = button.getAttribute('data-user-email');
+            const userPhone = button.getAttribute('data-user-phone');
+            const userInstagram = button.getAttribute('data-user-instagram');
+            
+            document.getElementById('modalUserName').textContent = userName || '-';
+            document.getElementById('modalUserEmail').textContent = userEmail || '-';
+            document.getElementById('modalUserPhone').textContent = userPhone || '-';
+            document.getElementById('modalUserInstagram').textContent = userInstagram || '-';
+
+            // USER IMAGE DATA
+            const imgEl = document.getElementById('modalUserImage');
+            imgEl.src = userImage ? `/storage/${userImage}` : '/dist/images/profile.jpg';
+        });
     }
 
     const confirmationModal = document.getElementById('confirmation');
