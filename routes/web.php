@@ -45,6 +45,10 @@ Route::prefix('')->name('home.')->group(function () {
     Route::get('/price', [HomeController::class, 'products'])->name('product.main');
     Route::get('/price/categories/{id}', [HomeController::class, 'productsCategories'])->name('product.category');
     Route::get('/price/{slug}', [HomeController::class, 'productsShow'])->name('product.show');
+
+    Route::get('/user-edit', [HomeController::class, 'userEdit'])->name('user.edit');
+    Route::patch('user-edit', [HomeController::class, 'userUpdate'])->name('user.update');
+    Route::delete('user-edit', [HomeController::class, 'userDestroy'])->name('user.destroy');
 });
 
 //Route semua pengguna

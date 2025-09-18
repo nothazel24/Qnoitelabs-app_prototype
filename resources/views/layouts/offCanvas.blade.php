@@ -26,7 +26,7 @@
             </div>
 
             <div class="user-settings">
-                <a href="#" title="Pengaturan" style="text-decoration: none;">
+                <a href="/user-edit" title="Edit" style="text-decoration: none;">
                     <img src="{{ asset('dist/icons/user-sidebar/settings.svg') }}" alt="Pengaturan" width="25"
                         style="opacity: 80%;">
                 </a>

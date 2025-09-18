@@ -36,14 +36,10 @@ class ProfileController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'phone' => ['required', 'string', 'max:15', 'regex:/^[0-9]+$/'],
             'instagram' => ['nullable', 'string', 'max:255'],
-            'gender' => ['nullable', Rule::in(['Laki-laki', 'Prempuan', 'Lainnya'])],
+            'gender' => ['nullable', Rule::in(['Laki-laki', 'Perempuan', 'Lainnya'])],
             'image' => ['nullable', 'image', 'max:2048'],
             'current_password' => ['nullable', 'required_with:password', 'current_password'],
-            'password' => ['nullable', 'string', 'min:8', 'comfirmed'],
-            'address' => ['nullable', 'string', 'max:255'],
-            'city' => ['nullable', 'string', 'max:255'],
-            'province' => ['nullable', 'string', 'max:255'],
-            'postal_code' => ['nullable', 'string', 'max:10'],
+            'password' => ['nullable', 'string', 'min:8', 'comfirmed']
         ];
 
         $request->validate($rules);
@@ -72,10 +68,6 @@ class ProfileController extends Controller
         $user->instagram = $request->instagram;
         $user->gender = $request->gender;
         $user->image = $imagePath;
-        $user->address = $request->address;
-        $user->city = $request->city;
-        $user->province = $request->province;
-        $user->postal_code = $request->postal_code;
 
         if ($user->isDirty('email')) {
             $user->email_verified_at = null;
