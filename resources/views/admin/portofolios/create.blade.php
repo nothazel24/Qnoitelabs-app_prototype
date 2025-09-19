@@ -6,86 +6,79 @@
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
             aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('admin.products.index') }}">Produk</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Produk</li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.portofolios.index') }}">Portofolio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Tambah Portofolio</li>
             </ol>
         </nav>
         <hr><br>
-
-        {{-- Summernote CSS --}}
-        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        Data Artikel
+                        Data Portofolio
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('admin.products.update', $product->slug) }}" method="POST"
-                            enctype="multipart/form-data">
+                        <form action="{{ route('admin.portofolios.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            @method('PUT') {{-- Tambahkan metode PUT untuk update --}}
-
                             <div class="row">
-                                <div class="col-lg-12 mb-3">
-                                    <label for="title" class="form-label">Nama Produk</label>
+                                <div class="col-lg-12 mb-2">
+                                    <label for="title" class="form-label">Nama Portofolio</label>
                                     <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                        id="title" name="title" value="{{ old('title', $product->title) }}" required>
+                                        id="title" name="title" value="{{ old('title') }}" required>
                                     @error('title')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-12 mb-3">
-                                    <label for="meta_desc" class="form-label">Meta Deskripsi</label>
-                                    <input type="text" class="form-control @error('meta_desc') is-invalid @enderror"
-                                        id="meta_desc" name="meta_desc" value="{{ old('meta_desc', $product->meta_desc) }}"
-                                        required>
-                                    @error('meta_desc')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-lg-12 mb-2">
-                                    <input type="hidden" class="form-control @error('sku') is-invalid @enderror"
-                                        id="sku" name="sku" value="{{ old('sku') }}" required>
-                                    @error('title')
+                                    <label for="meta_desc" class="form-label">Meta Deskripsi</label>
+                                    <input type="text" class="form-control @error('meta_desc') is-invalid @enderror"
+                                        id="meta_desc" name="meta_desc" value="{{ old('meta_desc') }}" required>
+                                    @error('meta_desc')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-lg-12 mb-3">
-                                    <label for="price" class="form-label">Harga Jual</label>
-                                    <input type="text" class="form-control @error('price') is-invalid @enderror"
-                                        id="price" name="price" value="{{ old('price', $product->price) }}" required>
-                                    @error('price')
+                                    <label for="client" class="form-label">Client</label>
+                                    <input type="text" class="form-control @error('client') is-invalid @enderror"
+                                        id="client" name="client" value="{{ old('client') }}" required>
+                                    @error('client')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <div class="col-lg-12 mb-3">
-                                    <label for="image" class="form-label">Gambar Artikel</label>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="demo_url" class="form-label">URL Demo</label>
+                                    <input type="text" class="form-control @error('demo_url') is-invalid @enderror"
+                                        id="demo_url" name="demo_url" value="{{ old('demo_url') }}" required>
+                                    @error('demo_url')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="repo_url" class="form-label">URL Repository</label>
+                                    <input type="text" class="form-control @error('repo_url') is-invalid @enderror"
+                                        id="repo_url" name="repo_url" value="{{ old('repo_url') }}" required>
+                                    @error('repo_url')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-lg-6 mb-2">
+                                    <label for="image" class="form-label">Thumbnail Portofolio</label>
                                     <input type="file" class="form-control @error('image') is-invalid @enderror"
                                         id="image" name="image">
                                     @error('image')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <div class="col-lg-6 mb-3">
-                                    <label for="discount" class="form-label">Diskon</label>
-                                    <input type="text" class="form-control @error('discount') is-invalid @enderror"
-                                        id="discount" name="discount" value="{{ old('discount', $product->discount) }}"
-                                        required>
-                                    @error('discount')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-6 mb-3">
+                                <div class="col-lg-6 mb-2">
                                     <label for="website_category_id" class="form-label">Kategori</label>
                                     <select class="form-select @error('website_category_id') is-invalid @enderror"
                                         id="website_category_id" name="website_category_id" required>
                                         <option value="">Pilih Kategori</option>
-                                        @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}"
-                                                {{ old('website_category_id', $product->website_category_id) == $category->id ? 'selected' : '' }}>
-                                                {{ $category->name }}
+                                        @foreach ($portofolios as $val)
+                                            <option value="{{ $val->id }}"
+                                                {{ old('website_category_id') == $val->id ? 'selected' : '' }}>
+                                                {{ $val->name }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -93,21 +86,22 @@
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <div class="col-lg-12 mb-3">
+                                <div class="col-lg-12 mb-2">
                                     <label for="content" class="form-label">Konten</label>
                                     <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" rows="10"
-                                        required>{{ old('content', $product->content) }}</textarea>
+                                        required>{{ old('content') }}</textarea>
                                     @error('content')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <div class="col-lg-12 mb-3">
-                                    <label class="form-label">Status Artikel</label>
+
+                                <div class="mb-2">
+                                    <label class="form-label">Status Produk</label>
                                     <div class="d-flex">
                                         <div class="form-check me-3">
                                             <input class="form-check-input @error('status') is-invalid @enderror"
                                                 type="radio" name="status" id="statusDraft" value="0"
-                                                {{ old('status', $product->status ? 1 : 0) == 0 ? 'checked' : '' }}>
+                                                {{ old('status', 0) == 0 ? 'checked' : '' }}>
                                             <label class="form-check-label" for="statusDraft">
                                                 Draft
                                             </label>
@@ -115,7 +109,7 @@
                                         <div class="form-check">
                                             <input class="form-check-input @error('status') is-invalid @enderror"
                                                 type="radio" name="status" id="statusPublished" value="1"
-                                                {{ old('status', $product->status ? 1 : 0) == 1 ? 'checked' : '' }}>
+                                                {{ old('status', 0) == 1 ? 'checked' : '' }}>
                                             <label class="form-check-label" for="statusPublished">
                                                 Published
                                             </label>
@@ -125,10 +119,11 @@
                                         <div class="invalid-feedback d-block">{{ $message }}</div>
                                     @enderror
                                 </div>
+
                             </div>
                             <br>
-                            <button type="submit" class="btn btn-primary">Update Produk</button>
-                            <a href="{{ route('admin.products.index') }}" class="btn btn-secondary">Kembali</a>
+                            <button type="submit" class="btn btn-primary">Buat Produk</button>
+                            <a href="{{ route('admin.portofolios.index') }}" class="btn btn-secondary">Kembali</a>
                         </form>
                     </div>
                 </div>

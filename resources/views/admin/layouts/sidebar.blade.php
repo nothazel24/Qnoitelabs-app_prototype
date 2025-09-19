@@ -65,9 +65,9 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.products.index') }}">
-                        <img src="{{ asset('dist/icons/sidebar-icons/website.svg') }}" alt="products" width="30"
-                            title="Produk">
+                    <a class="nav-link" href="{{ route('admin.portofolios.index') }}">
+                        <img src="{{ asset('dist/icons/sidebar-icons/website.svg') }}" alt="portofolio" width="30"
+                            title="Portofolio">
                     </a>
                 </li>
             @endif

@@ -6,16 +6,16 @@
         {{-- USER MENU --}}
         @include('admin.layouts.menu')
 
-        <h1 style="font-size: 30px;">Manajemen Produk</h1>
+        <h1 style="font-size: 30px;">Manajemen Portofolio</h1>
         <hr><br>
 
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     {{-- Form Pencarian dan Filter Status --}}
-                    <form action="{{ route('admin.products.index') }}" method="GET" class="d-flex me-3">
+                    <form action="{{ route('admin.portofolios.index') }}" method="GET" class="d-flex me-3">
                         <input type="text" name="search" class="form-control form-control-sm me-2"
-                            placeholder="Cari Judul Artikel..." value="{{ request('search') }}">
+                            placeholder="Cari Portofolio yang ada" value="{{ request('search') }}">
                         <select name="status" class="form-select form-select-sm me-2" style="max-width: 150px;">
                             <option value="">Semua Status</option>
                             <option value="1" {{ request('status') === '1' ? 'selected' : '' }}>Published</option>
@@ -25,18 +25,18 @@
                             Cari
                         </button>
                         @if (request('search') || request('status') !== null)
-                            <a href="{{ route('admin.products.index') }}" class="btn btn-sm btn-outline-danger ms-2">
+                            <a href="{{ route('admin.portofolios.index') }}" class="btn btn-sm btn-outline-danger ms-2">
                                 Reset
                             </a>
                         @endif
                     </form>
 
-                    <a href="{{ route('admin.products.create') }}" class="btn btn-sm btn-primary px-3">
+                    <a href="{{ route('admin.portofolios.create') }}" class="btn btn-sm btn-primary px-3">
                         <i class="fas fa-plus me-1"></i> Tambah Produk
                     </a>
                 </div>
 
-                @if ($products->isEmpty())
+                @if ($portofolios->isEmpty())
                     <div class="alert alert-warning text-center" role="alert">
                         Tidak ada produk yang ditemukan.
                     </div>
@@ -47,32 +47,32 @@
                                 <tr class="text-center bg-light">
                                     <th>No.</th>
                                     <th>Nama Produk</th>
-                                    <th>SKU</th>
                                     <th>Kategori</th>
-                                    <th>Harga Jual</th>
-                                    <th>Penjual</th>
-                                    <th>Status</th>
+                                    <th>Client</th>
                                     <th>Dibuat Pada</th>
-                                    <th>Diskon</th>
+                                    <th>Demo URL</th>
+                                    <th>Repo URL</th>
+                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($products as $val)
+                                @foreach ($portofolios as $val)
                                     <tr>
                                         <td class="text-center">
-                                            {{ $loop->iteration + ($products->currentPage() - 1) * $products->perPage() }}
+                                            {{ $loop->iteration + ($portofolios->currentPage() - 1) * $portofolios->perPage() }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.products.show', $val->slug) }}"
+                                            <a href="{{ route('admin.portofolios.show', $val->id) }}"
                                                 class="text-decoration-none">
                                                 {{ $val->title }}
                                             </a>
                                         </td>
-                                        <td>{{ $val->sku ?? '-' }}</td>
                                         <td>{{ $val->website_category->name }}</td>
-                                        <td>Rp{{ number_format($val->price, 0, ',', '.') }}</td>
-                                        <td>{{ $val->user->name }}</td>
+                                        <td>{{ $val->client }}</td>
+                                        <td class="text-center">{{ $val->created_at->format('d M Y H:i') }}</td>
+                                        <td>{{ $val->demo_url ?? '-' }}</td>
+                                        <td>{{ $val->repo_url ?? '-' }}</td>
                                         <td class="text-center">
                                             @if ($val->status)
                                                 <span class="badge bg-primary">Published</span>
@@ -80,21 +80,19 @@
                                                 <span class="badge bg-danger">Draft</span>
                                             @endif
                                         </td>
-                                        <td class="text-center">{{ $val->created_at->format('d M Y H:i') }}</td>
-                                        <td>{{ number_format($val->discount, 0, ',', '.') }} %</td>
                                         <td class="text-center">
-                                            <a href="{{ route('admin.products.show', $val->slug) }}"
+                                            <a href="{{ route('admin.portofolios.show', $val->id) }}"
                                                 class="btn btn-sm btn-info text-white" title="Lihat">
                                                 <i class="fas fa-eye"></i>
                                             </a>
-                                            <a href="{{ route('admin.products.edit', $val->slug) }}"
+                                            <a href="{{ route('admin.portofolios.edit', $val->id) }}"
                                                 class="btn btn-sm btn-success mx-1" title="Edit">
                                                 <i class="fas fa-pencil"></i>
                                             </a>
                                             <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#confirmation"
-                                                data-action="{{ route('admin.products.destroy', $val->slug) }}"
-                                                data-id="{{ $val->slug }}">
+                                                data-action="{{ route('admin.portofolios.destroy', $val->id) }}"
+                                                data-id="{{ $val->id }}">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                         </td>
@@ -105,7 +103,7 @@
                     </div>
 
                     <div class="d-flex justify-content-end">
-                        {{ $products->links('pagination::bootstrap-4') }}
+                        {{ $portofolios->links('pagination::bootstrap-4') }}
                     </div>
                 @endif
             </div>

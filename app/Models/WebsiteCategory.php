@@ -8,10 +8,10 @@ class WebsiteCategory extends Model
 {
     protected $fillable = ['name', 'slug'];
 
-    // Relasi many to one ke tabel products
-    public function products()
+    // Relasi many to one ke tabel portofolio
+    public function portofolio()
     {
-        return $this->hasMany(Products::class);
+        return $this->hasMany(Portofolio::class);
     }
 
     public function user()

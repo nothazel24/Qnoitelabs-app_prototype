@@ -79,11 +79,6 @@ class User extends Authenticatable
         return $this->hasMany(Article::class);
     }
 
-    public function products()
-    {
-        return $this->hasMany(Products::class);
-    }
-
     public function feedback()
     {
         return $this->hasMany(Feedback::class);
