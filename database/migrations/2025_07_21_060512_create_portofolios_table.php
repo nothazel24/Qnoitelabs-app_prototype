@@ -15,14 +15,12 @@ return new class extends Migration
         Schema::create('portofolios', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('client')->nullable();
             $table->foreignId('website_category_id')->constrained()->onDelete('cascade'); // Relasi ke Category
             $table->string('title');
             $table->string('meta_desc');
+            $table->string('slug')->unique();
             $table->longText('content');
             $table->string('image')->nullable();
-            $table->string('demo_url')->nullable();
-            $table->string('repo_url')->nullable();
             $table->boolean('status')->default(false); 
         });
     }

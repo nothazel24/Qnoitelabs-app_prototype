@@ -11,13 +11,17 @@ class Portofolio extends Model
         'website_category_id',
         'title',
         'meta_desc',
+        'slug',
         'content',
         'image',
-        'status',
-        'client',
-        'demo_url',
-        'repo_url'
+        'status'
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     // Relasi Many-to-One dengan Category
     public function website_category()
     {

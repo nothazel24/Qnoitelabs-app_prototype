@@ -16,7 +16,7 @@
                     <form action="{{ route('admin.portofolios.index') }}" method="GET" class="d-flex me-3">
                         <input type="text" name="search" class="form-control form-control-sm me-2"
                             placeholder="Cari Portofolio yang ada" value="{{ request('search') }}">
-                        <select name="status" class="form-select form-select-sm me-2" style="max-width: 150px;">
+                        <select name="status" class="form-select form-select-sm me-2" style="max-wslugth: 150px;">
                             <option value="">Semua Status</option>
                             <option value="1" {{ request('status') === '1' ? 'selected' : '' }}>Published</option>
                             <option value="0" {{ request('status') === '0' ? 'selected' : '' }}>Draft</option>
@@ -38,7 +38,7 @@
 
                 @if ($portofolios->isEmpty())
                     <div class="alert alert-warning text-center" role="alert">
-                        Tidak ada produk yang ditemukan.
+                        Tslugak ada produk yang ditemukan.
                     </div>
                 @else
                     <div class="table-responsive">
@@ -48,10 +48,7 @@
                                     <th>No.</th>
                                     <th>Nama Produk</th>
                                     <th>Kategori</th>
-                                    <th>Client</th>
                                     <th>Dibuat Pada</th>
-                                    <th>Demo URL</th>
-                                    <th>Repo URL</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -63,16 +60,13 @@
                                             {{ $loop->iteration + ($portofolios->currentPage() - 1) * $portofolios->perPage() }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.portofolios.show', $val->id) }}"
+                                            <a href="{{ route('admin.portofolios.show', $val->slug) }}"
                                                 class="text-decoration-none">
                                                 {{ $val->title }}
                                             </a>
                                         </td>
                                         <td>{{ $val->website_category->name }}</td>
-                                        <td>{{ $val->client }}</td>
                                         <td class="text-center">{{ $val->created_at->format('d M Y H:i') }}</td>
-                                        <td>{{ $val->demo_url ?? '-' }}</td>
-                                        <td>{{ $val->repo_url ?? '-' }}</td>
                                         <td class="text-center">
                                             @if ($val->status)
                                                 <span class="badge bg-primary">Published</span>
@@ -81,18 +75,18 @@
                                             @endif
                                         </td>
                                         <td class="text-center">
-                                            <a href="{{ route('admin.portofolios.show', $val->id) }}"
+                                            <a href="{{ route('admin.portofolios.show', $val->slug) }}"
                                                 class="btn btn-sm btn-info text-white" title="Lihat">
                                                 <i class="fas fa-eye"></i>
                                             </a>
-                                            <a href="{{ route('admin.portofolios.edit', $val->id) }}"
+                                            <a href="{{ route('admin.portofolios.edit', $val->slug) }}"
                                                 class="btn btn-sm btn-success mx-1" title="Edit">
                                                 <i class="fas fa-pencil"></i>
                                             </a>
                                             <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#confirmation"
-                                                data-action="{{ route('admin.portofolios.destroy', $val->id) }}"
-                                                data-id="{{ $val->id }}">
+                                                data-action="{{ route('admin.portofolios.destroy', $val->slug) }}"
+                                                data-slug="{{ $val->slug }}">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                         </td>

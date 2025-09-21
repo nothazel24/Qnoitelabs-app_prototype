@@ -5,7 +5,6 @@ Tempat beli website terpercaya, murah dan berkualitas
 @endsection
 
 @section('content')
-    @include('home.price.templates.banner')
-    @include('home.price.templates.list')
+    @include('home.portofolios.templates.preview')
     @include('home.templates.qnoitelabs')
 @endsection

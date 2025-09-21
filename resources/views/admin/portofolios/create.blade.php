@@ -38,30 +38,6 @@
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <div class="col-lg-12 mb-3">
-                                    <label for="client" class="form-label">Client</label>
-                                    <input type="text" class="form-control @error('client') is-invalid @enderror"
-                                        id="client" name="client" value="{{ old('client') }}" required>
-                                    @error('client')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-6 mb-3">
-                                    <label for="demo_url" class="form-label">URL Demo</label>
-                                    <input type="text" class="form-control @error('demo_url') is-invalid @enderror"
-                                        id="demo_url" name="demo_url" value="{{ old('demo_url') }}" required>
-                                    @error('demo_url')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-6 mb-3">
-                                    <label for="repo_url" class="form-label">URL Repository</label>
-                                    <input type="text" class="form-control @error('repo_url') is-invalid @enderror"
-                                        id="repo_url" name="repo_url" value="{{ old('repo_url') }}" required>
-                                    @error('repo_url')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
                                 <div class="col-lg-6 mb-2">
                                     <label for="image" class="form-label">Thumbnail Portofolio</label>
                                     <input type="file" class="form-control @error('image') is-invalid @enderror"

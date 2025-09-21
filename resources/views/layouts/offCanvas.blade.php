@@ -53,9 +53,8 @@
                     <a class="nav-link @if (request()->is('contact')) active-link @endif" href="/contact">Kontak</a>
                 </li>
                 <li class="d-flex align-items-center">
-                    <img src="{{ asset('dist/icons/user-sidebar/price.svg') }}" alt="paket & harga" width="20">
-                    <a class="nav-link @if (request()->is(['price', 'price/*'])) active-link @endif" href="/price">Paket &
-                        harga</a>
+                    <img src="{{ asset('dist/icons/user-sidebar/price.svg') }}" alt="Produk" width="20">
+                    <a class="nav-link @if (request()->is(['portofolio', 'portofolio/*'])) active-link @endif" href="/portofolio">Demo Website</a>
                 </li>
                 @if (Auth::user()->role == 'admin')
                     <li class="d-flex align-items-center">

@@ -18,6 +18,6 @@ class LoginResponse implements LoginResponseContract
             return redirect()->intended('/admin/dashboard');
         }
 
-        return redirect()->intended('/price');
+        return redirect()->intended('/portofolio');
     }
 }

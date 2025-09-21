@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const flashModalEl = document.getElementById('flashModal');
     const userDetailEl = document.getElementById('userDetail');
+    const previewDemoEl = document.getElementById('previewDemo');
+
     if (flashModalEl) {
         var flashModal = new bootstrap.Modal(flashModalEl);
         flashModal.show();
@@ -25,6 +27,19 @@ document.addEventListener('DOMContentLoaded', function () {
             // USER IMAGE DATA
             const imgEl = document.getElementById('modalUserImage');
             imgEl.src = userImage ? `/storage/${userImage}` : '/dist/images/profile.jpg';
+        });
+    }
+
+    if (previewDemoEl) {
+        previewDemoEl.addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget;
+            if (!button) return;
+
+            const demoImage = button.getAttribute('data-demo-image');
+
+            // DEMO IMAGE DATA
+            const imgEl = document.getElementById('modalDemoImage');
+            imgEl.src = demoImage ? `/storage/${demoImage}` : '/dist/images/profile.jpg';
         });
     }
 

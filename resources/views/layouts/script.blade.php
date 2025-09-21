@@ -22,6 +22,18 @@
         s1.setAttribute('crossorigin', '*');
         s0.parentNode.insertBefore(s1, s0);
     })();
+
+    // DATA USER
+    Tawk_API.onLoad = function() {
+        @if (Auth::check())
+            Tawk_API.setAttributes({
+                'name': '{{ Auth::user()->name ?? '' }}',
+                'email': '{{ Auth::user()->email ?? '' }}',
+                'phone': '{{ Auth::user()->phone ?? '' }}',
+                'instagram': '{{ Auth::user()->instagram ?? '' }}'
+            }, function(error) {});
+        @endif
+    };
 </script>
 
 @stack('scripts')

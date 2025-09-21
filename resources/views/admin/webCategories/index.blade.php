@@ -55,7 +55,7 @@
                                                 {{ $loop->iteration + ($webCategories->currentPage() - 1) * $webCategories->perPage() }}
                                             </td>
                                             <td>{{ $val->name }}</td>
-                                            <td>{{ $val->products->count() }} Website</td>
+                                            <td>{{ $val->portofolio->count() }} Website</td>
                                             <td class="text-center">
                                                 <a href="{{ route('admin.webCategories.edit', $val->id) }}"
                                                     class="btn btn-sm btn-success">
@@ -108,7 +108,7 @@
             },
             series: [
                 @foreach ($webCategories as $val)
-                    {{ $val->products->count() }},
+                    {{ $val->portofolio->count() }},
                 @endforeach
             ],
             labels: [

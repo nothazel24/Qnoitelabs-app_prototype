@@ -22,7 +22,7 @@
                         Data Portofolio
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('admin.portofolios.update', $portofolio->id) }}" method="POST"
+                        <form action="{{ route('admin.portofolios.update', $portofolio->slug) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT') {{-- Tambahkan metode PUT untuk update --}}
@@ -43,30 +43,6 @@
                                         id="meta_desc" name="meta_desc"
                                         value="{{ old('meta_desc', $portofolio->meta_desc) }}" required>
                                     @error('meta_desc')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-12 mb-3">
-                                    <label for="client" class="form-label">Client</label>
-                                    <input type="text" class="form-control @error('client') is-invalid @enderror"
-                                        id="client" name="client" value="{{ old('client', $portofolio->client) }}" required>
-                                    @error('client')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-6 mb-3">
-                                    <label for="demo_url" class="form-label">URL Demo</label>
-                                    <input type="text" class="form-control @error('demo_url') is-invalid @enderror"
-                                        id="demo_url" name="demo_url" value="{{ old('demo_url', $portofolio->demo_url) }}" required>
-                                    @error('demo_url')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-6 mb-3">
-                                    <label for="repo_url" class="form-label">URL Repository</label>
-                                    <input type="text" class="form-control @error('repo_url') is-invalid @enderror"
-                                        id="repo_url" name="repo_url" value="{{ old('repo_url', $portofolio->repo_url) }}" required>
-                                    @error('repo_url')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>

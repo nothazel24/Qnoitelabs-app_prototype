@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 use App\Http\Controllers\Controller;
 use App\Models\Portofolio;
@@ -59,13 +60,10 @@ class PortofolioController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'website_category_id' => 'required|exists:website_categories,id',
-            'content' => 'required|string',
             'meta_desc' => 'required|string',
+            'content' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:2048', // 2MB Max
             'status' => 'nullable|boolean',
-            'client' => 'nullable|string|max:255',
-            'demo_url' => 'nullable|url',
-            'repo_url' => 'nullable|url',
         ]);
 
         $imagePath = null;
@@ -73,16 +71,16 @@ class PortofolioController extends Controller
             $imagePath = $request->file('image')->store('portofolios', 'public');
         }
 
+        $slug = Str::slug($request->title);
+
         Portofolio::create([
             'website_category_id' => $request->website_category_id,
             'title' => $request->title,
+            'slug' => $slug,
             'meta_desc' => $request->meta_desc,
             'content' => $request->content,
             'image' => $imagePath,
-            'status' => $request->boolean('status', false),
-            'client' => $request->client,
-            'demo_url' => $request->demo_url,
-            'repo_url' => $request->repo_url
+            'status' => $request->boolean('status', false)
         ]);
 
         return redirect()->route('admin.portofolios.index')->with([
@@ -135,9 +133,6 @@ class PortofolioController extends Controller
             'content' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:2048',
             'status' => 'nullable|boolean',
-            'client' => 'nullable|string|max:255',
-            'demo_url' => 'nullable|url',
-            'repo_url' => 'nullable|url',
         ]);
 
         $imagePath = $portofolio->image;
@@ -156,16 +151,16 @@ class PortofolioController extends Controller
             }
         }
 
+        $slug = Str::slug($request->title);
+
         $portofolio->update([
             'category_id' => $request->category_id,
             'title' => $request->title,
+            'slug' => $slug,
             'meta_desc' => $request->meta_desc,
             'content' => $request->content,
             'image' => $imagePath,
-            'status' => $request->boolean('status', false),
-            'client' => $request->client,
-            'demo_url' => $request->demo_url,
-            'repo_url' => $request->repo_url
+            'status' => $request->boolean('status', false)
         ]);
 
         return redirect()->route('admin.portofolios.index')->with([

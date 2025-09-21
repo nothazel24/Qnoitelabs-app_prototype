@@ -6,7 +6,7 @@ use App\Models\Article;
 use App\Models\Information;
 use App\Models\Category;
 use App\Models\WebsiteCategory;
-use App\Models\Products;
+use App\Models\Portofolio;
 use App\Models\Feedback;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -86,10 +86,10 @@ class HomeController extends Controller
         return view('home.article.main', compact('articles', 'categories', 'information', 'user'));
     }
 
-    // PRODUCT CONTROLLER
-    public function products(Request $request)
+    // PORTOFOLIO CONTROLLER
+    public function portofolios(Request $request)
     {
-        $query = Products::where('status', true)->latest();
+        $query = Portofolio::query();
 
         if ($request->has('search')) {
             $searchTerm = $request->search;
@@ -99,38 +99,35 @@ class HomeController extends Controller
         }
 
         // PAGINATION
-        $products = $query->paginate(8);
+        $portofolios = $query->paginate(10);
 
-        $categories = WebsiteCategory::all();
-        $information = Information::latest()->limit(5)->get();
+        $webCategories = WebsiteCategory::all();
         $user = User::first();
 
-        return view('home.price.main', compact('products', 'categories', 'information', 'user'));
+        return view('home.portofolios.main', compact('portofolios', 'webCategories', 'user'));
     }
 
     // DISPLAY PRODUCT
-    public function productsShow($slug)
+    public function portofolioShow($slug)
     {
-        $products = Products::where('slug', $slug)->firstOrFail();
-        $categories = WebsiteCategory::all();
-        $information = Information::latest()->limit(5)->get();
+        $portofolio = Portofolio::where('slug', $slug)->firstOrFail();
+        $webCategories = WebsiteCategory::all();
         $user = User::first();
 
-        return view('home.price.show', compact('products', 'categories', 'information', 'user'));
+        return view('home.portofolios.show', compact('portofolio', 'webCategories', 'user'));
     }
 
-    public function productsCategories($categoryId)
+    public function portofoliosCategories($categoryId)
     {
-        $products = Products::where('website_category_id', $categoryId)
+        $portofolios = Portofolio::where('website_category_id', $categoryId)
             ->where('status', true)
             ->latest()
             ->paginate(8);
 
-        $categories = WebsiteCategory::all();
-        $information = Information::latest()->limit(5)->get();
+        $webCategories = WebsiteCategory::all();
         $user = User::first();
 
-        return view('home.price.main', compact('products', 'categories', 'information', 'user'));
+        return view('home.portofolios.main', compact('portofolios', 'webCategories', 'user'));
     }
 
     // DISPLAY INFORMATION

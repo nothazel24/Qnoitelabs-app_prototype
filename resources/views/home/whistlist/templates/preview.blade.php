@@ -2,42 +2,20 @@
     <div class="container pb-3" style="padding-top: 7rem;">
         <h2 class="fw-bold mb-4">Keranjang Belanja Anda</h2>
 
-        @if (session('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-        @if (session('error'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{ session('error') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-        @if (session('info'))
-            <div class="alert alert-info alert-dismissible fade show" role="alert">
-                {{ session('info') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-
         @if (!$whistlistItems->isEmpty())
-            {{-- Cek jika cartItems tidak kosong --}}
             <div class="row gx-4">
                 <div class="col-lg-12">
                     <div class="card shadow-sm border-0">
                         <div class="card-body p-4">
                             @foreach ($whistlistItems as $item)
-                                {{-- Loop melalui CartItem --}}
-                                @if ($item->product)
-                                    {{-- Pastikan produk terkait masih ada --}}
+                                @if ($item->portofolio)
                                     <div class="row align-items-center mb-4 pb-4 border-bottom">
                                         <div class="col-md-2">
                                             <div
                                                 class="card shadow-sm border-0 h-100 d-flex flex-column text-decoration-none text-dark position-relative overflow-hidden">
-                                                @if ($item->product->image)
-                                                    <img src="{{ asset('storage/' . ($item->product->image ?? 'placeholder.png')) }}"
-                                                        alt="{{ $item->product->title }}" class="img-fluid rounded">
+                                                @if ($item->portofolio->image)
+                                                    <img src="{{ asset('storage/' . ($item->portofolio->image ?? 'placeholder.png')) }}"
+                                                        alt="{{ $item->portofolio->title }}" class="img-fluid rounded">
                                                 @else
                                                     <div class="d-flex align-items-center justify-content-center bg-primary-subtle text-muted"
                                                         style="height: 144px;">
@@ -48,7 +26,7 @@
                                         </div>
                                         <div class="col-md-7">
                                             <h5 class="mb-1">
-                                                {{ $item->product->title }}
+                                                {{ $item->portofolio->title }}
                                             </h5>
                                             @php
                                                 $itemPrice = $item->price_at_add;
@@ -60,7 +38,7 @@
                                                     $finalItemPrice = $itemPrice - $discountAmountPerUnit;
                                                 }
                                             @endphp
-                                            @if ($item->product->price > 0)
+                                            @if ($item->portofolio->price > 0)
                                                 <p class="mb-0">
                                                     <span
                                                         class="badge bg-danger me-1">{{ number_format($item->discount_at_add, 0, ',', '.') }}%
@@ -79,19 +57,15 @@
                                         <div class="col-md-3 text-end d-flex gap-2 justify-content-end">
                                             <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#confirmation"
-                                                data-action="{{ route('home.whistlist.remove', $item->product->slug) }}"
-                                                data-id="{{ $item->product->slug }}">
+                                                data-action="{{ route('home.whistlist.remove', $item->portofolio->id) }}"
+                                                data-id="{{ $item->portofolio->id }}">
                                                 Hapus
                                             </button>
-                                            <a href="https://wa.me/{{ $item->product->user->phone }}"
-                                                class="btn btn-sm btn-success">
-                                                Hubungi penjual
-                                            </a>
                                         </div>
                                     </div>
                                 @else
                                     <div class="alert alert-warning">
-                                        Produk "{{ $item->product_name ?? 'Tidak Dikenal' }}" tidak lagi tersedia.
+                                        Produk "{{ $item->portofolio_name ?? 'Tidak Dikenal' }}" tidak lagi tersedia.
                                         <form action="{{ route('home.whistlist.remove', $item->id) }}" method="POST"
                                             class="d-inline">@csrf @method('DELETE')<button type="submit"
                                                 class="btn btn-link p-0 m-0 align-baseline">Hapus</button>
@@ -99,7 +73,7 @@
                                     </div>
                                 @endif
                             @endforeach
-                            <a href="{{ route('home.product.main') }}" class="btn btn-outline-primary">Lanjut
+                            <a href="{{ route('home.portofolios.main') }}" class="btn btn-outline-primary">Lanjut
                                 Belanja</a>
                         </div>
                     </div>
@@ -108,7 +82,7 @@
         @else
             <div class="alert alert-secondary text-center py-4" role="alert">
                 <p class="p-0 m-0">Daftar keinginanmu kosong nih, mulai cari produk yang pas buat kamu yuk!</p>
-                <a href="{{ route('home.product.main') }}" class="alert-link">Mulai
+                <a href="{{ route('home.portofolios.main') }}" class="alert-link">Mulai
                     belanja sekarang!</a>
             </div>
         @endif

@@ -23,7 +23,7 @@ class RedirectIfAuthenticated
                 if (Auth::user()->role == 'admin' && 'author') {
                     return redirect('/admin/dashboard');
                 } else {
-                    return redirect('/price');
+                    return redirect('/portofolio');
                 }
             }
         }

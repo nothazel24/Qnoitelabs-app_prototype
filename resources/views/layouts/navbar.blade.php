@@ -1,6 +1,6 @@
 {{-- NAVBAR SECTION --}}
 <nav
-    class="container-fluid navbar navbar-expand-lg py-3 d-flex flex-row {{ request()->is(['price/*', 'information/*', 'whistlist', 'user-edit']) ? 'fixed-top nav-bg' : 'fixed-top' }}">
+    class="container-fluid navbar navbar-expand-lg py-3 d-flex flex-row {{ request()->is(['information/*', 'whistlist', 'user-edit']) ? 'fixed-top nav-bg' : 'fixed-top' }}">
 
     <div class="container px-4 px-sm-0" data-aos="fade-down" data-aos-duration="1100">
         <a class="navbar-brand" href="/">
@@ -25,23 +25,30 @@
 
                         {{-- CATEGORY DROPDOWN --}}
                         <div class="dropdown-menu" aria-labelledby="categoryDropdown" style="top: 100%; left: 0;">
-                            <a class="dropdown-item" href="#">
-                                lorem
-                            </a>
+                            <div class="d-flex flex-row">
+                                <div class="d-flex flex-column">
+                                    <a class="dropdown-item" href="#">
+                                        lorem
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        lorem
+                                    </a>
+                                </div>
+                            </div>
                         </div>
 
-                        {{-- SEARCH SECTION (BUG*) --}}
-                        <form action="" method="GET" autocomplete="off" novalidate>
+                        <form action="{{ route('home.portofolios.main') }}" method="GET" autocomplete="off" novalidate>
                             @csrf
 
                             <div class="d-flex">
-                                <input type="text" name="text" placeholder="Cari produk"
-                                    class="form-control @if (request()->is(['price/*', 'information/*', 'whistlist', 'user-edit'])) form-dark @else form @endif"
+                                <input type="text" name="search" id="search" placeholder="Cari produk"
+                                    class="form-control @if (request()->is(['information/*', 'whistlist', 'user-edit'])) form-dark @else form @endif"
                                     style="background-color: transparent;">
 
                                 {{-- Submit button --}}
                                 <button type="submit" class="text-white px-3">
-                                    <img src="{{ asset('dist/icons/search.svg') }}" alt="search" width="35" title="Cari sekarang">
+                                    <img src="{{ asset('dist/icons/search.svg') }}" alt="search" width="35"
+                                        title="Cari sekarang">
                                 </button>
                             </div>
 
@@ -56,8 +63,8 @@
                             href="/profile">Profile</a>
                     </li>
                     <li class="nav-item active me-3">
-                        <a class="nav-link @if (request()->is(['price', 'price/*'])) active-link @endif" href="/price">Paket &
-                            harga</a>
+                        <a class="nav-link @if (request()->is(['portofolio', 'portofolio/*'])) active-link @endif"
+                            href="/portofolio">Demo website</a>
                     </li>
                     <li class="nav-item active me-3">
                         <a class="nav-link @if (request()->is('contact')) active-link @endif"

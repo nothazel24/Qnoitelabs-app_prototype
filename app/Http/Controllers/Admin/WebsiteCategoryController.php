@@ -15,7 +15,7 @@ class WebsiteCategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $query = WebsiteCategory::with('products')->orderBy('name');
+        $query = WebsiteCategory::with('portofolio')->orderBy('name');
 
         // Cek apakah ada parameter 'search' dalam request
         if ($request->has('search')) {
