@@ -39,13 +39,6 @@ class HomeController extends Controller
         return view('home.profile.main', compact('user'));
     }
 
-    // CONTACT CONTROLLER
-    public function contact()
-    {
-        $user = User::first();
-        return view('home.contact.main', compact('user'));
-    }
-
     // ARTICLE CONTROLLER
     public function articles(Request $request)
     {
@@ -91,7 +84,7 @@ class HomeController extends Controller
     {
         $query = Portofolio::query();
 
-        if ($request->has('search')) {
+        if ($request->filled('search')) {
             $searchTerm = $request->search;
             $query->where(function ($q) use ($searchTerm) {
                 $q->where('title', 'like', '%' . $searchTerm . '%');

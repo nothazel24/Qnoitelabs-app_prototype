@@ -7,51 +7,54 @@
         </div>
 
         {{-- BLOG SECTION --}}
-        <div class="row gap-1 mx-4 mx-md-0">
+        <div class="article-wrapper mx-4 mx-md-0">
+            <div class="row flex-nowrap overflow-auto gap-1">
 
-            @forelse ($articles as $key => $val)
-                @if ($key == 0 && !empty($articles) && count($articles) > 0)
-                    @continue
-                @endif
+                @forelse ($articles as $key => $val)
+                    @if ($key == 0 && !empty($articles) && count($articles) > 0)
+                        @continue
+                    @endif
 
-                <!-- BLOG CARD -->
-                <div class="col-lg mb-4 mb-md-0">
-                    <div class="shadow-sm box-animated-down"
-                        style="background-color: #fefefe; border-radius: 10px; border: 1px solid rgba(43, 43, 43, 0.07);">
-                        @if ($val->image)
-                            <div class="img">
-                                <img src="{{ asset('storage/' . $val->image) }}" alt="gambar-{{ $val->title }}"
-                                    style="border-radius: 10px 10px 0 0; filter: brightness(80%); object-fit: cover; width: 100%;">
+                    <!-- BLOG CARD -->
+                    <div class="col-lg mb-4 mb-md-0">
+                        <div class="shadow-sm box-animated-down"
+                            style="background-color: #fefefe; border-radius: 10px; border: 1px solid rgba(43, 43, 43, 0.07);">
+                            @if ($val->image)
+                                <div class="img">
+                                    <img src="{{ asset('storage/' . $val->image) }}" alt="gambar-{{ $val->title }}"
+                                        style="border-radius: 10px 10px 0 0; filter: brightness(80%); object-fit: cover; width: 100%;">
+                                </div>
+                            @else
+                                <div class="card-img-top d-flex align-items-center justify-content-center text-white-50 ratio ratio-16x9"
+                                    style=" background: url('https://github.com/nothazel24/nothazel24/blob/main/assets/banner.png?raw=true'); background-size: cover; background-position: center; border-radius: 10px 10px 0 0; filter: brightness(80%);">
+                                    Article Image
+                                </div>
+                            @endif
+                            <div class="p-4">
+                                <h1 style="font-size: 22px;">{{ Str::limit($val->title, 18) }}</h1>
+                                <p class="card-text flex-grow-1">
+                                    <small>{{ Str::limit(strip_tags($val->meta_desc), 120) }}</small>
+                                    <br>
+                                    <small class="text-muted">Diperbaharui:
+                                        {{ $val->updated_at->format('d M Y') }}</small>
+                                </p>
+
+                                <a href="/article/{{ $val->slug }}" class="text-primary"
+                                    style="text-decoration: none;">Lihat
+                                    selengkapnya</a>
                             </div>
-                        @else
-                            <div class="card-img-top d-flex align-items-center justify-content-center text-white-50 ratio ratio-16x9"
-                                style=" background: url('https://github.com/nothazel24/nothazel24/blob/main/assets/banner.png?raw=true'); background-size: cover; background-position: center; border-radius: 10px 10px 0 0; filter: brightness(80%);">
-                                Article Image
-                            </div>
-                        @endif
-                        <div class="p-4">
-                            <h1 style="font-size: 22px;">{{ Str::limit($val->title, 18) }}</h1>
-                            <p class="card-text flex-grow-1">
-                                <small>{{ Str::limit(strip_tags($val->meta_desc), 120) }}</small>
-                                <br>
-                                <small class="text-muted">Diperbaharui:
-                                    {{ $val->updated_at->format('d M Y') }}</small>
-                            </p>
-
-                            <a href="/article/{{ $val->slug }}" class="text-primary" style="text-decoration: none;">Lihat
-                                selengkapnya</a>
                         </div>
                     </div>
-                </div>
 
-            @empty
-                <div class="col-12">
-                    <div class="alert alert-info text-center box-animated-down" role="alert">
-                        Belum ada artikel yang tersedia.
+                @empty
+                    <div class="col-12">
+                        <div class="alert alert-info text-center box-animated-down" role="alert">
+                            Belum ada artikel yang tersedia.
+                        </div>
                     </div>
-                </div>
-            @endforelse
+                @endforelse
 
+            </div>
         </div>
 
     </div>

@@ -5,15 +5,18 @@
             <p>Lebih dari 2000 perusahaan dan bisinis mempercayakan pembuatan websitenya kepada Qnoite.com</p>
         </div>
 
-        <div class="row mt-5" data-aos="fade-up">
-            <div class="col-lg">
-                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="company-logo" width="300" class="mb-5 mb-md-2 mx-auto mx-md-0">
+        <div class="row mt-5 gap-2 mx-4 mx-md-0" data-aos="fade-up">
+            <div class="col-lg rounded" style="background-color: #fefefe;">
+                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="company-logo" width="300" class="mx-auto mx-md-0 px-2 py-4">
             </div>
-            <div class="col-lg-4">
-                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="company-logo" width="300" class="mb-5 mb-md-2 mx-auto mx-md-0">
+            <div class="col-lg rounded" style="background-color: #fefefe;">
+                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="company-logo" width="300" class="mx-auto mx-md-0 px-2 py-4">
             </div>
-            <div class="col-lg-4">
-                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="company-logo" width="300" class=" mx-auto mx-md-0">
+            <div class="col-lg rounded" style="background-color: #fefefe;">
+                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="company-logo" width="300" class="mx-auto mx-md-0 px-2 py-4">
+            </div>
+            <div class="col-lg rounded" style="background-color: #fefefe;">
+                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="company-logo" width="300" class="mx-auto mx-md-0 px-2 py-4">
             </div>
         </div>
 
@@ -21,15 +24,18 @@
             <p>Lihat Lebih banyak</p>
         </a>
 
-        <div class="row mt-5 d-none d-md-flex" data-aos="fade-up" data-aos-delay="800">
-            <div class="col-lg">
-                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="company-logo" width="300" class="mb-2">
+        <div class="row mt-2 gap-2 d-none d-md-flex" data-aos="fade-up">
+            <div class="col-lg rounded" style="background-color: #fefefe;">
+                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="company-logo" width="300" class="mx-auto mx-md-0 px-2 py-4">
             </div>
-            <div class="col-lg-4">
-                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="company-logo" width="300" class="mb-2">
+            <div class="col-lg rounded" style="background-color: #fefefe;">
+                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="company-logo" width="300" class="mx-auto mx-md-0 px-2 py-4">
             </div>
-            <div class="col-lg-4">
-                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="company-logo" width="300" class="mb-2">
+            <div class="col-lg rounded" style="background-color: #fefefe;">
+                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="company-logo" width="300" class="mx-auto mx-md-0 px-2 py-4">
+            </div>
+            <div class="col-lg rounded" style="background-color: #fefefe;">
+                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="company-logo" width="300" class="mx-auto mx-md-0 px-2 py-4">
             </div>
         </div>
     </div>

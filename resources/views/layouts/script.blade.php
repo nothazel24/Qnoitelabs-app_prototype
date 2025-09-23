@@ -24,7 +24,7 @@
     })();
 
     // DATA USER
-    Tawk_API.onLoad = function() {
+    Tawk_API.onChatStarted = function() {
         @if (Auth::check())
             Tawk_API.setAttributes({
                 'name': '{{ Auth::user()->name ?? '' }}',

@@ -7,7 +7,7 @@
         <div class="container position-absolute top-50 start-50 translate-middle text-white">
             <div class="px-4 px-md-0" data-aos="fade-right" data-aos-duration="1000">
                 <h1 class="fw-bold w-75">Portofolio website Qnoite</h1>
-                <p class="w-50">Lihat bagaimana Qnoite membantu bisnis tampil lebih profesional dengan website modern dan responsif.”</p>
+                <p class="w-50">Lihat bagaimana Qnoite membantu bisnis tampil lebih profesional dengan website modern dan responsif.</p>
             </div>
         </div>
 

@@ -33,7 +33,25 @@
             </div>
         </div>
 
-        <div class="link mt-4 ms-3">
+        {{-- SEARCH SECTION --}}
+        <form action="{{ route('home.portofolios.main') }}" method="GET" autocomplete="off" novalidate
+            class="mt-3 ms-4 d-block d-md-none ">
+            @csrf
+
+            <div class="d-flex">
+                <input type="text" name="search" id="search" placeholder="Cari produk" class="form-control"
+                    style="background-color: transparent;">
+
+                {{-- Submit button --}}
+                <button type="submit" class="text-white px-3">
+                    <img src="{{ asset('dist/icons/search.svg') }}" alt="search" width="35"
+                        title="Cari sekarang">
+                </button>
+            </div>
+
+        </form>
+
+        <div class="link mt-3 mt-md-4 ms-3">
             <ul>
                 <li class="d-flex align-items-center">
                     <img src="{{ asset('dist/icons/user-sidebar/home.svg') }}" alt="beranda" width="20">
@@ -49,23 +67,14 @@
                     <a class="nav-link @if (request()->is(['article', 'article/*'])) active-link @endif" href="/article">Artikel</a>
                 </li>
                 <li class="d-flex align-items-center">
-                    <img src="{{ asset('dist/icons/user-sidebar/contact_us.svg') }}" alt="Kontak" width="20">
-                    <a class="nav-link @if (request()->is('contact')) active-link @endif" href="/contact">Kontak</a>
-                </li>
-                <li class="d-flex align-items-center">
                     <img src="{{ asset('dist/icons/user-sidebar/price.svg') }}" alt="Produk" width="20">
-                    <a class="nav-link @if (request()->is(['portofolio', 'portofolio/*'])) active-link @endif" href="/portofolio">Demo Website</a>
+                    <a class="nav-link @if (request()->is(['portofolio', 'portofolio/*'])) active-link @endif" href="/portofolio">Demo
+                        Website</a>
                 </li>
                 @if (Auth::user()->role == 'admin')
                     <li class="d-flex align-items-center">
                         <img src="{{ asset('dist/icons/user-sidebar/dashboard.svg') }}" alt="Whistlist" width="20">
                         <a class="nav-link" href="/admin/dashboard">Dashboard</a>
-                    </li>
-                @else
-                    <li class="d-flex align-items-center">
-                        <img src="{{ asset('dist/icons/user-sidebar/whistlist.svg') }}" alt="Whistlist" width="20">
-                        <a class="nav-link @if (request()->is('whistlist')) active-link @endif"
-                            href="/whistlist">Whistlist</a>
                     </li>
                 @endif
                 <li class="d-flex align-items-center">

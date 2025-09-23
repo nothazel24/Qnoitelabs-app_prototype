@@ -1,5 +1,5 @@
 <section class="list-artikel" style="background-color: #efefef;">
-    <div class="container py-5">
+    <div class="container py-5 px-4 px-md-0">
 
         <div class="header">
 

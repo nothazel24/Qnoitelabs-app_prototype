@@ -1,0 +1,6 @@
+.extra-features {
+    max-height: 0;
+    overflow: hidden;
+    display: block;
+    transition: max-height 0.5s ease;
+}

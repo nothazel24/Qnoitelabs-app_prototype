@@ -11,10 +11,10 @@
     <div class="min-h-screen">
 
         <main>
-            <div class="d-flex flex-column justify-content-center align-items-center" style="min-height: 100dvh;">
+            <div class="d-flex flex-column justify-content-center align-items-center px-4 px-md-0" style="min-height: 100dvh;">
                 <img src="{{ asset('dist/icons/404.svg') }}" alt="page-not-found" width="120" class="m-3">
                 <h1 class="fw-bold" style="font-size: 45px; color: #3A7CA5;">404 NOT FOUND</h1>
-                <p style="color: #3A7CA5;">Whoops, sepertinya laman yang kamu cari tidak ada/sedang error</p>
+                <p style="color: #3A7CA5;" class="text-center">Whoops, sepertinya laman yang kamu cari tidak ada/sedang error</p>
             </div>
         </main>
 

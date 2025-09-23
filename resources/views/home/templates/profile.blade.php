@@ -12,7 +12,7 @@
                     mengutamakan pengembangan website yang berkualitas, kecepatan website, dan desain modern.Kami
                     membantu bisnis dan individu membangun kehadiran digital yang kuat, sekaligus mendukung pengembangan
                     teknologi melalui proyek eksperimental seperti Qnoitelabs.</p>
-                <a href="/profile" class="bg-transparent w-25 text-center rounded py-2"
+                <a href="/profile" class="bg-transparent w-50 text-center rounded py-2"
                     style="text-decoration: none; border: 1px solid #252525; color: #252525;"> Profile Kami </a>
             </div>
         </div>

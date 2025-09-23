@@ -1,0 +1,27 @@
+/* COMMON SLIDER (mobile) */
+.price-wrapper .row,
+.feedback-wrapper .row,
+.article-wrapper .row {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.price-wrapper .row > div,
+.feedback-wrapper .row > div,
+.article-wrapper .row > div {
+  scroll-snap-align: start;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 992px) {
+  .price-wrapper .row,
+  .feedback-wrapper .row,
+  .article-wrapper .row {
+    flex-wrap: wrap !important;
+    overflow-x: visible !important;
+  }
+
+  .informasi {
+    margin-top: 5rem !important;
+  }
+}

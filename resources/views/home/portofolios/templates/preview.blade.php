@@ -17,12 +17,11 @@
             </div>
         </div>
 
-
     </div>
 </section>
 
 <section class="product-{{ $portofolio->slug }}" style="background-color: #EFEFEF;">
-    <div class="container py-5" data-aos="fade-right" data-aos-duration="1100">
+    <div class="container py-5 class px-4 px-md-0" data-aos="fade-right" data-aos-duration="1100">
 
         {{-- BREADCRUMB --}}
         <nav aria-label="breadcrumb">

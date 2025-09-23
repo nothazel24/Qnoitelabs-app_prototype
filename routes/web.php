@@ -19,7 +19,6 @@ Route::prefix('')->name('home.')->group(function () {
 
     // VIEW 
     Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
-    Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
     // INFORMATION
     Route::get('/information/{slug}', [HomeController::class, 'informationShow'])->name('information');

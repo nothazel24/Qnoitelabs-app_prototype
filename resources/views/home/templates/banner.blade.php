@@ -15,7 +15,7 @@
                 <div class="cta d-flex justify-content-center justify-content-sm-start gap-3 py-3 py-sm-0">
                     <div class="btn btn-md bg-white text-black px-5" data-aos="fade-right" data-aos-delay="800">Layanan Konsultasi</div>
                     <a href="https://youtu.be/dQw4w9WgXcQ?si=379Symeh3pUF3Cdb">
-                        <div class="btn btn-md bg-transparent text-white px-5 border border-white" data-aos="fade-right" data-aos-delay="1200">Join komunitas</div>
+                        <div class="btn btn-md btn-outline-light px-5" data-aos="fade-right" data-aos-delay="1200">Join komunitas</div>
                     </a>
                 </div>
             </div>

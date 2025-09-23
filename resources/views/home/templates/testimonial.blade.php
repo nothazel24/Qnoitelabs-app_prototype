@@ -4,37 +4,39 @@
             <h1 style="font-size: 30px">TESTIMONIAL</h1>
             <p>Berikut tanggapan klien kami yang puas terhadap layanan kami</p>
         </div>
-        <div class="row gap-4 mx-4 mx-md-0">
+        <div class="feedback-wrapper mx-4 mx-md-0">
+            <div class="row flex-nowrap overflow-auto gap-4">
 
-            @forelse ($feedback as $val)
-                <div class="col-lg bg-white p-4 rounded box-animated-down">
-                    <div class="inner">
-                        <div class="d-flex align-items-center gap-4">
-                            @if ($val->user->image)
-                                <img src="{{ asset('storage/' . $val->user->image) }}" alt="{{ $val->user->name }}'s pfp"
-                                    width="60" class="rounded-circle">
-                            @else
-                                <img src="{{ asset('dist/images/profile.jpg') }}" alt="{{ $val->user->name }}'s pfp"
-                                    width="60" class="rounded-circle">
-                            @endif
-                            <div class="d-flex flex-column">
-                                <p class="fw-bold m-0 p-0">{{ $val->user->name }}</p>
-                                <p class="m-0 p-0">{{ $val->user->email }}</p>
+                @forelse ($feedback as $val)
+                    <div class="col-lg bg-white p-4 rounded box-animated-down">
+                        <div class="inner">
+                            <div class="d-flex align-items-center gap-4">
+                                @if ($val->user->image)
+                                    <img src="{{ asset('storage/' . $val->user->image) }}"
+                                        alt="{{ $val->user->name }}'s pfp" width="60" class="rounded-circle">
+                                @else
+                                    <img src="{{ asset('dist/images/profile.jpg') }}" alt="{{ $val->user->name }}'s pfp"
+                                        width="60" class="rounded-circle">
+                                @endif
+                                <div class="d-flex flex-column">
+                                    <p class="fw-bold m-0 p-0">{{ $val->user->name }}</p>
+                                    <p class="m-0 p-0">{{ $val->user->email }}</p>
+                                </div>
                             </div>
+                            <p class="py-4">
+                                {{ $val->content }}
+                            </p>
                         </div>
-                        <p class="py-4">
-                            {{ $val->content }}
-                        </p>
                     </div>
-                </div>
-            @empty
-                <div class="col-12">
-                    <div class="alert alert-info text-center box-animated-down" role="alert">
-                        Belum ada feedback yang tersedia.
+                @empty
+                    <div class="col-12">
+                        <div class="alert alert-secondary text-center box-animated-down" role="alert">
+                            Belum ada feedback yang tersedia.
+                        </div>
                     </div>
-                </div>
-            @endforelse
+                @endforelse
 
+            </div>
         </div>
     </div>
 </section>
