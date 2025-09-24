@@ -66,5 +66,4 @@ Route::get('/login', [AuthenticatedSessionController::class, 'create'])
 
 // register
 Route::get('/register', [RegisteredUserController::class, 'create'])
-    ->middleware(['check'])
     ->name('register');

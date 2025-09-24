@@ -23,5 +23,6 @@ class SendRegisterNotification
     {
         session()->flash('messages', 'Akun berhasil dibuat!, Selamat datang ' . $event->user->name);
         session()->flash('type', 'success');
+        session()->flash('id', 'success-notification');
     }
 }

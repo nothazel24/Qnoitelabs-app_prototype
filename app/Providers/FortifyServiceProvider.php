@@ -15,6 +15,10 @@ use Illuminate\Support\Str;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 use Laravel\Fortify\Fortify;
 
+// REGISTER
+use Laravel\Fortify\Contracts\RegisterResponse;
+use App\Http\Responses\RegisterResponse as CustomRegisterResponse;
+
 class FortifyServiceProvider extends ServiceProvider
 {
     /**
@@ -22,7 +26,7 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(RegisterResponse::class, CustomRegisterResponse::class);
     }
 
     /**
