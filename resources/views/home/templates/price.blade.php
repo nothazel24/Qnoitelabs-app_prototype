@@ -14,7 +14,7 @@
         <h1 class="fw-bold text-white text-center mt-5">Pembuatan Website Company Profile</h1>
 
         <div class="price-wrapper mx-4 mx-md-0">
-            <div class="row flex-nowrap overflow-auto gap-3">
+            <div class="price-wrapper row flex-nowrap overflow-auto gap-3 align-items-start">
 
                 {{-- PRICE CARD --}}
                 <div class="col-lg my-4 bg-white rounded py-5 box-animated-down">
@@ -107,13 +107,13 @@
                             <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
                             <p class="p-0 m-0 text-start">8-20 Halaman Website</p>
                         </div>
-                        <div class="d-flex flex-row gap-2 align-items-center m-3">
-                            <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
-                            <p class="p-0 m-0 text-start">Full akses admin</p>
-                        </div>
 
                         <div class="extra-features">
                             <div class="d-flex flex-row gap-2 align-items-center mx-3">
+                                <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                                <p class="p-0 m-0 text-start">Full akses admin</p>
+                            </div>
+                            <div class="d-flex flex-row gap-2 align-items-center m-3">
                                 <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
                                 <p class="p-0 m-0 text-start">3x Revisi design</p>
                             </div>
@@ -172,13 +172,13 @@
                             <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
                             <p class="p-0 m-0 text-start">20+ Halaman Website</p>
                         </div>
-                        <div class="d-flex flex-row gap-2 align-items-center m-3">
-                            <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
-                            <p class="p-0 m-0 text-start">Full akses admin</p>
-                        </div>
 
                         <div class="extra-features">
                             <div class="d-flex flex-row gap-2 align-items-center mx-3">
+                                <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
+                                <p class="p-0 m-0 text-start">Full akses admin</p>
+                            </div>
+                            <div class="d-flex flex-row gap-2 align-items-center m-3">
                                 <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
                                 <p class="p-0 m-0 text-start">5x Revisi design</p>
                             </div>

@@ -7,7 +7,7 @@
         <div
             class="container position-absolute top-50 start-50 translate-middle text-white d-flex align-items-center px-4 px-md-0">
             <div class="one" data-aos="fade-right">
-                <h1 class="fw-bold text-center text-md-start">QNOITE.COM</h1>
+                <h1 class="fw-bold text-center text-md-start">QNOITE.MY.ID</h1>
                 <p class="col-md-7 text-center text-md-start">Qnoite adalah platform digital yang menggabungkan layanan
                     pembuatan website
                     profesional dengan semangat komunitas open source.</p>
