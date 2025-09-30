@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 # Ini digunakan untuk pengguna fedora yang dimana SELinux nya itu sangat ketat. 
 # Eksekusi kembali kode ini apabila ada gambar/file yang baru ditambahkan kembali dan tidak terdeteksi oleh browser

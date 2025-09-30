@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 # Setup Project
 
@@ -16,6 +16,11 @@ sudo docker compose exec app php artisan migrate
 
 # Link ke storage
 sudo docker compose exec app php artisan storage:link
+
+# Optimisasi (Production)
+sudo docker compose exec app php artisan config:cache
+sudo docker compose exec app php artisan route:cache
+sudo docker compose exec app php artisan view:cache
 
 # NPM install
 # Kamu bisa mengeksekusi kode dibawah ini kembali jika kamu memodifikasi package yang dibutuhkan
