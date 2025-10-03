@@ -1,16 +1,16 @@
-<section class="faq mt-5 pt-5 pb-4" style="background-color: #efefef;">
+<section class="faq mt-md-5 pt-5 pb-4" style="background-color: #efefef;">
     <div class="container py-4">
-        <div class="mb-5 mx-4 mx-md-0">
+        <div class="mb-5 mx-3 mx-md-0">
             <h1 style="font-size: 30px">Pertanyaan yang Sering Diajukan</h1>
             <p>Temukan jawaban atas pertanyaan umum seputar layanan pembuatan website Qnoite. Jika belum menemukan jawaban, tim kami siap membantu Anda.</p>
             <hr class="p-0 m-0" style="width: 40px; height: 3px; border: none; background-color: rgba(30, 30, 30, 0.80);">
         </div>
 
-        <div class="row gap-2 faq-wrapper mx-4 mx-md-0">
+        <div class="row gap-2 faq-wrapper mx-3 mx-md-0">
 
             {{-- ONE --}}
             <div class="col-lg-12 bg-white rounded py-3">
-                <div class="inner text-center px-3">
+                <div class="inner text-start px-3">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <p class="m-0 p-0"><strong>Apa itu Qnoite ?</strong></p>
                         <a href="javascript:void(0)" class="toggle-btn" style="color: #65B891; cursor:pointer;">
@@ -29,7 +29,7 @@
 
             {{-- TWO --}}
             <div class="col-lg-12 bg-white rounded py-3">
-                <div class="inner text-center px-3">
+                <div class="inner text-start px-3">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <p class="m-0 p-0"><strong>Layanan apa saja yang ditawarkan Qnoite?</strong></p>
                         <a href="javascript:void(0)" class="toggle-btn" style="color: #65B891; cursor:pointer;">
@@ -70,7 +70,7 @@
 
             {{-- THREE --}}
             <div class="col-lg-12 bg-white rounded py-3">
-                <div class="inner text-center px-3">
+                <div class="inner text-start px-3">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <p class="m-0 p-0"><strong>Berapa lama waktu pembuatan website di Qnoite?</strong></p>
                         <a href="javascript:void(0)" class="toggle-btn" style="color: #65B891; cursor:pointer;">
@@ -89,7 +89,7 @@
 
             {{-- FOUR --}}
             <div class="col-lg-12 bg-white rounded py-3">
-                <div class="inner text-center px-3">
+                <div class="inner text-start px-3">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <p class="m-0 p-0"><strong>Apakah saya bisa mengelola website sendiri setelah dibuat?</strong>
                         </p>
@@ -109,7 +109,7 @@
 
             {{-- FIVE --}}
             <div class="col-lg-12 bg-white rounded py-3">
-                <div class="inner text-center px-3">
+                <div class="inner text-start px-3">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <p class="m-0 p-0"><strong>Apakah website yang dibuat Qnoite responsif?</strong></p>
                         <a href="javascript:void(0)" class="toggle-btn" style="color: #65B891; cursor:pointer;">
@@ -127,7 +127,7 @@
 
             {{-- SIX --}}
             <div class="col-lg-12 bg-white rounded py-3">
-                <div class="inner text-center px-3">
+                <div class="inner text-start px-3">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <p class="m-0 p-0"><strong>Apakah Qnoite menyediakan layanan hosting dan domain?</strong></p>
                         <a href="javascript:void(0)" class="toggle-btn" style="color: #65B891; cursor:pointer;">
@@ -145,7 +145,7 @@
 
             {{-- SEVEN --}}
             <div class="col-lg-12 bg-white rounded py-3">
-                <div class="inner text-center px-3">
+                <div class="inner text-start px-3">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <p class="m-0 p-0"><strong>Bagaimana sistem pembayaran untuk jasa Qnoite?</strong></p>
                         <a href="javascript:void(0)" class="toggle-btn" style="color: #65B891; cursor:pointer;">
@@ -164,7 +164,7 @@
 
             {{-- EIGHT --}}
             <div class="col-lg-12 bg-white rounded py-3">
-                <div class="inner text-center px-3">
+                <div class="inner text-start px-3">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <p class="m-0 p-0"><strong>Bisakah Qnoite mengintegrasikan website dengan sistem lain?</strong>
                         </p>
@@ -184,7 +184,7 @@
 
             {{-- NINE --}}
             <div class="col-lg-12 bg-white rounded py-3">
-                <div class="inner text-center px-3">
+                <div class="inner text-start px-3">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <p class="m-0 p-0"><strong>Apakah Qnoite mendukung SEO?</strong></p>
                         <a href="javascript:void(0)" class="toggle-btn" style="color: #65B891; cursor:pointer;">
@@ -203,7 +203,7 @@
 
             {{-- TEN --}}
             <div class="col-lg-12 bg-white rounded py-3">
-                <div class="inner text-center px-3">
+                <div class="inner text-start px-3">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <p class="m-0 p-0"><strong>Bagaimana cara memulai proyek dengan Qnoite?</strong></p>
                         <a href="javascript:void(0)" class="toggle-btn" style="color: #65B891; cursor:pointer;">
@@ -222,7 +222,7 @@
 
             {{-- ELEVEN --}}
             <div class="col-lg-12 bg-white rounded py-3">
-                <div class="inner text-center px-3">
+                <div class="inner text-start px-3">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <p class="m-0 p-0"><strong>Apakah ada garansi atau revisi desain?</strong></p>
                         <a href="javascript:void(0)" class="toggle-btn" style="color: #65B891; cursor:pointer;">
@@ -241,7 +241,7 @@
 
             {{-- TWELVE --}}
             <div class="col-lg-12 bg-white rounded py-3">
-                <div class="inner text-center px-3">
+                <div class="inner text-start px-3">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <p class="m-0 p-0"><strong>Mengapa memilih Qnoite dibanding jasa lain?</strong></p>
                         <a href="javascript:void(0)" class="toggle-btn" style="color: #65B891; cursor:pointer;">

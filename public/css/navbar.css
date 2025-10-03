@@ -2,9 +2,17 @@
     color: #fefefe !important;
 }
 
+.navbar .form {
+    color: #fefefe !important;
+}
+
 .navbar .form::placeholder {
     color: #fefefe !important;
     opacity: .5;
+}
+
+.navbar-scrolled .form {
+    color: #252525 !important;
 }
 
 .navbar-scrolled .form::placeholder {

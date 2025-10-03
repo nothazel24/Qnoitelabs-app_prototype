@@ -42,18 +42,34 @@
                         </p>
 
                         {{-- CATEGORY DROPDOWN --}}
-                        <div class="dropdown-menu" aria-labelledby="categoryDropdown" style="top: 100%; left: 0;">
-                            <div class="d-flex flex-row">
+                        <div class="dropdown-menu mt-3 w-75" aria-labelledby="categoryDropdown"
+                            style="top: 100%; left: 0;">
+                            <a class="dropdown-item d-flex align-items-center gap-3 py-2"
+                                href="/portofolio/categories/1" title="umkm">
+                                <img src="{{ asset('dist/icons/umkm.svg') }}" alt="umkm" width="40">
                                 <div class="d-flex flex-column">
-                                    <a class="dropdown-item" href="#">
-                                        lorem
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        lorem
-                                    </a>
+                                    <span class="fw-bold" style="font-size: 20px;">Umkm</span>
+                                    <small class="p-0 m-0">Ideal untuk usaha startup</small>
                                 </div>
-                            </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center gap-3 py-2"
+                                href="/portofolio/categories/2" title="umkm">
+                                <img src="{{ asset('dist/icons/bisnis.svg') }}" alt="bisnis" width="40">
+                                <div class="d-flex flex-column">
+                                    <span class="fw-bold" style="font-size: 20px;">Bisnis</span>
+                                    <small class="p-0 m-0">Ideal untuk usaha menengah</small>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center gap-3 py-2"
+                                href="/portofolio/categories/3" title="umkm">
+                                <img src="{{ asset('dist/icons/corporate.svg') }}" alt="corporate" width="40">
+                                <div class="d-flex flex-column">
+                                    <span class="fw-bold" style="font-size: 20px;">Corporate</span>
+                                    <small class="p-0 m-0">Ideal untuk instansi & perusahaan</small>
+                                </div>
+                            </a>
                         </div>
+
 
                         <form action="{{ route('home.portofolios.main') }}" method="GET" autocomplete="off"
                             novalidate>
@@ -61,7 +77,7 @@
 
                             <div class="d-flex">
                                 <input type="text" name="search" id="search" placeholder="Cari produk"
-                                    class="form-control @if (request()->is(['information/*', 'whistlist', 'user-edit'])) form-dark @else form @endif"
+                                    class="form-control @if (request()->is(['information/*', 'whistlist', 'user-edit', 'frequently-asked-question'])) form-dark @else form @endif"
                                     style="background-color: transparent;">
 
                                 {{-- Submit button --}}
@@ -89,6 +105,10 @@
                         <a class="nav-link @if (request()->is(['article', 'article/*'])) active-link @endif"
                             href="/article">Blog</a>
                     </li>
+                    <li class="nav-item active me-3">
+                        <a class="nav-link @if (request()->is('frequently-asked-question')) active-link @endif"
+                            href="/frequently-asked-question">FAQ</a>
+                    </li>
                 @endif
 
                 @guest
@@ -109,7 +129,8 @@
                             @if (Auth::user()->image)
                                 <img src="{{ asset('storage/' . Auth::user()->image) }}"
                                     alt="{{ Auth::user()->name }}'s pfp" class="rounded-circle ms-3"
-                                    style="max-width: 38px; cursor: pointer;" onclick="opensidebar()" title="Buka Sidebar">
+                                    style="max-width: 38px; cursor: pointer;" onclick="opensidebar()"
+                                    title="Buka Sidebar">
                             @else
                                 <img src="{{ asset('dist/images/profile.jpg') }}" alt="{{ Auth::user()->name }}'s pfp"
                                     class="rounded-circle ms-3" style="max-width: 38px; cursor: pointer;"

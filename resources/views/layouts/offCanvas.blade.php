@@ -1,7 +1,7 @@
 @if (Auth::user())
 
     {{-- OFF CANVAS MENU --}}
-    <div id="offCanvas" class="sidebar shadow shadow-lg">
+    <div id="offCanvas" class="sidebar shadow-lg">
 
         <div class="users d-flex align-items-center justify-content-between ms-2">
             <div class="d-flex align-items-center">
@@ -63,13 +63,17 @@
                     <a class="nav-link @if (request()->is('profile')) active-link @endif" href="/profile">Profile</a>
                 </li>
                 <li class="d-flex align-items-center">
+                    <img src="{{ asset('dist/icons/user-sidebar/price.svg') }}" alt="Produk" width="20">
+                    <a class="nav-link @if (request()->is(['portofolio', 'portofolio/*'])) active-link @endif" href="/portofolio">Demo
+                        Website</a>
+                </li>
+                <li class="d-flex align-items-center">
                     <img src="{{ asset('dist/icons/user-sidebar/article.svg') }}" alt="Blog" width="20">
                     <a class="nav-link @if (request()->is(['article', 'article/*'])) active-link @endif" href="/article">Artikel</a>
                 </li>
                 <li class="d-flex align-items-center">
-                    <img src="{{ asset('dist/icons/user-sidebar/price.svg') }}" alt="Produk" width="20">
-                    <a class="nav-link @if (request()->is(['portofolio', 'portofolio/*'])) active-link @endif" href="/portofolio">Demo
-                        Website</a>
+                    <img src="{{ asset('dist/icons/user-sidebar/faq-black.svg') }}" alt="FAQ" width="20">
+                    <a class="nav-link @if (request()->is('frequently-asked-question')) active-link @endif" href="/article">FAQ</a>
                 </li>
                 @if (Auth::user()->role == 'admin')
                     <li class="d-flex align-items-center">
