@@ -1,5 +1,5 @@
 <section class="user-edit" style="background-color: #efefef;">
-    <div class="container py-5 px-5 px-md-0" data-aos="fade-up">
+    <div class="container pb-5 py-md-5 px-4 px-md-0" data-aos="fade-up">
         <div class="row" style="padding-top: 4rem;">
             <h3 class="pb-2">Profil {{ $user->name }}</h3>
             <div class="col-lg-8">
@@ -114,7 +114,8 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn w-100 mt-3 text-white" style="background-color: #3A7CA5;">Simpan Perubahan</button>
+                            <button type="submit" class="btn w-100 mt-3 text-white"
+                                style="background-color: #3A7CA5;">Simpan Perubahan</button>
 
                         </div>
                     </div>

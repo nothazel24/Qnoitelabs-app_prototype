@@ -10,14 +10,6 @@
                             <i class="fas fa-calendar-alt me-1"></i> Dibuat:
                             {{ $information->created_at->format('d M Y H:i') }}
                         </span>
-                        <span>
-                            <i class="fas fa-info-circle me-1"></i> Status:
-                            @if ($information->status)
-                                <span class="badge bg-primary">Published</span>
-                            @else
-                                <span class="badge bg-danger">Draft</span>
-                            @endif
-                        </span>
                     </div>
 
                     <hr class="my-3">

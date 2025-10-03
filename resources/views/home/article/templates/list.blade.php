@@ -106,7 +106,7 @@
 
                     @empty
                         <div class="col-12">
-                            <div class="alert alert-info text-center" role="alert">
+                            <div class="alert alert-secondary text-center" role="alert">
                                 Belum ada artikel yang tersedia.
                             </div>
                         </div>

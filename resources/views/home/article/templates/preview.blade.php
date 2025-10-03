@@ -6,11 +6,11 @@
         @if ($articles->image)
             <img class="w-100" src="{{ asset('storage/' . $articles->image) }}"
                 alt="Gambar Artikel: {{ $articles->title }}"
-                style="filter: brightness(60%); object-fit: cover; height: 450px;">
+                style="filter: brightness(75%); object-fit: cover; height: 450px;">
         @else
             <img class="w-100" src="https://github.com/nothazel24/nothazel24/blob/main/assets/banner.png?raw=true"
                 alt="Gambar Artikel: {{ $articles->title }}"
-                style="filter: brightness(35%); object-fit: cover; height: 450px;">
+                style="filter: brightness(75%); object-fit: cover; height: 450px;">
         @endif
     </div>
 
@@ -37,14 +37,6 @@
                 <span class="me-3">
                     <i class="fas fa-calendar-alt me-1"></i> Dibuat:
                     {{ $articles->created_at->format('d M Y H:i') }}
-                </span>
-                <span>
-                    <i class="fas fa-info-circle me-1"></i> Status:
-                    @if ($articles->status)
-                        <span class="badge bg-primary">Published</span>
-                    @else
-                        <span class="badge bg-danger">Draft</span>
-                    @endif
                 </span>
             </div>
 

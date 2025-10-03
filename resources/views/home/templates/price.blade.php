@@ -17,13 +17,16 @@
             <div class="price-wrapper row flex-nowrap overflow-auto gap-3 align-items-start">
 
                 {{-- PRICE CARD --}}
-                <div class="col-lg my-4 bg-white rounded py-5 box-animated-down">
+                <div class="col-lg my-4 bg-white rounded py-4 box-animated-down">
                     <div class="inner text-center p-3">
-                        <h1 style="font-size: 16px;" class="fw-bold m-0">PAKET UMKM</h1>
+                        <h1 style="font-size: 25px;" class="fw-bold m-0">PAKET UMKM</h1>
                         <p class="m-0" style="font-size: 14px">Ideal untuk Pemula</p>
-                        <h2 class="m-5">CALL US</h2>
-                        <button class="btn py-3 text-white w-100 mt-2" style="background-color: #3A7CA5">
-                            Konsultasi dengan kami
+                        <h2 class="my-5">CALL US</h2>
+                        <button class="btn py-3 text-white w-100 mt-2" style="background-color: #65B891;">
+                            <div class="d-flex flex-row align-items-center justify-content-center gap-2">
+                                <img src="{{ asset('dist/icons/whatsapp-white.svg') }}" alt="whatsapp" width="30">
+                                <p class="p-0 m-0">Konsultasi dengan kami</p>
+                            </div>
                         </button>
                         <hr class="mx-3">
                         <div class="d-flex flex-row gap-2 align-items-center m-3">
@@ -60,26 +63,25 @@
                                 <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
                                 <p class="p-0 m-0 text-start">Gratis Konsultasi Optimasi & Digital Marketing</p>
                             </div>
-                            <div class="d-flex flex-row gap-2 align-items-centerx m-3">
-                                <img src="{{ asset('dist/icons/success.svg') }}" alt="check" width="25">
-                                <p class="p-0 m-0 text-start">Garansi Seumur Hidup*</p>
-                            </div>
                         </div>
 
-                        <a href="javascript:void(0)" class="toggle-btn" style="color: #3A7CA5; cursor:pointer;">
+                        <a href="javascript:void(0)" class="toggle-btn" style="color: #65B891; cursor:pointer;">
                             Lihat Lebih Banyak
                         </a>
                     </div>
                 </div>
 
                 {{-- PRICE CARD --}}
-                <div class="col-lg my-4 bg-white rounded py-5 box-animated-down">
+                <div class="col-lg my-4 bg-white rounded py-4 box-animated-down">
                     <div class="inner text-center p-3">
-                        <h1 style="font-size: 16px;" class="fw-bold m-0">PAKET BISNIS</h1>
+                        <h1 style="font-size: 25px;" class="fw-bold m-0">PAKET BISNIS</h1>
                         <p class="m-0" style="font-size: 14px">Ideal untuk usaha kecil & menengah</p>
-                        <h2 class="m-5">CALL US</h2>
-                        <button class="btn py-3 text-white w-100 mt-2" style="background-color: #3A7CA5">
-                            Konsultasi dengan kami
+                        <h2 class="my-5">CALL US</h2>
+                        <button class="btn py-3 text-white w-100 mt-2" style="background-color: #22AAA1;">
+                            <div class="d-flex flex-row align-items-center justify-content-center gap-2">
+                                <img src="{{ asset('dist/icons/whatsapp-white.svg') }}" alt="whatsapp" width="30">
+                                <p class="p-0 m-0">Konsultasi dengan kami</p>
+                            </div>
                         </button>
                         <hr class="mx-3">
                         <div class="d-flex flex-row gap-2 align-items-center m-3">
@@ -131,20 +133,24 @@
                             </div>
                         </div>
 
-                        <a href="javascript:void(0)" class="toggle-btn" style="color: #3A7CA5; cursor:pointer;">
+                        <a href="javascript:void(0)" class="toggle-btn" style="color: #22AAA1; cursor:pointer;">
                             Lihat Lebih Banyak
                         </a>
                     </div>
                 </div>
 
                 {{-- PRICE CARD --}}
-                <div class="col-lg my-4 bg-white rounded py-5 box-animated-down">
+                <div class="col-lg my-4 bg-white rounded py-4 box-animated-down">
                     <div class="inner text-center p-3">
-                        <h1 style="font-size: 16px;" class="fw-bold m-0">PAKET CORPORATE</h1>
+                        <h1 style="font-size: 25px;" class="fw-bold m-0">PAKET CORPORATE</h1>
                         <p class="m-0" style="font-size: 14px">Ideal untuk instansi & perusahaan</p>
-                        <h2 class="m-5">CALL US</h2>
-                        <button class="btn py-3 text-white w-100 mt-2" style="background-color: #3A7CA5">
-                            Konsultasi dengan kami
+                        <h2 class="my-5">CALL US</h2>
+                        <button class="btn py-3 text-white w-100 mt-2" style="background-color: #FF8A5B;">
+                            <div class="d-flex flex-row align-items-center justify-content-center gap-2">
+                                <img src="{{ asset('dist/icons/whatsapp-white.svg') }}" alt="whatsapp"
+                                    width="30">
+                                <p class="p-0 m-0">Konsultasi dengan kami</p>
+                            </div>
                         </button>
                         <hr class="mx-3">
                         <div class="d-flex flex-row gap-2 align-items-center m-3">
@@ -201,7 +207,7 @@
                             </div>
                         </div>
 
-                        <a href="javascript:void(0)" class="toggle-btn" style="color: #3A7CA5; cursor:pointer;">
+                        <a href="javascript:void(0)" class="toggle-btn" style="color: #FF8A5B; cursor:pointer;">
                             Lihat Lebih Banyak
                         </a>
                     </div>

@@ -4,11 +4,12 @@
             <h1 style="font-size: 30px">TIPS & WAWASAN DARI KAMI</h1>
             <p>Kami percaya edukasi adalah bagian dari pelayanan. Baca berbagai artikel seputar pengembangan
                 website, teknologi web, dan strategi digital terbaru dari tim Qnoite.</p>
+            <hr class="p-0 m-0" style="width: 40px; height: 3px; border: none; background-color: rgba(30, 30, 30, 0.80);">
         </div>
 
         {{-- BLOG SECTION --}}
         <div class="article-wrapper mx-4 mx-md-0">
-            <div class="row flex-nowrap overflow-auto gap-1">
+            <div class="row flex-nowrap overflow-auto">
 
                 @forelse ($articles as $key => $val)
                     @if ($key == 0 && !empty($articles) && count($articles) > 0)
@@ -48,7 +49,7 @@
 
                 @empty
                     <div class="col-12">
-                        <div class="alert alert-info text-center box-animated-down" role="alert">
+                        <div class="alert alert-secondary text-center box-animated-down" role="alert">
                             Belum ada artikel yang tersedia.
                         </div>
                     </div>
