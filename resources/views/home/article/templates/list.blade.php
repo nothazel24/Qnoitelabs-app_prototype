@@ -43,7 +43,7 @@
                                 </div>
                             @else
                                 <div class="img">
-                                    <img src="https://github.com/nothazel24/nothazel24/blob/main/assets/banner.png?raw=true"
+                                    <img src="{{ asset('dist/images/default-banner.svg') }}"
                                         alt="gambar-{{ $featuredArticle->title }}"
                                         style="border-radius: 10px; filter: brightness(80%); object-fit: cover; width: 100%; height: 350px;">
                                 </div>
@@ -83,7 +83,7 @@
                                     </div>
                                 @else
                                     <div class="card-img-top d-flex align-items-center justify-content-center text-white-50 ratio ratio-16x9"
-                                        style=" background: url('https://github.com/nothazel24/nothazel24/blob/main/assets/banner.png?raw=true'); background-size: cover; background-position: center; border-radius: 10px 10px 0 0; filter: brightness(80%);">
+                                        style=" background: url({{ asset('dist/images/default-banner.svg') }}); background-size: cover; background-position: center; border-radius: 10px 10px 0 0; filter: brightness(80%);">
                                         MyBlog Image
                                     </div>
                                 @endif

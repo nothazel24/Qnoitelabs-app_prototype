@@ -13,7 +13,7 @@
                         </div>
                     @else
                         <div class="ratio ratio-21x9 rounded-top d-flex align-items-center"
-                            style="background: linear-gradient(rgba(25, 135, 84, 0.7), rgba(13, 110, 253, 0.7)), url('https://wallpapercave.com/wp/wp10992174.png'); background-size: cover; background-position: center;">
+                            style="background: url({{ asset('dist/images/default-banner.svg') }}); background-size: cover; background-position: center; filter: brightness(90%); ">
                         </div>
                     @endif
                     <div class="card-body p-4 p-md-5">
@@ -51,7 +51,7 @@
                             <a href="{{ route('admin.article.index') }}" class="btn btn-secondary">
                                 <i class="fas fa-arrow-left me-2"></i> Kembali ke Daftar Artikel
                             </a>
-                            @if (Auth::check() && (Auth::user()->id === $article->user_id || Auth::user()->isAdmin()))
+                            @if (Auth::check() && (Auth::user()->id == $article->user_id || Auth::user()->isAdmin()))
                                 <div>
                                     <a href="{{ route('admin.article.edit', $article->slug) }}"
                                         class="btn btn-warning text-white me-2">

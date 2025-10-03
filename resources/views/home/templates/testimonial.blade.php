@@ -1,4 +1,4 @@
-<section class="testimonial" style="background-color: #efefef">
+<section class="testimonial pb-3" style="background-color: #efefef">
     <div class="container py-5">
         <div class="mb-5 mx-4 mx-md-0">
             <h1 style="font-size: 30px">TESTIMONIAL</h1>

@@ -1,6 +1,6 @@
 {{-- NAVBAR SECTION --}}
 <nav
-    class="container-fluid navbar navbar-expand-lg py-3 d-flex flex-row {{ request()->is(['information/*', 'whistlist', 'user-edit']) ? 'fixed-top nav-bg' : 'fixed-top' }}">
+    class="container-fluid navbar navbar-expand-lg py-3 d-flex flex-row {{ request()->is(['information/*', 'whistlist', 'user-edit', 'frequently-asked-question']) ? 'fixed-top nav-bg' : 'fixed-top' }}">
 
     <div class="container px-4 px-sm-0" data-aos="fade-down" data-aos-duration="1100">
         <a class="navbar-brand" href="/">

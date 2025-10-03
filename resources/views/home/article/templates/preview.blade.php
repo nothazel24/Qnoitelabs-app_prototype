@@ -8,9 +8,9 @@
                 alt="Gambar Artikel: {{ $articles->title }}"
                 style="filter: brightness(75%); object-fit: cover; height: 450px;">
         @else
-            <img class="w-100" src="https://github.com/nothazel24/nothazel24/blob/main/assets/banner.png?raw=true"
+            <img class="w-100" src="{{ asset('dist/images/default-banner.svg') }}"
                 alt="Gambar Artikel: {{ $articles->title }}"
-                style="filter: brightness(75%); object-fit: cover; height: 450px;">
+                style="filter: brightness(80%); object-fit: cover; height: 450px;">
         @endif
     </div>
 

@@ -36,6 +36,9 @@ Route::prefix('')->name('home.')->group(function () {
     Route::get('/user-edit', [HomeController::class, 'userEdit'])->name('user.edit');
     Route::patch('user-edit', [HomeController::class, 'userUpdate'])->name('user.update');
     Route::delete('user-edit', [HomeController::class, 'userDestroy'])->name('user.destroy');
+
+    Route::view('/frequently-asked-question', 'home.faq.main')->name('faq');
+    Route::view('/feedback', 'home.feedback.main')->name('feedback');
 });
 
 //Route semua pengguna

@@ -58,7 +58,7 @@
                     <img src="{{ asset('dist/icons/persyaratan.svg') }}" alt="instagram" width="30">
                     <p class="p-0 my-0 mx-2 text-white">Persyaratan layanan</p>
                 </a>
-                <a href="#" style="text-decoration: none;" class="d-flex align-items-center">
+                <a href="/frequently-asked-question" style="text-decoration: none;" class="d-flex align-items-center">
                     <img src="{{ asset('dist/icons/faq.svg') }}" alt="instagram" width="30">
                     <p class="p-0 my-0 mx-2 text-white">Pernyataan umum</p>
                 </a>
@@ -95,6 +95,9 @@
                     </a>
                     <a href="#" style="text-decoration: none;">
                         <li class="text-white pt-2">Support Center</li>
+                    </a>
+                    <a href="/feedback" style="text-decoration: none;">
+                        <li class="text-white pt-2">Feedback</li>
                     </a>
                 </ul>
             </div>
