@@ -8,10 +8,7 @@
 
 <link rel="icon" href="{{ asset('favicon.ico')}}" type="image/x-icon" />
 <link rel="shortcut icon" href="{{ asset('favicon.ico')}}" type="image/x-icon" />
-
-{{-- BOOTSTRAP CDN --}}
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    
 {{-- CSS --}}
 <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 <link rel="stylesheet" href="{{ asset('css/homeSidebar.css') }}">

@@ -25,8 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $articles = Article::with(['user', 'category'])->where('status', true)->latest()->limit(5)->get();
-        $feedback = Feedback::with('user')->latest()->limit(3)->get();
+        $articles = Article::with(['user', 'category'])->where('status', true)->inRandomOrder()->take(5)->get();
+        $feedback = Feedback::with('user')->inRandomOrder()->take(3)->get();
         $user = User::first();
 
         return view('home.main', compact('articles', 'feedback', 'user'));
