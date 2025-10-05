@@ -123,6 +123,14 @@ class HomeController extends Controller
         return view('home.portofolios.main', compact('portofolios', 'webCategories', 'user'));
     }
 
+    public function information()
+    {
+        $information = Information::latest()->get();
+        $user = User::first();
+
+        return view('home.information.main', compact('information', 'user'));
+    }
+
     // DISPLAY INFORMATION
     public function informationShow($slug)
     {

@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PortofolioController;
 use App\Http\Controllers\Admin\WebsiteCategoryController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Home\CommentsController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 
@@ -21,7 +22,8 @@ Route::prefix('')->name('home.')->group(function () {
     Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
 
     // INFORMATION
-    Route::get('/information/{slug}', [HomeController::class, 'informationShow'])->name('information');
+    Route::get('/information', [HomeController::class, 'information'])->name('information');
+    Route::get('/information/{slug}', [HomeController::class, 'informationShow'])->name('information.show');
 
     // ARTICLE ROUTE 
     Route::get('/article', [HomeController::class, 'articles'])->name('article.main');
@@ -39,6 +41,11 @@ Route::prefix('')->name('home.')->group(function () {
 
     Route::view('/frequently-asked-question', 'home.faq.main')->name('faq');
     Route::view('/feedback', 'home.feedback.main')->name('feedback');
+
+    // Comments section
+    Route::post('/article/{slug}/comment', [CommentsController::class, 'store'])->name('comment.store');
+    Route::put('/article/{slug}/comment/{id}', [CommentsController::class, 'update'])->name('comment.update');
+    Route::delete('/article/{slug}/comment/{id}', [CommentsController::class, 'destroy'])->name('comment.destroy');
 });
 
 //Route semua pengguna

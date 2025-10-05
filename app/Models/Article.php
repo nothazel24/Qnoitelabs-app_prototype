@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-     protected $fillable = [
+    protected $fillable = [
         'user_id',
         'category_id',
         'title',
@@ -32,5 +32,10 @@ class Article extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comments::class);
     }
 }
