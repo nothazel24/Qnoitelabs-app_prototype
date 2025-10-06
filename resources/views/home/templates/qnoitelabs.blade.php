@@ -1,6 +1,6 @@
 <section class="qnoitelabs">
-    <div class="container py-5">
-        <div class="text-white mx-4 mx-sm-0">
+    <div class="container px-4 py-5 px-md-0">
+        <div class="text-white">
             <h1 style="font-size: 30px;">QNOITELABS : EXPERIMEN TEKNOLOGI DARI QNOITE</h1>
             <p>Selain menyediakan layanan pengembangan website, Qnoite juga mengelola proyek khusus bernama
                 Qnoitelabs ruang eksplorasi teknologi yang berfokus pada pengembangan kernel Android, optimasi

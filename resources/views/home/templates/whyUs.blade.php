@@ -1,7 +1,7 @@
 <section class="whyUs" style="background: linear-gradient(180deg, rgba(239,239,239,0.80) 0%, rgba(255,255,255,0) 100%), url('{{ asset('dist/images/full-bloom.webp') }}');">
     <div class="container py-5">
         <h1 style="font-size: 30px" class="text-center px-4 px-sm-0">ALASAN KENAPA KAMI MITRA YANG TEPAT UNTUK ANDA</h1>
-        <div class="row mt-5 gap-4 mx-4 mx-sm-0">
+        <div class="row mt-5 gap-4 mx-3 mx-sm-0">
             <div class="col-lg bg-white p-3 rounded box-animated-right shadow-sm">
                 <div class="inner d-flex justify-content-between align-items-center">
                     <img src="{{ asset('dist/icons/responsive.svg') }}" alt="responsive" width="145">
@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <div class="row mt-4 gap-4 mx-4 mx-sm-0">
+        <div class="row mt-4 gap-4 mx-2 mx-sm-0">
             <div class="col-lg bg-white p-3 rounded box-animated-right shadow-sm">
                 <div class="inner d-flex justify-content-between align-items-center">
                     <img src="{{ asset('dist/icons/cepat.svg') }}" alt="responsive" width="145">

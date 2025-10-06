@@ -11,7 +11,7 @@
                         <h1 class="px-4" style="font-size: 30px;">VISI KAMI</h1>
                         <p class="px-4">Kami percaya bahwa teknologi yang hebat bisa dimulai dari hal sederhana sebuah
                             website yang
-                            dibangun dengan tujuan jelas dan semangat kolaboratif.Qnoite hadir untuk membantu
+                            dibangun dengan tujuan jelas dan semangat kolaboratif. Qnoite hadir untuk membantu
                             orang-orang dan bisnis tampil lebih baik secara digital, sekaligus menciptakan ruang bagi
                             ide-ide baru untuk tumbuh bersama.</p>
                     </div>

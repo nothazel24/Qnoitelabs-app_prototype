@@ -4,17 +4,17 @@
 
     <div class="container-fluid position-relative p-0 m-0" style="height: 450px;">
         @if ($articles->image)
-            <img class="w-100" src="{{ asset('storage/' . $articles->image) }}"
+            <img class="w-100 img-fluid" src="{{ asset('storage/' . $articles->image) }}"
                 alt="Gambar Artikel: {{ $articles->title }}"
                 style="filter: brightness(75%); object-fit: cover; height: 450px;">
         @else
-            <img class="w-100" src="{{ asset('dist/images/default-banner.svg') }}"
+            <img class="w-100 img-fluid" src="{{ asset('dist/images/default-banner.svg') }}"
                 alt="Gambar Artikel: {{ $articles->title }}"
                 style="filter: brightness(80%); object-fit: cover; height: 450px;">
         @endif
     </div>
 
-    <div class="container px-4 px-md-0">
+    <div class="container px-3 px-md-0">
         <div class="pt-5 pb-3" data-aos="fade-right" data-aos-duration="1100">
             <h1 class="mb-3" style="font-size: 2rem; font-weight: 700;">{{ $articles->title }}
             </h1>

@@ -1,6 +1,6 @@
 <section class="article pt-3" style="background-color: #efefef">
     <div class="container py-5">
-        <div class="mb-5 mx-4 mx-md-0">
+        <div class="mb-5 px-3 px-md-0">
             <h1 style="font-size: 30px">TIPS & WAWASAN DARI KAMI</h1>
             <p>Kami percaya edukasi adalah bagian dari pelayanan. Baca berbagai artikel seputar pengembangan
                 website, teknologi web, dan strategi digital terbaru dari tim Qnoite.</p>
@@ -8,7 +8,7 @@
         </div>
 
         {{-- BLOG SECTION --}}
-        <div class="article-wrapper mx-4 mx-md-0">
+        <div class="article-wrapper px-3 px-md-0">
             <div class="row flex-nowrap overflow-auto">
 
                 @forelse ($articles as $key => $val)
@@ -23,12 +23,11 @@
                             @if ($val->image)
                                 <div class="img">
                                     <img src="{{ asset('storage/' . $val->image) }}" alt="gambar-{{ $val->title }}"
-                                        style="border-radius: 10px 10px 0 0; filter: brightness(80%); object-fit: cover; width: 100%;">
+                                        style="border-radius: 10px 10px 0 0; object-fit: cover; width: 100%;">
                                 </div>
                             @else
                                 <div class="card-img-top d-flex align-items-center justify-content-center text-white-50 ratio ratio-16x9"
-                                    style=" background: url({{ asset('dist/images/default-banner.svg') }}); background-size: cover; background-position: center; border-radius: 10px 10px 0 0; filter: brightness(80%);">
-                                    Article Image
+                                    style=" background: url({{ asset('dist/images/default-banner.svg') }}); background-size: cover; background-position: center; border-radius: 10px 10px 0 0;">
                                 </div>
                             @endif
                             <div class="p-4">

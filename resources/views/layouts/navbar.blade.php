@@ -8,7 +8,7 @@
         </a>
 
         @if (!Auth::user())
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -45,7 +45,7 @@
                         <div class="dropdown-menu mt-3 w-75" aria-labelledby="categoryDropdown"
                             style="top: 100%; left: 0;">
                             <a class="dropdown-item d-flex align-items-center gap-3 py-2"
-                                href="/portofolio/categories/1" title="umkm">
+                                href="/portofolio/categories/1" title="Umkm">
                                 <img src="{{ asset('dist/icons/umkm.svg') }}" alt="umkm" width="40">
                                 <div class="d-flex flex-column">
                                     <span class="fw-bold" style="font-size: 20px;">Umkm</span>
@@ -53,7 +53,7 @@
                                 </div>
                             </a>
                             <a class="dropdown-item d-flex align-items-center gap-3 py-2"
-                                href="/portofolio/categories/2" title="umkm">
+                                href="/portofolio/categories/2" title="Bisnis">
                                 <img src="{{ asset('dist/icons/bisnis.svg') }}" alt="bisnis" width="40">
                                 <div class="d-flex flex-column">
                                     <span class="fw-bold" style="font-size: 20px;">Bisnis</span>
@@ -61,7 +61,7 @@
                                 </div>
                             </a>
                             <a class="dropdown-item d-flex align-items-center gap-3 py-2"
-                                href="/portofolio/categories/3" title="umkm">
+                                href="/portofolio/categories/3" title="Corporate">
                                 <img src="{{ asset('dist/icons/corporate.svg') }}" alt="corporate" width="40">
                                 <div class="d-flex flex-column">
                                     <span class="fw-bold" style="font-size: 20px;">Corporate</span>
@@ -81,7 +81,7 @@
                                     style="background-color: transparent;">
 
                                 {{-- Submit button --}}
-                                <button type="submit" class="text-white px-3">
+                                <button type="submit" class="btn text-white px-3">
                                     <img src="{{ asset('dist/icons/search.svg') }}" alt="search" width="35"
                                         title="Cari sekarang">
                                 </button>

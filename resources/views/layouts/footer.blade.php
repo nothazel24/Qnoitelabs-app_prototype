@@ -1,5 +1,5 @@
 {{-- FOOTER SECTION --}}
-<footer class="p-4 p-md-5" style="background-color: #2F6690;">
+<footer class="px-3 py-4 p-md-5 px-md-0" style="background-color: #2F6690;">
     <div class="container">
         <div class="row gap-4 gap-md-0">
             {{-- MAP --}}

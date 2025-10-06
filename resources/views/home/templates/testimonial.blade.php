@@ -1,11 +1,11 @@
 <section class="testimonial pb-3" style="background-color: #efefef">
     <div class="container py-5">
-        <div class="mb-5 mx-4 mx-md-0">
+        <div class="mb-5 px-3 px-md-0">
             <h1 style="font-size: 30px">TESTIMONIAL</h1>
             <p>Berikut tanggapan klien kami yang puas terhadap layanan kami</p>
             <hr class="p-0 m-0" style="width: 40px; height: 3px; border: none; background-color: rgba(30, 30, 30, 0.80);">
         </div>
-        <div class="feedback-wrapper mx-4 mx-md-0">
+        <div class="feedback-wrapper mx-3 mx-md-0">
             <div class="row flex-nowrap overflow-auto gap-4">
 
                 @forelse ($feedback as $val)

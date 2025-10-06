@@ -1,6 +1,6 @@
-<section class="informasi" style="background-color: #EFEFEF;">
-    <div class="container px-4 px-md-0">
-        <div class="row">
+<section class="informasi mt-5 pt-2 mt-md-0 pt-md-0" style="background-color: #EFEFEF;">
+    <div class="container">
+        <div class="row px-3 px-md-0">
             <div class="col-lg-12">
                 <div class="py-5" data-aos="fade-right" data-aos-duration="1100">
                     <h1 class="card-title mb-3" style="font-size: 2rem; font-weight: 700;">{{ $information->title }}

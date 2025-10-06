@@ -13,7 +13,7 @@
 
         <h1 class="fw-bold text-white text-center mt-5">Pembuatan Website Company Profile</h1>
 
-        <div class="price-wrapper mx-4 mx-md-0">
+        <div class="price-wrapper mx-3 mx-md-0">
             <div class="price-wrapper row flex-nowrap overflow-auto gap-3 align-items-start">
 
                 {{-- PRICE CARD --}}

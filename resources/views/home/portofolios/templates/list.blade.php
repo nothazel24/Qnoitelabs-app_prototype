@@ -4,14 +4,14 @@
 
             <img id="modalDemoImage" src="" alt="demoImage" class="img-fluid w-100 rounded">
 
-            <a href="#" class="position-absolute bottom-0 start-50 translate-middle text-white px-4"
-                style="opacity: 80%; text-decoration: none;" id="modalDetailLink">Detail</a>
+            <a href="#" class="position-absolute bottom-0 start-50 translate-middle text-white px-4 py-1 rounded"
+                style="opacity: 80%; text-decoration: none; background-color: #3A7CA5;" id="modalDetailLink">Detail</a>
 
-            <button class="btn btn-outline-light position-absolute top-50 start-0 translate-middle-y mx-2"
-                id="prevBtn" style="opacity: 80%;">‹</button>
+            <button class="btn btn-outline-light position-absolute top-50 start-0 translate-middle-y mx-2 text-white"
+                id="prevBtn" style="opacity: 80%; background-color: #3A7CA5;">‹</button>
 
-            <button class="btn btn-outline-light position-absolute top-50 end-0 translate-middle-y mx-2" id="nextBtn"
-                style="opacity: 80%;">›</button>
+            <button class="btn position-absolute top-50 end-0 translate-middle-y mx-2 text-white" id="nextBtn"
+                style="opacity: 80%; background-color: #3A7CA5;">›</button>
         </div>
     </div>
 </div>
@@ -40,8 +40,7 @@
                                 </div>
                             @else
                                 <div class="card-img-top d-flex align-items-center justify-content-center text-white-50 "
-                                    style=" background: url('https://github.com/nothazel24/nothazel24/blob/main/assets/banner.png?raw=true'); background-size: cover; background-position: center; border-radius: 10px; filter: brightness(80%); width: 100%; height: 200px;">
-                                    Portofolio Image
+                                    style=" background: url('{{ asset('dist/images/default-banner.svg') }}'); background-size: cover; background-position: center; border-radius: 10px; width: 100%; height: 200px;">
                                 </div>
                             @endif
                         </div>
@@ -71,7 +70,7 @@
         const images = @json(
             $portofolios->map(fn($p) => $p->image
                     ? asset('storage/' . $p->image)
-                    : 'https://github.com/nothazel24/nothazel24/blob/main/assets/banner.png?raw=true'));
+                    : asset('dist/images/default-banner.svg')));
         let currentIndex = 0;
 
         const slugs = @json($portofolios->pluck('slug'));

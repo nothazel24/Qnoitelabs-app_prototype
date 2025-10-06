@@ -43,7 +43,7 @@
                     style="background-color: transparent;">
 
                 {{-- Submit button --}}
-                <button type="submit" class="text-white px-3">
+                <button type="submit" class="btn text-white px-3">
                     <img src="{{ asset('dist/icons/search.svg') }}" alt="search" width="35"
                         title="Cari sekarang">
                 </button>
@@ -73,7 +73,7 @@
                 </li>
                 <li class="d-flex align-items-center">
                     <img src="{{ asset('dist/icons/user-sidebar/faq-black.svg') }}" alt="FAQ" width="20">
-                    <a class="nav-link @if (request()->is('frequently-asked-question')) active-link @endif" href="/article">FAQ</a>
+                    <a class="nav-link @if (request()->is('frequently-asked-question')) active-link @endif" href="/frequently-asked-question">FAQ</a>
                 </li>
                 @if (Auth::user()->role == 'admin')
                     <li class="d-flex align-items-center">
