@@ -1,1 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
+
+@import './cssAnimation.css';
+@import './homeSidebar.css';
+@import './navbar.css';
+@import './responsiveScript.css';
+@import './sidebar.css';

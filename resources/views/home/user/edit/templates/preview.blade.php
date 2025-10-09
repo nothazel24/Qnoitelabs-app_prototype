@@ -1,4 +1,46 @@
 <section class="user-edit" style="background-color: #efefef;">
+    {{-- CONFIRMATION MODAL --}}
+    <div class="modal fade" id="confirmUserDeletionModal" tabindex="-1" aria-labelledby="confirmUserDeletionModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="post" action="{{ route('home.user.destroy') }}">
+                    @csrf
+                    @method('delete')
+
+                    <div class="modal-header bg-danger">
+                        <h5 class="modal-title text-white" id="confirmUserDeletionModalLabel">
+                            Apakah Anda yakin ingin menghapus akun Anda?</h5>
+                    </div>
+
+                    <div class="modal-body">
+                        <p class="text-sm text-muted">
+                            Setelah akun Anda dihapus, semua sumber daya dan datanya akan dihapus
+                            secara
+                            permanen.
+                            Masukkan kata sandi Anda untuk mengonfirmasi.
+                        </p>
+
+                        <div class="mb-3">
+                            <label for="password_delete" class="visually-hidden">Password</label>
+                            <input id="password_delete" name="password" type="password"
+                                class="form-control @error('password', 'userDeletion') is-invalid @enderror"
+                                placeholder="Password">
+                            @error('password', 'userDeletion')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+                        <button type="submit" class="btn btn-danger">Hapus Akun</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
     <div class="container py-5 px-3 px-md-0" data-aos="fade-up">
         <div class="row" style="padding-top: 4rem;">
             <h3 class="pb-2">Profil {{ $user->name }}</h3>
@@ -176,49 +218,6 @@
                             data-bs-target="#confirmUserDeletionModal">
                             Hapus Akun
                         </button>
-
-                        {{-- CONFIRMATION MODAL --}}
-                        <div class="modal fade" id="confirmUserDeletionModal" tabindex="-1"
-                            aria-labelledby="confirmUserDeletionModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <form method="post" action="{{ route('home.user.destroy') }}">
-                                        @csrf
-                                        @method('delete')
-
-                                        <div class="modal-header bg-danger">
-                                            <h5 class="modal-title text-white" id="confirmUserDeletionModalLabel">
-                                                Apakah Anda yakin ingin menghapus akun Anda?</h5>
-                                        </div>
-
-                                        <div class="modal-body">
-                                            <p class="text-sm text-muted">
-                                                Setelah akun Anda dihapus, semua sumber daya dan datanya akan dihapus
-                                                secara
-                                                permanen.
-                                                Masukkan kata sandi Anda untuk mengonfirmasi.
-                                            </p>
-
-                                            <div class="mb-3">
-                                                <label for="password_delete" class="visually-hidden">Password</label>
-                                                <input id="password_delete" name="password" type="password"
-                                                    class="form-control @error('password', 'userDeletion') is-invalid @enderror"
-                                                    placeholder="Password">
-                                                @error('password', 'userDeletion')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Kembali</button>
-                                            <button type="submit" class="btn btn-danger">Hapus Akun</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
                 </div>

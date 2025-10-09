@@ -28,16 +28,11 @@ class ArticleController extends Controller
 
         if ($request->has('search')) {
             $searchTerm = $request->search;
-            $query->where(function ($q) use ($searchTerm) {
-                $q->where('title', 'like', '%' . $searchTerm . '%');
-            });
+            $query->where('title', 'like', '%' . $searchTerm . '%');
         }
 
-        if ($request->has('status')) {
-            $status = filter_var($request->status, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-            if ($status !== null) {
-                $query->where('status', $status);
-            }
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
         }
 
         $articles = $query->paginate(10);
@@ -64,7 +59,6 @@ class ArticleController extends Controller
             'category_id' => 'required|exists:categories,id',
             'content' => 'required|string',
             'meta_desc' => 'required|string',
-            // 'slug' => 'required|string|unique:articles,slug',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:2048',
             'status' => 'nullable|boolean',
         ]);

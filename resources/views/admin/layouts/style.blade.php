@@ -24,6 +24,4 @@
     }
 </style>
 
-<link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
-
 @stack('styles')

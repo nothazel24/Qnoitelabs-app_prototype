@@ -19,10 +19,11 @@ class InformationController extends Controller
 
         if ($request->has('search')) {
             $searchTerm = $request->search;
-            // Tambahkan kondisi pencarian berdasarkan nama atau email
-            $query->where(function ($q) use ($searchTerm) {
-                $q->where('title', 'like', '%' . $searchTerm . '%');
-            });
+            $query->where('title', 'like', '%' . $searchTerm . '%');
+        }
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
         }
 
         $information = $query->paginate(10);

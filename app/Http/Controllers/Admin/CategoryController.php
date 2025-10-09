@@ -21,10 +21,7 @@ class CategoryController extends Controller
         // Cek apakah ada parameter 'search' dalam request
         if ($request->has('search')) {
             $searchTerm = $request->search;
-            // Tambahkan kondisi pencarian berdasarkan nama atau email
-            $query->where(function ($q) use ($searchTerm) {
-                $q->where('name', 'like', '%' . $searchTerm . '%');
-            });
+            $query->where('title', 'like', '%' . $searchTerm . '%');
         }
 
         // Ambil hasil paginasi

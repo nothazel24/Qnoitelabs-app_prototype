@@ -38,7 +38,7 @@
 
                 @if ($portofolios->isEmpty())
                     <div class="alert alert-warning text-center" role="alert">
-                        Tslugak ada produk yang ditemukan.
+                        Tidak ada portofolio yang ditemukan.
                     </div>
                 @else
                     <div class="table-responsive">
@@ -83,7 +83,7 @@
                                                 class="btn btn-sm btn-success mx-1" title="Edit">
                                                 <i class="fas fa-pencil"></i>
                                             </a>
-                                            <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#confirmation"
                                                 data-action="{{ route('admin.portofolios.destroy', $val->slug) }}"
                                                 data-slug="{{ $val->slug }}">

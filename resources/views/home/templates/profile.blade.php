@@ -1,6 +1,6 @@
 <section class="profile" style="background-color: #81C3D7">
     <div class="container py-5">
-        <div class="row">
+        <div class="row d-md-flex align-items-center">
             <div class="col-lg-5 mb-4 mb-md-0 px-4 px-md-0">
                 <img src="{{ asset('dist/images/qnoite.png') }}" alt="COMPANY" class="img-fluid rounded col-sm-12">
             </div>

@@ -25,16 +25,11 @@ class PortofolioController extends Controller
 
         if ($request->has('search')) {
             $searchTerm = $request->search;
-            $query->where(function ($q) use ($searchTerm) {
-                $q->where('title', 'like', '%' . $searchTerm . '%');
-            });
+            $query->where('title', 'like', '%' . $searchTerm . '%');
         }
 
-        if ($request->has('status')) {
-            $status = filter_var($request->status, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-            if ($status !== null) {
-                $query->where('status', $status);
-            }
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
         }
 
         // Ambil hasil paginasi

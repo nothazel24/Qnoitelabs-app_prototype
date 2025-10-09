@@ -60,7 +60,7 @@
                                                     class="btn btn-sm btn-success">
                                                     <i class="fas fa-pencil"></i>
                                                 </a>
-                                                <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                                     data-bs-target="#confirmation"
                                                     data-action="{{ route('admin.categories.destroy', $val->id) }}"
                                                     data-id="{{ $val->id }}">

@@ -6,17 +6,12 @@
 <title>{{ config('app.name', 'Laravel') }}</title>
 <meta name="description" content="@yield('metaDesc')" />
 
-<link rel="icon" href="{{ asset('favicon.ico')}}" type="image/x-icon" />
-<link rel="shortcut icon" href="{{ asset('favicon.ico')}}" type="image/x-icon" />
-    
-{{-- CSS --}}
-<link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
-<link rel="stylesheet" href="{{ asset('css/homeSidebar.css') }}">
-<link rel="stylesheet" href="{{ asset('css/cssAnimation.css') }}">
-<link rel="stylesheet" href="{{ asset('css/responsiveScript.css') }}">
+<link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
+<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
+
+{{-- LEAFLET --}}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
 {{-- FONT AWESOME CDN --}}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-{{-- AOS --}}
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">

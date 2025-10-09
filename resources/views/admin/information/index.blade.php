@@ -81,7 +81,7 @@
                                                 class="btn btn-sm btn-success mx-1" title="Edit">
                                                 <i class="fas fa-pencil"></i>
                                             </a>
-                                            <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
                                                 data-bs-target="#confirmation"
                                                 data-action="{{ route('admin.information.destroy', $val->slug) }}"
                                                 data-id="{{ $val->slug }}">
