@@ -27,12 +27,12 @@ Route::prefix('')->name('home.')->group(function () {
 
     // ARTICLE ROUTE 
     Route::get('/article', [HomeController::class, 'articles'])->name('article.main');
-    Route::get('/article/categories/{id}', [HomeController::class, 'articlesCategories'])->name('article.category');
+    Route::get('/article/categories/{slug}', [HomeController::class, 'articlesCategories'])->name('article.category');
     Route::get('/article/{slug}', [HomeController::class, 'articlesShow'])->name('article.show');
 
     // PRODUCT ROUTE (CHANGE TO PORTOFOLIO)
     Route::get('/portofolio', [HomeController::class, 'portofolios'])->name('portofolios.main');
-    Route::get('/portofolio/categories/{id}', [HomeController::class, 'portofoliosCategories'])->name('portofolios.category');
+    Route::get('/portofolio/categories/{slug}', [HomeController::class, 'portofoliosCategories'])->name('portofolios.category');
     Route::get('portofolio/{slug}', [HomeController::class, 'portofolioShow'])->name('portofolios.show');
 
     Route::get('/user-edit', [HomeController::class, 'userEdit'])->name('user.edit');

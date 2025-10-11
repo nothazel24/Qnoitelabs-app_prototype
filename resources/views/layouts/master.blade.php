@@ -8,11 +8,13 @@
 </head>
 
 <body style="background-color: #3A7CA5;">
+    <header>
+        @include('layouts.navbar')
+    </header>
     <div class="min-h-screen">
         @include('layouts.notification')
         @include('layouts.logoutPopup')
         @include('layouts.confirmationPopUp')
-        @include('layouts.navbar')
         @include('layouts.offCanvas')
 
         <main>

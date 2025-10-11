@@ -40,12 +40,13 @@
             </div>
         </div>
     </div>
-    
+
     <div class="container py-5 px-3 px-md-0" data-aos="fade-up">
         <div class="row" style="padding-top: 4rem;">
             <h3 class="pb-2">Profil {{ $user->name }}</h3>
             <div class="col-lg-8">
-                <form method="post" action="{{ route('home.user.update') }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('home.user.update') }}" enctype="multipart/form-data"
+                    id="profileForm">
                     @csrf
                     @method('patch')
 
@@ -172,14 +173,14 @@
                             <hr>
                         </header>
                         @if ($user->image)
-                            <div class="col-lg-12 mb-2">
+                            <div class="col-lg-12 mb-2 text-center">
                                 <img src="{{ asset('storage/' . $user->image) }}" alt="Current Profile Image"
-                                    class="img-thumbnail mx-auto rounded-circle mb-3" style="max-width: 150px;">
-                                <div class="form-check mt-2">
-                                    <input class="form-check-input" type="checkbox" name="remove_image"
-                                        id="remove_image" value="1">
-                                    <label class="form-check-label" for="remove_image">Hapus Gambar Saat Ini</label>
-                                </div>
+                                    class="img-thumbnail rounded-circle" style="max-width: 150px;">
+                            </div>
+                            <div class="form-check my-3">
+                                <input class="form-check-input" type="checkbox" name="remove_image"
+                                    id="remove_image" value="1">
+                                <label class="form-check-label" for="remove_image">Hapus Gambar Saat Ini</label>
                             </div>
                         @else
                             <div class="col-lg-12 mb-2 text-center">

@@ -8,6 +8,9 @@
 </head>
 
 <body style="background-color: #EFEFEF">
+    
+    @include('layouts.notification')
+
     <div class="min-h-screen">
 
         <main>

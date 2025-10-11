@@ -42,29 +42,29 @@
                         </p>
 
                         {{-- CATEGORY DROPDOWN --}}
-                        <div class="dropdown-menu mt-3 w-75" aria-labelledby="categoryDropdown"
+                        <div class="dropdown-menu mt-3 pe-3 pt-2" aria-labelledby="categoryDropdown"
                             style="top: 100%; left: 0;">
                             <a class="dropdown-item d-flex align-items-center gap-3 py-2"
-                                href="/portofolio/categories/1" title="Umkm">
-                                <img src="{{ asset('dist/icons/umkm.svg') }}" alt="umkm" width="40">
+                                href="/portofolio/categories/umkm" title="Umkm">
+                                <img src="{{ asset('dist/icons/umkm.svg') }}" alt="umkm" width="35">
                                 <div class="d-flex flex-column">
-                                    <span class="fw-bold" style="font-size: 20px;">Umkm</span>
+                                    <span class="fw-bold" style="font-size: 18px;">Umkm</span>
                                     <small class="p-0 m-0">Ideal untuk usaha startup</small>
                                 </div>
                             </a>
                             <a class="dropdown-item d-flex align-items-center gap-3 py-2"
-                                href="/portofolio/categories/2" title="Bisnis">
-                                <img src="{{ asset('dist/icons/bisnis.svg') }}" alt="bisnis" width="40">
+                                href="/portofolio/categories/bisnis" title="Bisnis">
+                                <img src="{{ asset('dist/icons/bisnis.svg') }}" alt="bisnis" width="35">
                                 <div class="d-flex flex-column">
-                                    <span class="fw-bold" style="font-size: 20px;">Bisnis</span>
+                                    <span class="fw-bold" style="font-size: 18px;">Bisnis</span>
                                     <small class="p-0 m-0">Ideal untuk usaha menengah</small>
                                 </div>
                             </a>
                             <a class="dropdown-item d-flex align-items-center gap-3 py-2"
-                                href="/portofolio/categories/3" title="Corporate">
-                                <img src="{{ asset('dist/icons/corporate.svg') }}" alt="corporate" width="40">
+                                href="/portofolio/categories/corporate" title="Corporate">
+                                <img src="{{ asset('dist/icons/corporate.svg') }}" alt="corporate" width="35">
                                 <div class="d-flex flex-column">
-                                    <span class="fw-bold" style="font-size: 20px;">Corporate</span>
+                                    <span class="fw-bold" style="font-size: 18px;">Corporate</span>
                                     <small class="p-0 m-0">Ideal untuk instansi & perusahaan</small>
                                 </div>
                             </a>
@@ -103,7 +103,7 @@
                     </li>
                     <li class="nav-item active me-3">
                         <a class="nav-link @if (request()->is(['article', 'article/*'])) active-link @endif"
-                            href="/article">Blog</a>
+                            href="/article">Artikel</a>
                     </li>
                     <li class="nav-item active me-3">
                         <a class="nav-link @if (request()->is('frequently-asked-question')) active-link @endif"

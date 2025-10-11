@@ -65,9 +65,11 @@ class HomeController extends Controller
         return view('home.article.show', compact('articles', 'categories', 'information', 'user'));
     }
 
-    public function articlesCategories($categoryId)
+    public function articlesCategories($categorySlug)
     {
-        $articles = Article::where('category_id', $categoryId)
+        $category = Category::where('slug', $categorySlug)->firstOrFail();
+
+        $articles = Article::where('category_id', $category->id)
             ->where('status', true)
             ->latest()
             ->paginate(8);
@@ -110,9 +112,11 @@ class HomeController extends Controller
         return view('home.portofolios.show', compact('portofolio', 'webCategories', 'user'));
     }
 
-    public function portofoliosCategories($categoryId)
+    public function portofoliosCategories($categorySlug)
     {
-        $portofolios = Portofolio::where('website_category_id', $categoryId)
+        $category = WebsiteCategory::where('slug', $categorySlug)->firstOrFail();
+
+        $portofolios = Portofolio::where('website_category_id', $category->id)
             ->where('status', true)
             ->latest()
             ->paginate(8);

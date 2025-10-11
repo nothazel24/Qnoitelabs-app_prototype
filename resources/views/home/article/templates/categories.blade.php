@@ -5,7 +5,7 @@
 
     @forelse ($categories as $val)
         <li>
-            <a href="/article/categories/{{ $val->id }}" style="text-decoration: none;"
+            <a href="/article/categories/{{ $val->slug }}" style="text-decoration: none;"
                 class="text-dark">{{ $val->name }}</a>
         @empty
             <a href="#" style="text-decoration: none;" class="text-dark">Belum Ada Kategori</a>
@@ -19,7 +19,7 @@
         <select name="category_id" id="category" class="form-select">
             <option value="" id="all">All</option>
             @forelse ($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                <option value="{{ $category->slug }}">{{ $category->name }}</option>
             @empty
                 <option value="">Belum Ada Kategori</option>
             @endforelse

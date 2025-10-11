@@ -1,4 +1,4 @@
-<section class="article-{{ $articles->slug }}" style="background-color: #fefefe; overflow-x: hidden;">
+<article class="article-{{ $articles->slug }}" style="background-color: #fefefe; overflow-x: hidden;">
 
     @include('layouts.userDetail')
 
@@ -145,7 +145,7 @@
         </div>
     </div>
 
-</section>
+</article>
 
 @push('scripts')
     <script>

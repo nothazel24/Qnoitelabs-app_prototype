@@ -18,6 +18,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'security' => \App\Http\Middleware\AdminMiddleware::class,
         ]);
     })
+    ->withCommands([
+        App\Console\Commands\GenerateSitemap::class,
+    ])
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();

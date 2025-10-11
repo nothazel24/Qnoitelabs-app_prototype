@@ -1,6 +1,3 @@
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
 const fadeRight = document.querySelectorAll('.box-animated-right');
 const fadeLeft = document.querySelectorAll('.box-animated.left');
 const fadeDown = document.querySelectorAll('.box-animated-down');
