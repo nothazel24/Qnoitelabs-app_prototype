@@ -2,7 +2,7 @@
 
     <div class="col-12 col-md-8 col-lg-6 col-xl-4">
 
-        <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="login-image" class="img-fluid d-block mx-auto my-4"
+        <img src="{{ asset('dist/logo/qnoite_logo.webp') }}" alt="login-image" class="img-fluid d-block mx-auto my-4"
             style="max-width: 150px;">
 
         <div class="p-4 p-md-5 shadow" style="background-color: #fefefe; border-radius: 10px;">

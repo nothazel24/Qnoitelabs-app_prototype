@@ -3,7 +3,7 @@
 
     <div class="col-12 col-md-10 col-lg-8 col-xl-6">
 
-        <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="register-image" class="img-fluid mx-auto my-4"
+        <img src="{{ asset('dist/logo/qnoite_logo.webp') }}" alt="register-image" class="img-fluid mx-auto my-4"
             style="max-width: 150px;">
 
         <div class="p-4 p-md-5 shadow" style="background-color: #fefefe; border-radius: 10px;">
@@ -34,6 +34,9 @@
                     <div class="col-12 col-md-6 mb-3">
                         <label for="gender" class="form-label">Jenis Kelamin</label>
                         <select id="gender" name="gender" class="form-select @error('gender') is-invalid @enderror">
+                            <option value="{{ null }}" {{ old('gender') == null ? 'selected' : '' }}>-- Pilih
+                                gender --</option>
+                            </option>
                             <option value="Laki-laki" {{ old('gender') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki
                             </option>
                             <option value="Perempuan" {{ old('gender') == 'Perempuan' ? 'selected' : '' }}>Perempuan
@@ -73,6 +76,12 @@
                     </div>
                 </div>
 
+                {{-- reCAPTCHA section --}}
+                <div class="g-recaptcha my-3" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                @error('g-recaptcha-response')
+                    <div class="text-danger mb-3">{{ $message }}</div>
+                @enderror
+
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 mt-4">
                     <a href="/login" class="text-decoration-none" style="color: #3A7CA5;">Sudah punya akun?</a>
                     <button type="submit" class="btn text-white px-4 py-2"
@@ -85,3 +94,7 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+@endpush

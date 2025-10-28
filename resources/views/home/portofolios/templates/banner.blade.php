@@ -1,7 +1,7 @@
 <section class="banner">
     <div class="container-fluid position-relative p-0 m-0" style="height: 450px;">
 
-        <img src="{{ asset('dist/images/blog-bg.jpg') }}" class="w-100 img-fluid"
+        <img src="{{ asset('dist/images/blog-bg.webp') }}" class="w-100 img-fluid"
             style="filter: brightness(60%); object-fit: cover; height: 450px;" alt="background" />
 
         <div class="container position-absolute top-50 start-50 translate-middle text-white d-flex align-items-center">

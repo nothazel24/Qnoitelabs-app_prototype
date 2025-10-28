@@ -41,7 +41,7 @@
                                 </div>
                             @else
                                 <div class="img">
-                                    <img src="{{ asset('dist/images/default-banner.svg') }}"
+                                    <img src="{{ asset('dist/images/default-banner.webp') }}"
                                         alt="gambar-{{ $featuredArticle->title }}"
                                         style="border-radius: 10px; filter: brightness(80%); object-fit: cover; width: 100%; height: 350px;">
                                 </div>
@@ -82,7 +82,7 @@
                                     </div>
                                 @else
                                     <div class="card-img-top d-flex align-items-center justify-content-center text-white-50 ratio ratio-16x9"
-                                        style=" background: url({{ asset('dist/images/default-banner.svg') }}); background-size: cover; background-position: center; border-radius: 10px 10px 0 0; filter: brightness(95%);">
+                                        style=" background: url({{ asset('dist/images/default-banner.webp') }}); background-size: cover; background-position: center; border-radius: 10px 10px 0 0; filter: brightness(95%);">
                                     </div>
                                 @endif
                                 <div class="p-4">

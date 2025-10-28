@@ -15,7 +15,7 @@
                     class="rounded-circle ms-3" style="max-width: 38px;" id="navbarDropdown" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             @else
-                <img src="{{ asset('dist/images/profile.jpg') }}" alt="{{ $user->name }}'s pfp"
+                <img src="{{ asset('dist/images/profile.webp') }}" alt="{{ $user->name }}'s pfp"
                     class="rounded-circle ms-3" style="max-width: 38px;" id="navbarDropdown" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             @endif

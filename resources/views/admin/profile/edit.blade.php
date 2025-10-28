@@ -75,7 +75,9 @@
                                 <label for="gender" class="form-label">Jenis Kelamin</label>
                                 <select class="form-select @error('gender') is-invalid @enderror" id="gender"
                                     name="gender">
-                                    <option value="">Pilih Jenis Kelamin</option>
+                                    <option value="{{ null }}"{{ old('gender', $user->gender) == null ? 'selected' : '' }}>
+                                        -- Pilih gender --
+                                    </option>
                                     <option value="Laki-laki"
                                         {{ old('gender', $user->gender) == 'Laki-laki' ? 'selected' : '' }}>Laki-laki
                                     </option>
@@ -181,7 +183,7 @@
                         </div>
                     @else
                         <div class="col-lg-12 mb-2 text-center">
-                            <img src="{{ asset('dist/images/profile.jpg') }}" alt="Default Profile Image"
+                            <img src="{{ asset('dist/images/profile.webp') }}" alt="Default Profile Image"
                                 class="img-thumbnail mx-auto rounded-circle mb-3" style="max-width: 150px;">
                         </div>
                     @endif

@@ -40,7 +40,7 @@
                                 </div>
                             @else
                                 <div class="card-img-top d-flex align-items-center justify-content-center text-white-50 "
-                                    style=" background: url('{{ asset('dist/images/default-banner.svg') }}'); background-size: cover; background-position: center; border-radius: 10px; width: 100%; height: 200px;">
+                                    style=" background: url('{{ asset('dist/images/default-banner.webp') }}'); background-size: cover; background-position: center; border-radius: 10px; width: 100%; height: 200px;">
                                 </div>
                             @endif
                         </div>
@@ -70,7 +70,7 @@
         const images = @json(
             $portofolios->map(fn($p) => $p->image
                     ? asset('storage/' . $p->image)
-                    : asset('dist/images/default-banner.svg')));
+                    : asset('dist/images/default-banner.webp')));
         let currentIndex = 0;
 
         const slugs = @json($portofolios->pluck('slug'));

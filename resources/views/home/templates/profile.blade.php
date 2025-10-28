@@ -2,7 +2,7 @@
     <div class="container py-5">
         <div class="row d-md-flex align-items-center">
             <div class="col-lg-5 mb-4 mb-md-0 px-4 px-md-0">
-                <img src="{{ asset('dist/images/qnoite.png') }}" alt="COMPANY" class="img-fluid rounded col-sm-12">
+                <img src="{{ asset('dist/images/qnoite.webp') }}" alt="COMPANY" class="img-fluid rounded col-sm-12">
             </div>
 
             <div class="col-lg-7 px-3">

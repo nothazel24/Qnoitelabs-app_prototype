@@ -1,7 +1,7 @@
 <section class="banner">
     <div class="container-fluid position-relative p-0 m-0" style="height: 500px;">
 
-        <img src="{{ asset('dist/images/home-bg.png') }}" class="w-100 h-100"
+        <img src="{{ asset('dist/images/home-bg.webp') }}" class="w-100 h-100"
             style="filter: brightness(30%); object-fit: cover;" alt="background" />
 
         <div class="container position-absolute top-50 start-50 translate-middle text-white d-flex align-items-center">
@@ -23,7 +23,7 @@
             </div>
 
             <div class="logo d-none d-md-block" data-aos="fade-left">
-                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="qnoite" style="opacity: 50%;">
+                <img src="{{ asset('dist/logo/qnoite_logo.webp') }}" alt="qnoite" style="opacity: 50%;">
             </div>
         </div>
 

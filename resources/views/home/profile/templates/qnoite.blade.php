@@ -2,7 +2,7 @@
     <div class="container py-5">
         <div class="row px-3 px-md-0 d-flex align-items-center">
             <div class="col-lg-5" data-aos="fade-right">
-                <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="COMPANY" class="img-fluid">
+                <img src="{{ asset('dist/logo/qnoite_logo.webp') }}" alt="COMPANY" class="img-fluid">
             </div>
 
             <div class="col-lg-7">

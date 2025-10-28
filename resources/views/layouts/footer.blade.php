@@ -12,11 +12,11 @@
             <div class="col-lg d-flex flex-column gap-2">
                 <h1 class="text-white" style="font-size: 26px;">Informasi kontak</h1>
                 <a href="#" style="text-decoration: none;" class="d-flex align-items-center">
-                    <img src="{{ asset('dist/icons/phone-white.svg') }}" alt="instagram" width="30">
+                    <img src="{{ asset('dist/icons/phone-white.svg') }}" alt="instagram" width="30" loading="lazy">
                     <p class="p-0 my-0 mx-2 text-white">+62 8xx xxx xxx</p>
                 </a>
                 <a href="#" style="text-decoration: none;" class="d-flex align-items-center">
-                    <img src="{{ asset('dist/icons/mail-white.svg') }}" alt="instagram" width="30">
+                    <img src="{{ asset('dist/icons/mail-white.svg') }}" alt="instagram" width="30" loading="lazy">
                     <p class="p-0 my-0 mx-2 text-white">Qnoite@bussiness.com</p>
                 </a>
             </div>
@@ -25,11 +25,11 @@
             <div class="col-lg d-flex flex-column gap-2">
                 <h1 class="text-white" style="font-size: 26px;">Ikuti kami di</h1>
                 <a href="#" style="text-decoration: none;" class="d-flex align-items-center">
-                    <img src="{{ asset('dist/icons/instagram-white.svg') }}" alt="instagram" width="30">
+                    <img src="{{ asset('dist/icons/instagram-white.svg') }}" alt="instagram" width="30" loading="lazy">
                     <p class="p-0 my-0 mx-2 text-white">Instagram</p>
                 </a>
                 <a href="#" style="text-decoration: none;" class="d-flex align-items-center">
-                    <img src="{{ asset('dist/icons/facebook-white.svg') }}" alt="instagram" width="30">
+                    <img src="{{ asset('dist/icons/facebook-white.svg') }}" alt="instagram" width="30" loading="lazy">
                     <p class="p-0 my-0 mx-2 text-white">Facebook</p>
                 </a>
                 <a href="#" style="text-decoration: none;" class="d-flex align-items-center">
@@ -42,7 +42,7 @@
             <div class="col-lg">
                 <h1 class="text-white" style="font-size: 26px;">Alamat</h1>
                 <div class="inner d-flex align-items-center">
-                    <img src="{{ asset('dist/icons/address.svg') }}" alt="Our office" width="30">
+                    <img src="{{ asset('dist/icons/address.svg') }}" alt="Our office" width="30" loading="lazy">
                     <strong class="text-white p-0 my-0 mx-2">Bandung</strong>
                 </div>
                 <p class="text-white p-0 my-2">
@@ -55,11 +55,11 @@
             <div class="col-lg d-flex flex-column gap-2">
                 <h1 class="text-white" style="font-size: 26px;">Menu lainnya</h1>
                 <a href="#" style="text-decoration: none;" class="d-flex align-items-center">
-                    <img src="{{ asset('dist/icons/persyaratan.svg') }}" alt="instagram" width="30">
+                    <img src="{{ asset('dist/icons/persyaratan.svg') }}" alt="instagram" width="30" loading="lazy">
                     <p class="p-0 my-0 mx-2 text-white">Persyaratan layanan</p>
                 </a>
                 <a href="/frequently-asked-question" style="text-decoration: none;" class="d-flex align-items-center">
-                    <img src="{{ asset('dist/icons/faq.svg') }}" alt="instagram" width="30">
+                    <img src="{{ asset('dist/icons/faq.svg') }}" alt="instagram" width="30" loading="lazy">
                     <p class="p-0 my-0 mx-2 text-white">Pernyataan umum</p>
                 </a>
             </div>
@@ -105,7 +105,7 @@
             <!-- BRANDING SECTION -->
             <div class="col-lg-6 text-white">
                 <img src="{{ asset('dist/logo/qnoite_logo-white.png') }}" alt="qnoite.com" width="130"
-                    class="mb-3">
+                    class="mb-3" loading="lazy">
                 <p>Qnoite adalah penyedia layanan pembuatan website profesional. Kami membantu bisnis dan individu
                     membangun kehadiran digital yang kuat, sekaligus mendukung pengembangan teknologi melalui proyek
                     eksperimental seperti Qnoitelabs.</p>
@@ -113,7 +113,7 @@
                     <div class="btn btn-md px-4 py-2" style="background-color: #fefefe;">
                         <div class="d-flex flex-row gap-4 align-items-center">
                             <img src="{{ asset('dist/icons/whatsapp.svg') }}" alt="whatsapp" width="27"
-                                height="27">
+                                height="27" loading="lazy">
                             <p class="fw-bold text-success m-0">Konsultasi dengan kami</p>
                         </div>
                     </div>

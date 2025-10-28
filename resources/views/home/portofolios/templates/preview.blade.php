@@ -5,7 +5,7 @@
             <img src="{{ asset('storage/' . $portofolio->image) }}" class="w-100"
                 style="filter: brightness(60%); object-fit: cover; height: 450px;" alt="background" />
         @else
-            <img src="{{ asset('dist/images/default-banner.svg') }}" class="w-100"
+            <img src="{{ asset('dist/images/default-banner.webp') }}" class="w-100"
                 style="filter: brightness(60%); object-fit: cover; height: 450px;" alt="background" />
         @endif
 

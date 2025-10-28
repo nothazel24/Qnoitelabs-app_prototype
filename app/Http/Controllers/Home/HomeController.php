@@ -165,7 +165,7 @@ class HomeController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'phone' => ['required', 'string', 'max:15', 'regex:/^[0-9]+$/'],
             'instagram' => ['nullable', 'string', 'max:255'],
-            'gender' => ['nullable', Rule::in(['Laki-laki', 'Perempuan', 'Lainnya'])],
+            'gender' => ['required', Rule::in(['Laki-laki', 'Perempuan', 'Lainnya'])],
             'image' => ['nullable', 'image', 'max:2048'],
             'current_password' => ['nullable', 'required_with:password', 'current_password'],
             'password' => ['nullable', 'string', 'min:8', 'comfirmed']

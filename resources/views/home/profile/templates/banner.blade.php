@@ -3,7 +3,7 @@
     <div class="container-fluid d-flex justify-content-center align-items-center p-0 m-0"
         style="height: 450px; position: relative;">
 
-        <img src="{{ asset('dist/images/bg-about.jpg') }}" class="position-absolute w-100 h-100 img-fluid"
+        <img src="{{ asset('dist/images/bg-about.webp') }}" class="position-absolute w-100 h-100 img-fluid"
             style="filter: brightness(70%); object-fit: cover;" alt="background" />
 
         <div class="container position-absolute top-50 start-50 translate-middle text-white d-flex align-items-center">

@@ -3,7 +3,7 @@
 
     <div class="logo">
         <a href="{{ route('admin.dashboard') }}">
-            <img src="{{ asset('dist/logo/logo-small.svg') }}" alt="qnoite-logo" width="35">
+            <img src="{{ asset('dist/logo/logo-small.webp') }}" alt="qnoite-logo" width="35">
         </a>
     </div>
 

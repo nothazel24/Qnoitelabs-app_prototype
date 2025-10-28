@@ -10,18 +10,20 @@
 
                 @forelse ($feedback as $val)
                     <div class="col-lg bg-white rounded p-4 shadow-sm box-animated-down">
-                        <div class="inner">
-                            <div class="d-flex align-items-center gap-4">
+                        <div class="inner d-flex flex-column">
+                            <div class="d-flex align-items-center gap-4 flex-wrap">
                                 @if ($val->user->image)
                                     <img src="{{ asset('storage/' . $val->user->image) }}"
-                                        alt="{{ $val->user->name }}'s pfp" width="60" class="rounded-circle">
+                                        alt="{{ $val->user->name }}'s pfp" width="60"
+                                        class="rounded-circle flex-shrink-0">
                                 @else
-                                    <img src="{{ asset('dist/images/profile.jpg') }}" alt="{{ $val->user->name }}'s pfp"
-                                        width="60" class="rounded-circle">
+                                    <img src="{{ asset('dist/images/profile.webp') }}" alt="{{ $val->user->name }}'s pfp"
+                                        width="60" class="rounded-circle flex-shrink-0">
                                 @endif
-                                <div class="d-flex flex-column">
-                                    <p class="fw-bold m-0 p-0">{{ $val->user->name }}</p>
-                                    <p class="m-0 p-0">{{ $val->user->email }}</p>
+
+                                <div class="d-flex flex-column flex-grow-1">
+                                    <p class="fw-bold m-0 p-0 text-truncate">{{ $val->user->name }}</p>
+                                    <p class="m-0 p-0 text-truncate">{{ $val->user->email }}</p>
                                 </div>
                             </div>
 
@@ -32,6 +34,7 @@
                             <small class="text-muted">Qnoite's {{ $val->user->role }}</small>
                         </div>
                     </div>
+
                 @empty
                     <div class="col-12">
                         <div class="alert alert-secondary text-center box-animated-down" role="alert">

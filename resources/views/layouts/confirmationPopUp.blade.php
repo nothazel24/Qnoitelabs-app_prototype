@@ -4,12 +4,12 @@
         <div class="modal-content">
             <div class="modal-header" style="background-color: #3A7CA5;">
                 <div class="d-flex gap-2">
-                    <img src="{{ asset('dist/icons/notification.svg') }}" alt="info" width="25">
+                    <img src="{{ asset('dist/icons/notification.svg') }}" alt="info" width="25" loading="lazy">
                     <h5 class="modal-title text-white">Notifikasi</h5>
                 </div>
             </div>
             <div class="modal-body d-flex flex-column align-items-center">
-                <img src="{{ asset('dist/icons/question.svg') }}" alt="{{ session('id') }}" width="80" class="py-3">
+                <img src="{{ asset('dist/icons/question.svg') }}" alt="{{ session('id') }}" width="80" class="py-3" loading="lazy">
                 <p class="p-0 m-0 text-center">Anda yakin ingin menghapusnya?</p>
             </div>
             <div class="modal-footer">

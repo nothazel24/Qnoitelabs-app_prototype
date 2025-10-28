@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Validation\ValidationException;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -29,9 +31,24 @@ class CreateNewUser implements CreatesNewUsers
                 Rule::unique(User::class),
             ],
             'password' => $this->passwordRules(),
-            'gender' => ['nullable', Rule::in(['Laki-laki', 'Perempuan', 'Lainnya'])],
-            'phone' => ['required', 'string', 'max:15', 'regex:/^[0-9]+$/']
+            'gender' => ['required', Rule::in(['Laki-laki', 'Perempuan', 'Lainnya'])],
+            'phone' => ['required', 'string', 'max:15', 'regex:/^[0-9]+$/'],
+            'g-recaptcha-response' => ['required'],
         ])->validate();
+
+        // Verify reCAPTCHA
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => config('services.recaptcha.secret'),
+            'response' => $input['g-recaptcha-response'] ?? '',
+        ]);
+
+        $verify = $response->json();
+
+        if (!($verify['success'] ?? false)) {
+            throw ValidationException::withMessages([
+                'captcha' => ['Verifikasi reCAPTCHA gagal, coba lagi.'],
+            ]);
+        }
 
         return User::create([
             'name' => $input['name'],

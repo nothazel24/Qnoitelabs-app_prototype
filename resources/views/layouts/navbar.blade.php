@@ -4,7 +4,7 @@
 
     <div class="container px-4 px-sm-0" data-aos="fade-down" data-aos-duration="1100">
         <a class="navbar-brand" href="/">
-            <img src="{{ asset('dist/logo/qnoite_logo.png') }}" alt="qnoite" width="90">
+            <img src="{{ asset('dist/logo/qnoite_logo.webp') }}" alt="qnoite" width="90">
         </a>
 
         @if (!Auth::user())
@@ -22,7 +22,7 @@
                             class="rounded-circle ms-3" style="max-width: 38px; cursor: pointer;"
                             onclick="opensidebar()" title="Buka Sidebar">
                     @else
-                        <img src="{{ asset('dist/images/profile.jpg') }}" alt="{{ Auth::user()->name }}'s pfp"
+                        <img src="{{ asset('dist/images/profile.webp') }}" alt="{{ Auth::user()->name }}'s pfp"
                             class="rounded-circle ms-3" style="max-width: 38px; cursor: pointer;"
                             onclick="opensidebar()" title="Buka Sidebar">
                     @endif
@@ -133,7 +133,7 @@
                                     style="max-width: 38px; cursor: pointer;" onclick="opensidebar()"
                                     title="Buka Sidebar">
                             @else
-                                <img src="{{ asset('dist/images/profile.jpg') }}" alt="{{ Auth::user()->name }}'s pfp"
+                                <img src="{{ asset('dist/images/profile.webp') }}" alt="{{ Auth::user()->name }}'s pfp"
                                     class="rounded-circle ms-3" style="max-width: 38px; cursor: pointer;"
                                     onclick="opensidebar()" title="Buka Sidebar">
                             @endif
