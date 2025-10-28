@@ -40,12 +40,17 @@ Route::prefix('')->name('home.')->group(function () {
     Route::delete('user-edit', [HomeController::class, 'userDestroy'])->name('user.destroy');
 
     Route::view('/frequently-asked-question', 'home.faq.main')->name('faq');
-    Route::view('/feedback', 'home.feedback.main')->name('feedback');
+
+    // Feedback section
+    Route::get('/feedback', [HomeController::class, 'feedback'])->name('feedback.index');
+    Route::post('/feedback/store', [HomeController::class, 'feedbackStore'])->middleware(['throttle:5,1'])->name('feedback.store');
 
     // Comments section
-    Route::post('/article/{slug}/comment', [CommentsController::class, 'store'])->name('comment.store');
-    Route::put('/article/{slug}/comment/{id}', [CommentsController::class, 'update'])->name('comment.update');
-    Route::delete('/article/{slug}/comment/{id}', [CommentsController::class, 'destroy'])->name('comment.destroy');
+    Route::middleware(['auth', 'throttle:7,1'])->group(function () {
+        Route::post('/article/{slug}/comment', [CommentsController::class, 'store'])->name('comment.store');
+        Route::put('/article/{slug}/comment/{id}', [CommentsController::class, 'update'])->name('comment.update');
+        Route::delete('/article/{slug}/comment/{id}', [CommentsController::class, 'destroy'])->name('comment.destroy');
+    });
 });
 
 //Route semua pengguna

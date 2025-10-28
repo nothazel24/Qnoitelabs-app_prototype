@@ -5,7 +5,7 @@
             style="filter: brightness(60%); object-fit: cover; height: 450px;" alt="background" />
 
         <div class="container position-absolute top-50 start-50 translate-middle text-white d-flex align-items-center">
-            <div class="pt-5 pt-md-0 px-3 px-md-0" data-aos="fade-right">
+            <div class="px-3 px-md-0" data-aos="fade-right">
                 <h1 class="fw-bold w-75">Portofolio website Qnoite</h1>
                 <p class="w-50">Lihat bagaimana Qnoite membantu bisnis tampil lebih profesional dengan website modern dan responsif.</p>
             </div>

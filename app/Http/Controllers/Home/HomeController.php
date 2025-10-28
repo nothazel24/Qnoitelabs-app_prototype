@@ -11,6 +11,7 @@ use App\Models\Feedback;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
 
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
@@ -252,6 +253,62 @@ class HomeController extends Controller
 
         return Redirect::to('/')->with([
             'messages' => 'Akun berhasil dihapus. Dan semua artikel yang ditulis terlah berhasil ditransfer ke Administrator.',
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);
+    }
+
+    public function feedback()
+    {
+        $user = auth()->user();
+        return view('home.feedback.main', compact('user'));
+    }
+
+    public function feedbackStore(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'content' => 'required|string|max:2000',
+            'g-recaptcha-response' => 'required',
+        ]);
+
+        // Captcha verification
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => config('services.recaptcha.secret'),
+            'response' => $request->input('g-recaptcha-response'),
+            'remoteip' => $request->ip(),
+        ]);
+
+        $verify = $response->json();
+
+        if (!($verify['success'] ?? false)) {
+            return back()->withErrors(['captcha' => 'Verifikasi reCAPTCHA gagal, coba lagi.']);
+        }
+
+        // Store feedback
+        if (Auth::user() == null) {
+            return redirect()->route('login')->with([
+                'messages' => 'Silahkan login terlebih dahulu',
+                'type' => 'danger',
+                'id' => 'failed-notification'
+            ]);
+        }
+
+        if (!$request->content) {
+            return redirect()->back()->with([
+                'messages' => 'Feedback tidak boleh kosong',
+                'type' => 'danger',
+                'id' => 'failed-notification'
+            ]);
+        }
+
+        Feedback::create([
+            'user_id' => auth()->id(),
+            'content' => $request->content,
+        ]);
+
+        return redirect()->back()->with([
+            'messages' => 'Terima kasih atas feedback Anda!',
             'type' => 'success',
             'id' => 'success-notification'
         ]);

@@ -57,7 +57,7 @@ class CommentsController extends Controller
                 'id' => 'failed-notification'
             ]);
         }
-        
+
         $comment = Comments::where('id', $id)->whereHas('article', function ($q) use ($slug) {
             $q->where('slug', $slug);
         })->firstOrFail();
@@ -76,9 +76,9 @@ class CommentsController extends Controller
         $comment->delete();
 
         return redirect()->back()->with([
-                'messages' => 'Komentar berhasil dihapus',
-                'type' => 'success',
-                'id' => 'success-notification'
-            ]);;
+            'messages' => 'Komentar berhasil dihapus',
+            'type' => 'success',
+            'id' => 'success-notification'
+        ]);;
     }
 }

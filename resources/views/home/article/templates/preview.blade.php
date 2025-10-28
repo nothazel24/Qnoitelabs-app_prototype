@@ -36,7 +36,7 @@
                 </span>
                 <span class="me-3">
                     <i class="fas fa-calendar-alt me-1"></i> Dibuat:
-                    {{ $articles->created_at->format('d M Y H:i') }}
+                    {{ $articles->created_at->diffForHumans() }}
                 </span>
             </div>
 
@@ -77,7 +77,7 @@
 
                             <div class="user d-flex align-items-center">
                                 @if ($comment->user->image)
-                                    <img src="{{ $comment->user->image }}" alt="foto-{{ $comment->user->name }}"
+                                    <img src="{{ asset('storage/' . $comment->user->image) }}" alt="foto-{{ $comment->user->name }}"
                                         width="50" class="rounded-circle me-3">
                                 @else
                                     <img src="{{ asset('dist/images/profile.jpg') }}"
@@ -87,7 +87,7 @@
                                 <div class="d-flex flex-column">
                                     <p class="p-0 m-0"><strong>{{ $comment->user->name }}</strong></p>
                                     <p class="p-0 m-0 text-muted" style="font-size: 13px;">
-                                        {{ $comment->updated_at->format('d M Y H:i') }}
+                                        {{ $comment->updated_at->diffForHumans() }}
                                     </p>
                                 </div>
                             </div>

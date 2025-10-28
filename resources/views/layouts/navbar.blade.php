@@ -1,6 +1,6 @@
 {{-- NAVBAR SECTION --}}
 <nav
-    class="container-fluid navbar navbar-expand-lg py-3 d-flex flex-row {{ request()->is(['information/*', 'whistlist', 'user-edit', 'frequently-asked-question']) ? 'fixed-top nav-bg' : 'fixed-top' }}">
+    class="container-fluid navbar navbar-expand-lg py-3 d-flex flex-row {{ request()->is(['information/*', 'whistlist', 'user-edit', 'frequently-asked-question', 'feedback']) ? 'fixed-top nav-bg' : 'fixed-top' }}">
 
     <div class="container px-4 px-sm-0" data-aos="fade-down" data-aos-duration="1100">
         <a class="navbar-brand" href="/">
@@ -8,8 +8,9 @@
         </a>
 
         @if (!Auth::user())
-            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         @else
@@ -77,7 +78,7 @@
 
                             <div class="d-flex">
                                 <input type="text" name="search" id="search" placeholder="Cari produk"
-                                    class="form-control @if (request()->is(['information/*', 'whistlist', 'user-edit', 'frequently-asked-question'])) form-dark @else form @endif"
+                                    class="form-control @if (request()->is(['information/*', 'whistlist', 'user-edit', 'frequently-asked-question', 'feedback'])) form-dark @else form @endif"
                                     style="background-color: transparent;">
 
                                 {{-- Submit button --}}

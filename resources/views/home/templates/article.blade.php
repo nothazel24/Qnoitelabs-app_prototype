@@ -18,7 +18,7 @@
 
                     <!-- BLOG CARD -->
                     <div class="col-lg mb-4 mb-md-0">
-                        <div class="shadow-sm box-animated-down"
+                        <div class="card shadow-sm box-animated-down"
                             style="background-color: #fefefe; border-radius: 10px; border: 1px solid rgba(43, 43, 43, 0.07);">
                             @if ($val->image)
                                 <div class="img">
@@ -32,16 +32,19 @@
                             @endif
                             <div class="p-4">
                                 <h1 style="font-size: 22px;">{{ Str::limit($val->title, 18) }}</h1>
-                                <p class="card-text flex-grow-1">
-                                    <small>{{ Str::limit(strip_tags($val->meta_desc), 120) }}</small>
-                                    <br>
-                                    <small class="text-muted">Diperbaharui:
-                                        {{ $val->updated_at->format('d M Y') }}</small>
+                                <p class="card-text flex-grow-1 py-2 m-0">
+                                    {{ Str::limit(strip_tags($val->meta_desc), 120) }}
+                                </p>
+                                <p class="small text-muted">
+                                    {{ $val->updated_at->diffForHumans() }}
                                 </p>
 
-                                <a href="/article/{{ $val->slug }}" class="text-primary"
-                                    style="text-decoration: none;">Lihat
-                                    selengkapnya</a>
+                                <div class="mt-4">
+                                    <a href="/article/{{ $val->slug }}"
+                                        class="text-white px-3 py-2 rounded-pill small fw-bold shadow"
+                                        style="text-decoration: none; background-color: #3A7CA5;">Lihat
+                                        selengkapnya</a>
+                                </div>
                             </div>
                         </div>
                     </div>

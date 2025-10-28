@@ -9,7 +9,7 @@
             <div class="row flex-nowrap overflow-auto gap-4">
 
                 @forelse ($feedback as $val)
-                    <div class="col-lg bg-white p-4 rounded shadow-sm box-animated-down">
+                    <div class="col-lg bg-white rounded p-4 shadow-sm box-animated-down">
                         <div class="inner">
                             <div class="d-flex align-items-center gap-4">
                                 @if ($val->user->image)
@@ -24,9 +24,12 @@
                                     <p class="m-0 p-0">{{ $val->user->email }}</p>
                                 </div>
                             </div>
-                            <p class="py-4">
+
+                            <p class="pt-4 mb-2">
                                 {{ $val->content }}
                             </p>
+
+                            <small class="text-muted">Qnoite's {{ $val->user->role }}</small>
                         </div>
                     </div>
                 @empty

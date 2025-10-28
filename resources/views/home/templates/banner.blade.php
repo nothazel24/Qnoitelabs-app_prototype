@@ -5,7 +5,7 @@
             style="filter: brightness(30%); object-fit: cover;" alt="background" />
 
         <div class="container position-absolute top-50 start-50 translate-middle text-white d-flex align-items-center">
-            <div class="one pt-5 pt-md-0 px-3 px-md-0" data-aos="fade-right">
+            <div class="one px-3 px-md-0" data-aos="fade-right">
                 <h1 class="fw-bold text-start">QNOITE.MY.ID</h1>
                 <p class="col-md-7 text-start">Qnoite adalah platform digital yang menggabungkan layanan
                     pembuatan website
