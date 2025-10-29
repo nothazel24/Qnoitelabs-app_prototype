@@ -9,8 +9,13 @@
 <meta name="author" content="Qnoite projects">
 <meta name="robots" content="{{ $robots ?? 'index, follow' }}">
 
-{{-- FAVICON --}}
+<meta property="og:title" content="Jasa Pembuatan Website - Qnoite" />
+<meta property="og:description" content="Tingkatkan bisnis Anda dengan website profesional dari Qnoite." />
+<meta property="og:image" content="{{ asset('dist/logo/qnoite_logo.webp') }}" />
+<meta property="og:url" content="{{ config('app.url') }}" />
+<meta property="og:type" content="website" />
 
+{{-- FAVICON --}}
 <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
 <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
 
