@@ -77,7 +77,7 @@
                 </div>
 
                 {{-- reCAPTCHA section --}}
-                <div class="g-recaptcha my-3" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                <div class="g-recaptcha my-3" data-sitekey="{{ config('services.recaptcha.site_key') }}"></div>
                 @error('g-recaptcha-response')
                     <div class="text-danger mb-3">{{ $message }}</div>
                 @enderror
