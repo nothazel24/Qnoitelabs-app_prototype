@@ -57,6 +57,8 @@ Route::prefix('')->name('home.')->group(function () {
 Route::middleware(['auth', 'security'])->prefix('admin')->name('admin.')->group(function () {
     //route untuk dashboard
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // coba check method yang dipakai route resource untuk meng-update data, ganti pake patch (method formnya)
     Route::resource('article', ArticleController::class);
     Route::resource('portofolios', PortofolioController::class);
 

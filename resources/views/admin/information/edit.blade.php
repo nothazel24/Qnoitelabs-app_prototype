@@ -25,7 +25,7 @@
                         <form action="{{ route('admin.information.update', $information->slug) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
-                            @method('PUT') {{-- Tambahkan metode PUT untuk update --}}
+                            @method('PUT') {{-- Ubah pake patch buat update nanti --}}
 
                             <div class="row">
                                 <div class="col-lg-12 mb-3">

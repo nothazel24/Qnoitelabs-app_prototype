@@ -38,7 +38,7 @@ class CreateNewUser implements CreatesNewUsers
 
         // Verify reCAPTCHA
         $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-            'secret' => config('services.recaptcha.secret'),
+            'secret' => config('services.recaptcha.secret_key'),
             'response' => $input['g-recaptcha-response'] ?? '',
         ]);
 
