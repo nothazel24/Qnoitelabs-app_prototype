@@ -104,7 +104,7 @@
 
             <!-- BRANDING SECTION -->
             <div class="col-lg-6 text-white">
-                <img src="{{ asset('dist/logo/qnoite_logo-white.png') }}" alt="qnoite.com" width="130"
+                <img src="{{ asset('dist/logo/qnoite_logo-white.webp') }}" alt="qnoite.com" width="130"
                     class="mb-3" loading="lazy">
                 <p>Qnoite adalah penyedia layanan pembuatan website profesional. Kami membantu bisnis dan individu
                     membangun kehadiran digital yang kuat, sekaligus mendukung pengembangan teknologi melalui proyek
