@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="row g-0 align-items-stretch">
                 <div class="col-12 col-lg-5 position-relative">
-                    <img id="modalUserImage" src="" alt="seller"
+                    <img id="modalUserImage" src="" alt="Penulis"
                         class="img-fluid w-100 h-100 object-fit-cover rounded">
                     <button type="button" class="btn-close position-absolute top-0 end-0 m-2" 
                         data-bs-dismiss="modal" aria-label="Close"></button>

@@ -8,7 +8,7 @@
                 alt="Gambar Artikel: {{ $articles->title }}"
                 style="filter: brightness(75%); object-fit: cover; height: 450px;">
         @else
-            <img class="w-100 img-fluid" src="{{ asset('dist/images/default-banner.svg') }}"
+            <img class="w-100 img-fluid" src="{{ asset('dist/images/default-banner.webp') }}"
                 alt="Gambar Artikel: {{ $articles->title }}"
                 style="filter: brightness(80%); object-fit: cover; height: 450px;">
         @endif
@@ -77,10 +77,11 @@
 
                             <div class="user d-flex align-items-center">
                                 @if ($comment->user->image)
-                                    <img src="{{ asset('storage/' . $comment->user->image) }}" alt="foto-{{ $comment->user->name }}"
-                                        width="50" class="rounded-circle me-3">
+                                    <img src="{{ asset('storage/' . $comment->user->image) }}"
+                                        alt="foto-{{ $comment->user->name }}" width="50"
+                                        class="rounded-circle me-3">
                                 @else
-                                    <img src="{{ asset('dist/images/profile.jpg') }}"
+                                    <img src="{{ asset('dist/images/profile.webp') }}"
                                         alt="foto-{{ $comment->user->name }}" width="50"
                                         class="rounded-circle me-3">
                                 @endif

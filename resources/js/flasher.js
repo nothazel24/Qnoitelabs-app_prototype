@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // USER IMAGE DATA
             const imgEl = document.getElementById('modalUserImage');
-            imgEl.src = userImage ? `/storage/${userImage}` : '/dist/images/profile.jpg';
+            imgEl.src = userImage ? `/storage/${userImage}` : '/dist/images/profile.webp';
         });
     }
 
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // DEMO IMAGE DATA
             const imgEl = document.getElementById('modalDemoImage');
-            imgEl.src = demoImage ? `/storage/${demoImage}` : '/dist/images/profile.jpg';
+            imgEl.src = demoImage ? `/storage/${demoImage}` : '/dist/images/profile.webp';
         });
     }
 
