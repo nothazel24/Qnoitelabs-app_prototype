@@ -50,7 +50,7 @@ class PortofolioController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Portofolio $portofolio)
+    public function store(Request $request)
     {
         $request->validate([
             'title' => 'required|string|max:255',
@@ -66,7 +66,17 @@ class PortofolioController extends Controller
             $imagePath = $request->file('image')->store('portofolios', 'public');
         }
 
+        // VALIDASI DULPLIKASI SLUG
         $slug = Str::slug($request->title);
+        $count = Portofolio::where('slug', $slug)->count();
+
+        if ($count > 0) {
+            return redirect()->route('admin.portofolios.index')->with([
+                'messages' => 'Judul telah digunakan, gunakan judul yang lain.',
+                'type' => 'danger',
+                'id' => 'fail-notification'
+            ]);
+        }
 
         Portofolio::create([
             'website_category_id' => $request->website_category_id,
@@ -146,7 +156,17 @@ class PortofolioController extends Controller
             }
         }
 
+        // VALIDASI DULPLIKASI SLUG
         $slug = Str::slug($request->title);
+        $count = Portofolio::where('slug', $slug)->where('id', '!=', $portofolio->id)->count();
+
+        if ($count > 0) {
+            return redirect()->route('admin.portofolios.index')->with([
+                'messages' => 'Judul telah digunakan, gunakan judul yang lain.',
+                'type' => 'danger',
+                'id' => 'fail-notification'
+            ]);
+        }
 
         $portofolio->update([
             'category_id' => $request->category_id,

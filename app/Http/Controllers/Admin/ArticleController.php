@@ -18,8 +18,6 @@ class ArticleController extends Controller
     public function index(Request $request)
     {
         $query = Article::with(['user', 'category'])->latest();
-
-        /** @var \App\Models\User $user */
         $user = Auth::user();
 
         if ($user && $user->isAuthor()) {
@@ -127,7 +125,6 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        /** @var \App\Models\User $user */
         $user = Auth::user();
 
         if ($user->id !== $article->user_id && !$user->isAdmin()) {
@@ -145,7 +142,9 @@ class ArticleController extends Controller
 
         // VALIDASI DUPLIKASI SLUG
         $slug = Str::slug($request->title);
-        $count = Article::where('slug', $slug)->count();
+
+        // cari slug yang sama & hitung (kecuali slug yang memiliki id ini)
+        $count = Article::where('slug', $slug)->where('id', '!=', $article->id)->count();
 
         if ($count > 0) {
             return redirect()->route('admin.article.index')->with([

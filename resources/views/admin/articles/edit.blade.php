@@ -25,7 +25,7 @@
                         <form action="{{ route('admin.article.update', $article->slug) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
-                            @method('PUT') {{-- Nanti ubah pake patch --}}
+                            @method('patch')
 
                             <div class="row">
                                 <div class="col-lg-12 mb-3">
