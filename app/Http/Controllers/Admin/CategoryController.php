@@ -21,7 +21,7 @@ class CategoryController extends Controller
         // Cek apakah ada parameter 'search' dalam request
         if ($request->has('search')) {
             $searchTerm = $request->search;
-            $query->where('title', 'like', '%' . $searchTerm . '%');
+            $query->where('name', 'like', '%' . $searchTerm . '%');
         }
 
         // Ambil hasil paginasi
