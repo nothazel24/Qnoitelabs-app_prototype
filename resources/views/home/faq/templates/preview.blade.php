@@ -1,4 +1,4 @@
-<section class="faq mt-5 pt-5 pb-4" style="background-color: #efefef;">
+<section class="faq mt-0 mt-lg-5 pt-3 pt-lg-5 pb-4" style="background-color: #efefef;">
     <div class="container py-4">
         <div class="mb-5 mx-3 mx-md-0">
             <h1 style="font-size: 30px">Pertanyaan yang Sering Diajukan</h1>

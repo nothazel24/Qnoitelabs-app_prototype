@@ -41,8 +41,8 @@
         </div>
     </div>
 
-    <div class="container py-5 px-3 px-md-0" data-aos="fade-up">
-        <div class="row" style="padding-top: 4rem;">
+    <div class="container py-5 mt-lg-5 px-3 px-md-0" data-aos="fade-up">
+        <div class="row pt-lg-3">
             <h3 class="pb-2">Profil {{ $user->name }}</h3>
             <div class="col-lg-8">
                 <form method="post" action="{{ route('home.user.update') }}" enctype="multipart/form-data"
