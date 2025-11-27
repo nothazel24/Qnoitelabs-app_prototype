@@ -38,7 +38,7 @@
 
                 @if ($information->isEmpty())
                     <div class="alert alert-warning text-center" role="alert">
-                        Tidak ada artikel yang ditemukan.
+                        Tidak ada informasi yang ditemukan.
                     </div>
                 @else
                     <div class="table-responsive">

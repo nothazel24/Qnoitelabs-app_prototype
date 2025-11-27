@@ -21,7 +21,7 @@
 
                         <hr class="my-3">
 
-                        <div class="note-editable mt-4" style="font-size: 1rem; line-height: 1.5;">
+                        <div class="note-editable my-4" style="font-size: 1rem; line-height: 1.5;">
                             {!! $portofolio->content !!}
                         </div>
 
